@@ -93,23 +93,23 @@ pre: " <b> 4.1. </b> "
 
 ## Trải nghiệm trong event
 
-Tham gia sự kiện là một trải nghiệm bổ ích, giúp tôi có cơ hội tiếp cận nhiều chủ đề công nghệ khác nhau từ các diễn giả có kinh nghiệm thực tế.
+Tham gia sự kiện là một trải nghiệm bổ ích, giúp em có cơ hội tiếp cận nhiều chủ đề công nghệ khác nhau từ các diễn giả có kinh nghiệm thực tế.
 
 Một số trải nghiệm nổi bật:
 
 #### Tiếp cận nhiều lĩnh vực công nghệ mới
 
-- Các bài chia sẻ giúp tôi mở rộng kiến thức về nhiều mảng khác nhau như Cloud Computing, Container, Cyber Security, Machine Learning và Graph Database.
-- Thông qua các ví dụ thực tế, tôi hiểu rõ hơn cách các công nghệ này được áp dụng trong các hệ thống hiện đại.
+- Các bài chia sẻ giúp em mở rộng kiến thức về nhiều mảng khác nhau như Cloud Computing, Container, Cyber Security, Machine Learning và Graph Database.
+- Thông qua các ví dụ thực tế, em hiểu rõ hơn cách các công nghệ này được áp dụng trong các hệ thống hiện đại.
 
 #### Học hỏi kinh nghiệm thực tế
 
 - Các diễn giả đã chia sẻ những kiến thức không chỉ về công nghệ mà còn về quá trình học tập, phát triển kỹ năng và định hướng nghề nghiệp.
-- Đặc biệt, phần chia sẻ về Cloud/DevOps giúp tôi có thêm góc nhìn về lộ trình phát triển trong ngành công nghệ.
+- Đặc biệt, phần chia sẻ về Cloud/DevOps giúp em có thêm góc nhìn về lộ trình phát triển trong ngành công nghệ.
 
 #### Cải thiện kỹ năng làm việc nhóm
 
-- Nội dung về teamwork giúp tôi nhận ra tầm quan trọng của việc giao tiếp, phân chia nhiệm vụ và hỗ trợ lẫn nhau trong quá trình thực hiện project.
+- Nội dung về teamwork giúp em nhận ra tầm quan trọng của việc giao tiếp, phân chia nhiệm vụ và hỗ trợ lẫn nhau trong quá trình thực hiện project.
 - Đây là những kỹ năng cần thiết khi làm việc trong môi trường phát triển phần mềm thực tế.
 
 #### Bài học rút ra
@@ -122,4 +122,4 @@ Một số trải nghiệm nổi bật:
 
 * Thêm các hình ảnh của bạn tại đây
 
-> Sự kiện đã mang lại nhiều kiến thức thực tế và góc nhìn mới về các công nghệ hiện đại. Đây là cơ hội giúp tôi hiểu rõ hơn về xu hướng Cloud, AI cũng như định hướng phát triển bản thân trong lĩnh vực công nghệ thông tin.
+> Sự kiện đã mang lại nhiều kiến thức thực tế và góc nhìn mới về các công nghệ hiện đại. Đây là cơ hội giúp em hiểu rõ hơn về xu hướng Cloud, AI cũng như định hướng phát triển bản thân trong lĩnh vực công nghệ thông tin.

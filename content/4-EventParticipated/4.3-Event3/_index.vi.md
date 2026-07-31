@@ -98,17 +98,17 @@ pre: " <b> 4.3. </b> "
 
 ## Trải nghiệm trong event
 
-Tham gia sự kiện **“Hackathon Journey”** là một trải nghiệm hữu ích, giúp tôi có cái nhìn thực tế hơn về quá trình xây dựng một sản phẩm công nghệ. Thông qua các phần trình bày của các đội tham gia, tôi hiểu rõ hơn cách một nhóm phát triển có thể biến ý tưởng thành giải pháp thông qua việc kết hợp giữa công nghệ, tư duy sản phẩm và khả năng làm việc nhóm.
+Tham gia sự kiện **“Hackathon Journey”** là một trải nghiệm hữu ích, giúp em có cái nhìn thực tế hơn về quá trình xây dựng một sản phẩm công nghệ. Thông qua các phần trình bày của các đội tham gia, em hiểu rõ hơn cách một nhóm phát triển có thể biến ý tưởng thành giải pháp thông qua việc kết hợp giữa công nghệ, tư duy sản phẩm và khả năng làm việc nhóm.
 
 ### Học hỏi từ các dự án thực tế
 
 - Các đội tham gia chia sẻ quá trình phát triển sản phẩm, từ việc xác định vấn đề, thiết kế giải pháp đến xây dựng prototype.
-- Qua đó, tôi hiểu thêm về những khó khăn trong quá trình phát triển sản phẩm và cách các nhóm xử lý các vấn đề phát sinh.
+- Qua đó, em hiểu thêm về những khó khăn trong quá trình phát triển sản phẩm và cách các nhóm xử lý các vấn đề phát sinh.
 
 ### Tiếp cận công nghệ mới
 
-- Sự kiện giúp tôi mở rộng kiến thức về AI, Cloud và các xu hướng phát triển ứng dụng hiện đại.
-- Tôi hiểu thêm về khả năng ứng dụng Agentic AI trong việc xây dựng các hệ thống hỗ trợ tự động hóa.
+- Sự kiện giúp em mở rộng kiến thức về AI, Cloud và các xu hướng phát triển ứng dụng hiện đại.
+- em hiểu thêm về khả năng ứng dụng Agentic AI trong việc xây dựng các hệ thống hỗ trợ tự động hóa.
 
 ### Bài học rút ra
 
@@ -120,4 +120,4 @@ Tham gia sự kiện **“Hackathon Journey”** là một trải nghiệm hữu
 
 * Thêm các hình ảnh của các bạn tại đây
 
-> Sự kiện giúp tôi có thêm góc nhìn về quy trình phát triển sản phẩm trong môi trường thực tế, đồng thời nâng cao kiến thức về Cloud, AI và kỹ năng làm việc nhóm trong quá trình xây dựng dự án.
+> Sự kiện giúp em có thêm góc nhìn về quy trình phát triển sản phẩm trong môi trường thực tế, đồng thời nâng cao kiến thức về Cloud, AI và kỹ năng làm việc nhóm trong quá trình xây dựng dự án.

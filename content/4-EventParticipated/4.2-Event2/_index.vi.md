@@ -88,22 +88,22 @@ pre: " <b> 4.2. </b> "
 
 ## Trải nghiệm trong event
 
-Tham gia event là một trải nghiệm hữu ích, giúp tôi hiểu rõ hơn về các khía cạnh quan trọng trong quá trình xây dựng và vận hành hệ thống Cloud.
+Tham gia event là một trải nghiệm hữu ích, giúp em hiểu rõ hơn về các khía cạnh quan trọng trong quá trình xây dựng và vận hành hệ thống Cloud.
 
 ### Học hỏi về vận hành hệ thống
 
-- Qua phần trình bày về **SLA và Monitoring**, tôi hiểu được việc xây dựng một hệ thống không chỉ cần đảm bảo chức năng mà còn phải quan tâm đến khả năng vận hành ổn định.
-- Các khái niệm về Availability, Performance và Reliability giúp tôi có cái nhìn thực tế hơn về việc đánh giá chất lượng của một ứng dụng.
+- Qua phần trình bày về **SLA và Monitoring**, em hiểu được việc xây dựng một hệ thống không chỉ cần đảm bảo chức năng mà còn phải quan tâm đến khả năng vận hành ổn định.
+- Các khái niệm về Availability, Performance và Reliability giúp em có cái nhìn thực tế hơn về việc đánh giá chất lượng của một ứng dụng.
 
 ### Củng cố kiến thức AWS
 
-- Phần chia sẻ về **AWS Cloud Practitioner** giúp tôi hệ thống lại các kiến thức nền tảng về AWS.
-- Những kinh nghiệm từ diễn giả giúp tôi hiểu rõ hơn cách tiếp cận và chuẩn bị khi học các chứng chỉ Cloud.
+- Phần chia sẻ về **AWS Cloud Practitioner** giúp em hệ thống lại các kiến thức nền tảng về AWS.
+- Những kinh nghiệm từ diễn giả giúp em hiểu rõ hơn cách tiếp cận và chuẩn bị khi học các chứng chỉ Cloud.
 
 ### Nhận thức về bảo mật ứng dụng
 
-- Chủ đề về bảo mật web giúp tôi nhận ra rằng bảo mật cần được xem xét xuyên suốt quá trình phát triển hệ thống.
-- Tôi hiểu rõ hơn vai trò của các công cụ bảo mật trong việc bảo vệ ứng dụng và dữ liệu trên môi trường Cloud.
+- Chủ đề về bảo mật web giúp em nhận ra rằng bảo mật cần được xem xét xuyên suốt quá trình phát triển hệ thống.
+- em hiểu rõ hơn vai trò của các công cụ bảo mật trong việc bảo vệ ứng dụng và dữ liệu trên môi trường Cloud.
 
 ### Bài học rút ra
 
@@ -115,4 +115,4 @@ Tham gia event là một trải nghiệm hữu ích, giúp tôi hiểu rõ hơn 
 
 * Thêm các hình ảnh của các bạn tại đây
 
-> Sự kiện giúp tôi mở rộng góc nhìn về quá trình vận hành hệ thống Cloud, từ việc theo dõi hiệu năng, đảm bảo chất lượng dịch vụ đến bảo vệ ứng dụng trước các rủi ro bảo mật.
+> Sự kiện giúp em mở rộng góc nhìn về quá trình vận hành hệ thống Cloud, từ việc theo dõi hiệu năng, đảm bảo chất lượng dịch vụ đến bảo vệ ứng dụng trước các rủi ro bảo mật.
