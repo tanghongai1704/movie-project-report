@@ -98,10 +98,10 @@ _Technical Requirements_
 
 ### 5. Roadmap & Milestones
 - _Pre-internship (Month 0):_ Planning, dataset preparation.
-- _Internship (Months 1-3):_
-    - Month 1: General understanding of AWS services.
-    - Month 2: Build the movie streaming web and recommendation system.
-    - Month 3: System testing and preparation for actual deployment.
+- _Internship (Months 1-2):_
+    - Week 1-2: General understanding of AWS services.
+    - Week 3-6: Build the movie streaming web and recommendation system.
+    - Week 7-8: System testing and preparation for actual deployment.
 - _Post-deployment:_ Monitor performance, optimize models, and expand features.
 
 ### 6. Budget Estimate

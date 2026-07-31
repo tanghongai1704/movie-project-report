@@ -98,10 +98,10 @@ _Yêu cầu kỹ thuật_
 
 ### 5. Lộ trình & Mốc triển khai
 - _Trước thực tập (Tháng 0):_ Lập kế hoạch, chuẩn bị dataset.
-- _Thực tập (Tháng 1-3):_
-    - Tháng 1: Tìm hiểu chung các dịch vụ AWS.
-    - Tháng 2: Xây dựng web xem phim và hệ thống gợi ý phim.
-    - Tháng 3: Kiểm thử hệ thống và chuẩn bị cho triển khai thực tế.
+- _Thực tập (Tháng 1-2):_
+    - Tuần 1-2: Tìm hiểu chung các dịch vụ AWS.
+    - Tuần 3-6: Xây dựng web xem phim và hệ thống gợi ý phim.
+    - Tuần 7-8: Kiểm thử hệ thống và chuẩn bị cho triển khai thực tế.
 - _Sau triển khai:_ Theo dõi hiệu suất, tối ưu hóa mô hình và mở rộng tính năng.
 
 ### 6. Ước tính ngân sách
