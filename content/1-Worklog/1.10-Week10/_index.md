@@ -1,57 +1,55 @@
 ---
 title: "Week 10 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-27
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice tip %}}
+The tenth week focused on deploying the application to the AWS environment, configuring Docker, and testing the system after deployment. Optimization of several components was also performed to ensure stable application operation.
 {{% /notice %}}
 
+## Week 10 Objectives
 
-### Week 10 Objectives:
+- Deploy the application to the AWS environment.
+- Configure Docker to run the system.
+- Test the application after deployment.
+- Fix issues encountered during the deployment process.
+- Complete the project's technical documentation.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## Weekly Tasks
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Mon | - Prepare the deployment environment on AWS.<br>- Configure EC2 to run the application.<br>- Verify the connection to the server. | 22/09/2026 | 22/09/2026 | AWS EC2 Documentation |
+| Tue | - Install Docker and Docker Compose on EC2.<br>- Run the frontend and backend using Docker Compose.<br>- Check container logs. | 23/09/2026 | 23/09/2026 | Docker Documentation |
+| Wed | - Configure environment variables for the application.<br>- Connect the application with Amazon S3, DynamoDB, and SageMaker.<br>- Verify API functionality after deployment. | 24/09/2026 | 24/09/2026 | AWS Documentation |
+| Thu | - Test the entire system in the deployment environment.<br>- Fix configuration and connection-related issues.<br>- Optimize application performance. | 25/09/2026 | 25/09/2026 | Team Documentation |
+| Fri | - Update the README and deployment guides.<br>- Document encountered issues and solutions.<br>- Prepare for the final project completion phase. | 26/09/2026 | 26/09/2026 | GitHub Documentation |
 
+## Week 10 Outcomes
 
-### Week 10 Achievements:
+By the end of the tenth week, the system had been successfully deployed to the AWS environment and was able to operate stably.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+The key achievements include:
 
-* Successfully created and configured an AWS Free Tier account.
+- Successfully completed the deployment of the application on Amazon EC2.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Successfully installed and configured:
+  - Docker.
+  - Docker Compose.
+  - Required environment variables for the application.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Deployed the frontend and backend using Docker Compose.
 
-* Used AWS CLI to perform basic operations such as:
+- Successfully connected the application with AWS services:
+  - Amazon S3.
+  - Amazon DynamoDB.
+  - Amazon SageMaker.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Tested APIs after deployment and confirmed that the system operated as expected.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Resolved several deployment issues, including environment configuration problems, IAM permission issues, and service connectivity problems.
+
+- Completed installation and deployment documentation, allowing other team members to set up and run the project more easily.

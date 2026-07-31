@@ -1,59 +1,55 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-07-27
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice tip %}}
+Tuần thứ mười tập trung triển khai ứng dụng lên môi trường AWS, cấu hình Docker và kiểm thử hệ thống sau khi triển khai. Đồng thời thực hiện tối ưu một số thành phần nhằm đảm bảo ứng dụng hoạt động ổn định.
 {{% /notice %}}
 
+## Mục tiêu tuần 10
 
-### Mục tiêu tuần 10:
+- Triển khai ứng dụng lên môi trường AWS.
+- Cấu hình Docker để chạy hệ thống.
+- Kiểm thử ứng dụng sau khi triển khai.
+- Khắc phục các lỗi phát sinh trong quá trình deploy.
+- Hoàn thiện tài liệu kỹ thuật của project.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+## Các công việc triển khai trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Chuẩn bị môi trường triển khai trên AWS.<br>- Cấu hình EC2 để chạy ứng dụng.<br>- Kiểm tra kết nối đến máy chủ. | 22/09/2026 | 22/09/2026 | AWS EC2 Documentation |
+| 3 | - Cài đặt Docker và Docker Compose trên EC2.<br>- Chạy frontend và backend bằng Docker Compose.<br>- Kiểm tra log của các container. | 23/09/2026 | 23/09/2026 | Docker Documentation |
+| 4 | - Cấu hình biến môi trường cho ứng dụng.<br>- Kết nối ứng dụng với Amazon S3, DynamoDB và SageMaker.<br>- Kiểm tra hoạt động của các API sau khi triển khai. | 24/09/2026 | 24/09/2026 | AWS Documentation |
+| 5 | - Kiểm thử toàn bộ hệ thống trên môi trường triển khai.<br>- Khắc phục các lỗi phát sinh liên quan đến cấu hình và kết nối.<br>- Tối ưu hiệu năng của ứng dụng. | 25/09/2026 | 25/09/2026 | Tài liệu nhóm |
+| 6 | - Cập nhật README và tài liệu hướng dẫn triển khai.<br>- Ghi nhận các vấn đề gặp phải và cách xử lý.<br>- Chuẩn bị cho giai đoạn hoàn thiện project. | 26/09/2026 | 26/09/2026 | GitHub Documentation |
 
+## Kết quả đạt được tuần 10
 
-### Kết quả đạt được tuần 10:
+Sau tuần thứ mười, hệ thống đã được triển khai thành công lên môi trường AWS và có thể hoạt động ổn định.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Một số kết quả đạt được gồm:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Hoàn thành việc triển khai ứng dụng lên Amazon EC2.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Cài đặt và cấu hình thành công:
+  - Docker.
+  - Docker Compose.
+  - Các biến môi trường cần thiết cho ứng dụng.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Triển khai frontend và backend bằng Docker Compose.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Kết nối thành công ứng dụng với các dịch vụ AWS:
+  - Amazon S3.
+  - Amazon DynamoDB.
+  - Amazon SageMaker.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Kiểm tra các API sau khi triển khai và xác nhận hệ thống hoạt động đúng như mong đợi.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Khắc phục một số lỗi phát sinh trong quá trình triển khai như lỗi cấu hình môi trường, quyền truy cập IAM và kết nối giữa các dịch vụ.
 
-
+- Hoàn thiện tài liệu hướng dẫn cài đặt và triển khai, giúp các thành viên khác có thể thiết lập và chạy project dễ dàng hơn.

@@ -1,57 +1,60 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-27
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice tip %}}
+The final week focused on summarizing the entire participation process, completing the report, preparing the final product, and evaluating the knowledge and skills gained throughout the learning process and project implementation.
 {{% /notice %}}
 
+## Week 12 Objectives
 
-### Week 12 Objectives:
+- Complete the report and related documents.
+- Summarize the project implementation results.
+- Present and demonstrate the final product.
+- Evaluate the knowledge and skills gained.
+- Complete the First Cloud AI Journey program.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## Weekly Tasks
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Mon | - Review the entire source code.<br>- Check the documentation and README.<br>- Update missing content. | 06/10/2026 | 06/10/2026 | Team Documentation |
+| Tue | - Complete the internship report.<br>- Summarize worklogs, blogs, and illustrations.<br>- Review the document formatting. | 07/10/2026 | 07/10/2026 | Program Documentation |
+| Wed | - Prepare presentation slides.<br>- Practice presenting and demonstrating the system.<br>- Verify the project execution environment. | 08/10/2026 | 08/10/2026 | Team Slides |
+| Thu | - Participate in the project presentation and product demonstration.<br>- Receive feedback and comments.<br>- Record areas for improvement. | 09/10/2026 | 09/10/2026 | Presentation Session |
+| Fri | - Summarize the participation process in First Cloud AI Journey.<br>- Evaluate achieved results.<br>- Archive project documents and source code. | 10/10/2026 | 10/10/2026 | Team Documentation |
 
+## Week 12 Outcomes
 
-### Week 12 Achievements:
+After 12 weeks participating in the First Cloud AI Journey program, the objectives were successfully completed, and many valuable knowledge and practical experiences were gained throughout the learning process and project development.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+The key achievements include:
 
-* Successfully created and configured an AWS Free Tier account.
+- Completed the project report, worklogs, and technical documentation.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Completed presentation slides and prepared all necessary content for the final presentation.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Successfully presented and demonstrated the main system functionalities.
 
-* Used AWS CLI to perform basic operations such as:
+- Summarized and organized the knowledge gained about:
+  - AWS Core Services.
+  - Docker and Docker Compose.
+  - Amazon EC2.
+  - Amazon S3.
+  - Amazon DynamoDB.
+  - AWS Lambda.
+  - Amazon API Gateway.
+  - Amazon SageMaker.
+  - Application deployment processes on AWS.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Improved teamwork skills through task assignment, progress discussions, and collaboration during project development.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Enhanced technical documentation reading skills, the ability to explore new technologies, and problem-solving skills when dealing with issues during system deployment.
+
+- Completed the project according to the planned schedule and gained practical experience in building, deploying, and managing an application using AWS services.
+
+- Successfully completed the First Cloud AI Journey program with a strong foundation of Cloud and AI knowledge for future research and development projects.

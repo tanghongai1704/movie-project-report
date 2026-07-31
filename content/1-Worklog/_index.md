@@ -1,39 +1,65 @@
 ---
 title: "Worklog"
-date: 2024-01-01
+date: 2026-07-28
 weight: 1
 chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+{{% notice tip %}}
+This section summarizes the learning process and implementation journey of the **First Cloud AI Journey (FCAJ)** program over **12 weeks**. The worklog records the objectives, completed tasks, and achieved results each week, from learning basic AWS services to building, deploying, and completing a project on the AWS platform.
 {{% /notice %}}
 
-**On this page**, you will need to introduce your worklog. **How** did you complete it? How many weeks did you take to complete the program? **What** did you do in those weeks?
+## Overview
 
-Typically, and as a standard, a worklog is carried out over about 3 months (throughout the internship period) with weekly contents as follows:
+Throughout the 12-week program, the learning process followed a roadmap from fundamental knowledge to hands-on practice and project development. The activities included exploring popular AWS services, practicing cloud resource deployment, building applications using Docker and AWS services, and integrating Machine Learning into the project before completing the final report and product demonstration.
 
-**Week 1:** [Getting familiar with AWS and basic AWS services](1.1-week1/)
+The detailed content of each week is presented below.
 
-**Week 2:** [Doing task A...](1.2-week2/)
+### Week 1: [Getting Started with AWS and Development Environment](1.1-week1/)
 
-**Week 3:** [Doing task B...](1.3-week3/)
+Learned the fundamentals of AWS, became familiar with AWS Management Console and AWS CLI, and prepared the learning environment.
 
-**Week 4:** [Doing task C...](1.4-week4/)
+### Week 2: [Exploring IAM, Amazon S3, and Amazon EC2](1.2-week2/)
 
-**Week 5:** [Doing task D...](1.5-week5/)
+Learned about user management and access control mechanisms on AWS, and practiced working with Amazon S3 and Amazon EC2.
 
-**Week 6:** [Doing task E...](1.6-week6/)
+### Week 3: [Exploring Amazon VPC and Networking](1.3-week3/)
 
-**Week 7:** [Doing task G...](1.7-week7/)
+Learned about AWS network architecture, and practiced configuring VPC, Subnet, Route Table, and Security Group.
 
-**Week 8:** [Doing task H...](1.8-week8/)
+### Week 4: [Exploring Docker and Docker Compose](1.4-week4/)
 
-**Week 9:** [Doing task I...](1.9-week9/)
+Learned about Container technology, practiced building Docker Images, and deploying applications using Docker Compose.
 
-**Week 10:** [Doing task L...](1.10-week10/)
+### Week 5: [Working with Amazon S3, DynamoDB, and AWS SDK](1.5-week5/)
 
-**Week 11:** [Doing task M...](1.11-week11/)
+Practiced storing data using Amazon S3 and Amazon DynamoDB, and connected applications with AWS services through AWS SDK.
 
-**Week 12:** [Doing task N...](1.12-week12/)
+### Week 6: [Exploring AWS Lambda and Amazon API Gateway](1.6-week6/)
+
+Learned about Serverless architecture, created Lambda Functions, and deployed REST APIs using Amazon API Gateway.
+
+### Week 7: [Exploring Amazon SageMaker](1.7-week7/)
+
+Studied the process of building and deploying Machine Learning models on AWS using Amazon SageMaker.
+
+### Week 8: [Starting and Designing Project Architecture](1.8-week8/)
+
+Designed the system architecture, assigned tasks among team members, and started developing the frontend, backend, and AWS service integrations.
+
+### Week 9: [Integrating Machine Learning and Completing Features](1.9-week9/)
+
+Completed the main system functionalities, integrated Machine Learning, and tested the application's workflow.
+
+### Week 10: [Deploying the Application on AWS](1.10-week10/)
+
+Deployed the project on Amazon EC2 using Docker, configured the environment, and tested the system after deployment.
+
+### Week 11: [Testing and Completing the Project](1.11-week11/)
+
+Optimized the user interface, performed comprehensive system testing, completed technical documentation, and prepared presentation content.
+
+### Week 12: [Final Review and Presentation](1.12-week12/)
+
+Completed the final report, presented and demonstrated the product, and summarized the knowledge and experience gained throughout the program.

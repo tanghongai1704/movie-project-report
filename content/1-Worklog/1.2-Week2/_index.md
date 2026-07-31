@@ -1,57 +1,63 @@
 ---
 title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-08
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice tip %}}
+The second week focused on learning about AWS identity management and storage services, while also practicing the creation and management of basic AWS resources to become familiar with cloud deployment workflows.
 {{% /notice %}}
 
+## Week 2 Objectives
 
-### Week 2 Objectives:
+- Learn how user management and access control work on AWS.
+- Understand how Amazon S3 works and its common use cases.
+- Become familiar with Amazon EC2 through basic hands-on exercises.
+- Understand the process of creating and managing AWS resources.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## Weekly Tasks
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Mon | - Learn about AWS Identity and Access Management (IAM).<br>- Understand the differences between the Root User and IAM User.<br>- Explore Users, Groups, Roles, and Policies. | 28/07/2026 | 28/07/2026 | https://docs.aws.amazon.com/iam/ |
+| Tue | - Practice creating IAM Users.<br>- Assign Policies to IAM Users.<br>- Verify access permissions in the AWS Management Console. | 29/07/2026 | 29/07/2026 | https://docs.aws.amazon.com/iam/latest/UserGuide/ |
+| Wed | - Learn about Amazon S3.<br>- Explore Buckets, Objects, and Storage Classes.<br>- Become familiar with managing data in Amazon S3. | 30/07/2026 | 30/07/2026 | https://docs.aws.amazon.com/s3/ |
+| Thu | - Practice creating an S3 Bucket.<br>- Upload, download, and delete objects.<br>- Verify bucket access permissions. | 31/07/2026 | 31/07/2026 | https://docs.aws.amazon.com/AmazonS3/latest/userguide/ |
+| Fri | - Review Amazon EC2 concepts.<br>- Practice launching an EC2 Instance.<br>- Connect to the EC2 instance via SSH and become familiar with basic management tasks. | 01/08/2026 | 01/08/2026 | https://docs.aws.amazon.com/ec2/ |
 
+## Week 2 Outcomes
 
-### Week 2 Achievements:
+By the end of the second week, a deeper understanding was gained of how AWS manages access control and stores data in the cloud.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+The key achievements include:
 
-* Successfully created and configured an AWS Free Tier account.
+- Understood the role of AWS IAM in user management and access control.
+- Learned the differences between:
+  - Root User and IAM User.
+  - User, Group, and Role.
+  - Managed Policy and Inline Policy.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Practiced creating and managing IAM Users.
+- Assigned appropriate Policies to grant access to AWS services.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Understood how Amazon S3 works and its core concepts:
+  - Bucket
+  - Object
+  - Storage Class
+  - Region
 
-* Used AWS CLI to perform basic operations such as:
+- Successfully performed basic Amazon S3 operations:
+  - Create a Bucket.
+  - Upload and download files.
+  - Delete objects.
+  - Verify bucket access permissions.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Reviewed Amazon EC2 concepts and practiced:
+  - Launching an EC2 Instance.
+  - Configuring Security Groups.
+  - Creating a Key Pair.
+  - Connecting to an EC2 Instance via SSH.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Gained additional hands-on experience with the AWS Management Console and developed a better understanding of the workflow for creating and managing basic AWS resources.

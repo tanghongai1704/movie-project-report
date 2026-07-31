@@ -1,59 +1,57 @@
 ---
 title: "Worklog Tuần 11"
-date: 2024-01-01
-weight: 2
+date: 2026-07-27
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice tip %}}
+Tuần thứ mười một tập trung hoàn thiện các chức năng còn lại của project, tối ưu giao diện và trải nghiệm người dùng, đồng thời thực hiện kiểm thử tổng thể để chuẩn bị cho giai đoạn báo cáo và nghiệm thu.
 {{% /notice %}}
 
+## Mục tiêu tuần 11
 
-### Mục tiêu tuần 11:
+- Hoàn thiện các chức năng còn lại của project.
+- Tối ưu giao diện và trải nghiệm người dùng.
+- Kiểm thử toàn bộ hệ thống.
+- Hoàn thiện tài liệu dự án.
+- Chuẩn bị nội dung báo cáo và demo.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+## Các công việc triển khai trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Hoàn thiện các chức năng còn thiếu.<br>- Chỉnh sửa giao diện người dùng.<br>- Kiểm tra tính nhất quán giữa các màn hình. | 29/09/2026 | 29/09/2026 | Tài liệu nhóm |
+| 3 | - Kiểm thử frontend và backend.<br>- Kiểm tra các API và xử lý lỗi.<br>- Điều chỉnh giao diện theo kết quả kiểm thử. | 30/09/2026 | 30/09/2026 | React, FastAPI Documentation |
+| 4 | - Kiểm thử các chức năng liên quan đến Machine Learning.<br>- Kiểm tra dữ liệu lưu trữ trên S3 và DynamoDB.<br>- Đánh giá kết quả hoạt động của hệ thống. | 01/10/2026 | 01/10/2026 | AWS Documentation |
+| 5 | - Hoàn thiện README và tài liệu kỹ thuật.<br>- Chuẩn bị hình ảnh minh họa và sơ đồ kiến trúc.<br>- Tổng hợp quá trình thực hiện project. | 02/10/2026 | 02/10/2026 | GitHub Documentation |
+| 6 | - Họp nhóm tổng kết tiến độ.<br>- Chuẩn bị nội dung thuyết trình và demo.<br>- Phân công nhiệm vụ cho buổi báo cáo. | 03/10/2026 | 03/10/2026 | Tài liệu nhóm |
 
+## Kết quả đạt được tuần 11
 
-### Kết quả đạt được tuần 11:
+Sau tuần thứ mười một, project đã được hoàn thiện về cả chức năng và tài liệu, sẵn sàng cho giai đoạn báo cáo.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Một số kết quả đạt được gồm:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Hoàn thiện toàn bộ các chức năng theo phạm vi của project.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Tối ưu giao diện người dùng nhằm cải thiện khả năng sử dụng và tính trực quan.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Kiểm thử toàn bộ hệ thống, bao gồm:
+  - Frontend.
+  - Backend.
+  - Các API.
+  - Kết nối với các dịch vụ AWS.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Đánh giá và điều chỉnh một số chức năng nhằm đảm bảo hệ thống hoạt động ổn định trước khi trình bày.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Hoàn thiện tài liệu kỹ thuật của project:
+  - README.
+  - Kiến trúc hệ thống.
+  - Hướng dẫn cài đặt.
+  - Hướng dẫn sử dụng.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Chuẩn bị slide, hình ảnh minh họa và nội dung demo phục vụ cho buổi báo cáo.
 
-
+- Phân công nội dung trình bày giữa các thành viên và thống nhất kịch bản demo của nhóm.

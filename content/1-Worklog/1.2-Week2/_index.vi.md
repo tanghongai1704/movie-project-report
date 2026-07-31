@@ -1,59 +1,63 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+date: 2026-06-08
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice tip %}}
+Tuần thứ hai tập trung tìm hiểu về các dịch vụ quản lý truy cập và lưu trữ trên AWS, đồng thời thực hành tạo và quản lý tài nguyên cơ bản nhằm làm quen với quy trình triển khai trên nền tảng đám mây.
 {{% /notice %}}
 
+## Mục tiêu tuần 2
 
-### Mục tiêu tuần 2:
+- Tìm hiểu cơ chế quản lý người dùng và phân quyền trên AWS.
+- Hiểu cách hoạt động của Amazon S3 và các trường hợp sử dụng phổ biến.
+- Làm quen với Amazon EC2 thông qua các bài thực hành cơ bản.
+- Nắm được quy trình tạo và quản lý tài nguyên trên AWS.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+## Các công việc triển khai trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Tìm hiểu AWS Identity and Access Management (IAM).<br>- Phân biệt Root User và IAM User.<br>- Tìm hiểu User, Group, Role và Policy. | 28/07/2026 | 28/07/2026 | https://docs.aws.amazon.com/iam/ |
+| 3 | - Thực hành tạo IAM User.<br>- Gán Policy cho IAM User.<br>- Kiểm tra quyền truy cập trên AWS Console. | 29/07/2026 | 29/07/2026 | https://docs.aws.amazon.com/iam/latest/UserGuide/ |
+| 4 | - Tìm hiểu Amazon S3.<br>- Tìm hiểu Bucket, Object, Storage Classes.<br>- Làm quen với cách quản lý dữ liệu trên S3. | 30/07/2026 | 30/07/2026 | https://docs.aws.amazon.com/s3/ |
+| 5 | - Thực hành tạo S3 Bucket.<br>- Upload, Download và xóa Object.<br>- Kiểm tra quyền truy cập đối với Bucket. | 31/07/2026 | 31/07/2026 | https://docs.aws.amazon.com/AmazonS3/latest/userguide/ |
+| 6 | - Ôn tập EC2.<br>- Thực hành tạo EC2 Instance.<br>- Kết nối đến EC2 bằng SSH và làm quen với các thao tác quản lý cơ bản. | 01/08/2026 | 01/08/2026 | https://docs.aws.amazon.com/ec2/ |
 
+## Kết quả đạt được tuần 2
 
-### Kết quả đạt được tuần 2:
+Sau tuần thứ hai, đã hiểu rõ hơn về cách AWS quản lý quyền truy cập cũng như cách lưu trữ dữ liệu trên nền tảng đám mây.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Một số kết quả đạt được gồm:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Hiểu được vai trò của AWS IAM trong việc quản lý người dùng và phân quyền.
+- Phân biệt được:
+  - Root User và IAM User.
+  - User, Group và Role.
+  - Managed Policy và Inline Policy.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Thực hành tạo và quản lý IAM User.
+- Gán Policy phù hợp để cấp quyền truy cập vào các dịch vụ AWS.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Hiểu được cách hoạt động của Amazon S3 và các khái niệm:
+  - Bucket
+  - Object
+  - Storage Class
+  - Region
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Thực hiện thành công các thao tác cơ bản trên Amazon S3:
+  - Tạo Bucket.
+  - Upload và Download tệp.
+  - Xóa Object.
+  - Kiểm tra quyền truy cập Bucket.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Ôn tập kiến thức về Amazon EC2 và thực hành:
+  - Tạo EC2 Instance.
+  - Cấu hình Security Group.
+  - Tạo Key Pair.
+  - Kết nối SSH đến EC2 Instance.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Có thêm kinh nghiệm thao tác trên AWS Management Console và hiểu quy trình tạo, quản lý các tài nguyên cơ bản trên AWS.

@@ -1,59 +1,57 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-06-22
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice tip %}}
+Tuần thứ tư tập trung tìm hiểu về Docker và cách triển khai ứng dụng bằng container. Đồng thời thực hành xây dựng môi trường chạy ứng dụng với Docker Compose nhằm chuẩn bị cho việc triển khai project trên AWS trong các tuần tiếp theo.
 {{% /notice %}}
 
+## Mục tiêu tuần 4
 
-### Mục tiêu tuần 4:
+- Hiểu khái niệm Container và Docker.
+- Phân biệt Virtual Machine và Container.
+- Làm quen với Docker Image, Docker Container và Dockerfile.
+- Thực hành sử dụng Docker Compose để chạy nhiều service.
+- Chuẩn bị môi trường triển khai ứng dụng.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+## Các công việc triển khai trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Tìm hiểu Docker và Container.<br>- So sánh Docker với Virtual Machine.<br>- Cài đặt Docker Desktop. | 11/08/2026 | 11/08/2026 | https://docs.docker.com/get-started/ |
+| 3 | - Tìm hiểu Docker Image, Container và Docker Hub.<br>- Thực hành chạy các Image có sẵn bằng Docker. | 12/08/2026 | 12/08/2026 | https://docs.docker.com/ |
+| 4 | - Tìm hiểu Dockerfile.<br>- Thực hành build Image từ Dockerfile.<br>- Chạy ứng dụng bằng Docker Container. | 13/08/2026 | 13/08/2026 | https://docs.docker.com/engine/reference/builder/ |
+| 5 | - Tìm hiểu Docker Compose.<br>- Viết file `docker-compose.yml` đơn giản.<br>- Thực hành chạy nhiều container cùng lúc. | 14/08/2026 | 14/08/2026 | https://docs.docker.com/compose/ |
+| 6 | - Ôn tập Docker.<br>- Thực hành đóng gói một ứng dụng mẫu bằng Docker và Docker Compose.<br>- Kiểm tra môi trường chạy ứng dụng. | 15/08/2026 | 15/08/2026 | Docker Documentation |
 
+## Kết quả đạt được tuần 4
 
-### Kết quả đạt được tuần 4:
+Sau tuần thứ tư, đã nắm được kiến thức cơ bản về Docker và có thể sử dụng container để triển khai ứng dụng.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Một số kết quả đạt được gồm:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Hiểu được sự khác nhau giữa Virtual Machine và Container.
+- Hiểu vai trò của Docker trong quá trình phát triển và triển khai phần mềm.
+- Nắm được các thành phần cơ bản:
+  - Docker Image.
+  - Docker Container.
+  - Docker Registry.
+  - Docker Hub.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Cài đặt và sử dụng thành công Docker Desktop.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Thực hiện được các thao tác cơ bản:
+  - Download Image từ Docker Hub.
+  - Tạo và chạy Container.
+  - Dừng, khởi động và xóa Container.
+  - Xem log của Container.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Viết được Dockerfile đơn giản để đóng gói ứng dụng.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Thực hành sử dụng Docker Compose để quản lý nhiều service trong cùng một môi trường.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Hiểu được quy trình đóng gói ứng dụng bằng Docker, tạo tiền đề cho việc triển khai project lên máy chủ và môi trường Cloud trong các tuần tiếp theo.

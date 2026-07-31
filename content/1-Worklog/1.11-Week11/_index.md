@@ -1,57 +1,57 @@
 ---
 title: "Week 11 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-27
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice tip %}}
+The eleventh week focused on completing the remaining project features, optimizing the user interface and user experience, and conducting overall system testing to prepare for the presentation and evaluation phase.
 {{% /notice %}}
 
+## Week 11 Objectives
 
-### Week 11 Objectives:
+- Complete the remaining project features.
+- Optimize the user interface and user experience.
+- Test the entire system.
+- Complete project documentation.
+- Prepare presentation and demo content.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## Weekly Tasks
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Mon | - Complete the remaining features.<br>- Modify and improve the user interface.<br>- Check consistency between different screens. | 29/09/2026 | 29/09/2026 | Team Documentation |
+| Tue | - Test the frontend and backend.<br>- Verify APIs and error handling.<br>- Adjust the interface based on testing results. | 30/09/2026 | 30/09/2026 | React, FastAPI Documentation |
+| Wed | - Test Machine Learning-related functionalities.<br>- Verify data stored in S3 and DynamoDB.<br>- Evaluate the system's performance and results. | 01/10/2026 | 01/10/2026 | AWS Documentation |
+| Thu | - Complete the README and technical documentation.<br>- Prepare illustrations and architecture diagrams.<br>- Summarize the project implementation process. | 02/10/2026 | 02/10/2026 | GitHub Documentation |
+| Fri | - Hold a team meeting to review progress.<br>- Prepare presentation and demo content.<br>- Assign responsibilities for the final presentation. | 03/10/2026 | 03/10/2026 | Team Documentation |
 
+## Week 11 Outcomes
 
-### Week 11 Achievements:
+By the end of the eleventh week, the project had been completed in terms of both functionality and documentation, and was ready for the presentation phase.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+The key achievements include:
 
-* Successfully created and configured an AWS Free Tier account.
+- Completed all project functionalities within the defined scope.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Optimized the user interface to improve usability and user experience.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Performed comprehensive system testing, including:
+  - Frontend.
+  - Backend.
+  - APIs.
+  - Connections with AWS services.
 
-* Used AWS CLI to perform basic operations such as:
+- Evaluated and adjusted several features to ensure stable system operation before the final presentation.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Completed the project's technical documentation:
+  - README.
+  - System architecture.
+  - Installation guide.
+  - User guide.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Prepared slides, illustrations, and demo content for the presentation.
+
+- Assigned presentation topics among team members and finalized the group's demo scenario.

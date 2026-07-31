@@ -8,28 +8,24 @@ chapter: false
     
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Tang Hong Ai
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0368161530 
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** ai.tangmeo200922@hcmut.edu.vn
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** Ho Chi Minh City University of Technology - Vietnam National University, Ho Chi Minh City (VNU-HCM)
 
-&emsp; **Major:** Information Technology
+&emsp; **Major:** Computer Science
 
-&emsp; **Class:** AWS082025
+&emsp; **Class:** MT23KHT
 
 &emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
 
 &emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 15/06/2026 to 15/09/2026
 
 ![Your profile picture](/images/avatar.png)
 
@@ -42,4 +38,3 @@ chapter: false
 5.  [Workshop](5-Workshop/)
 6.  [Self-evaluation](6-Self-evaluation/)
 7.  [Sharing and Feedback](7-Feedback/)
-8.  [References](8-References/)

@@ -1,59 +1,56 @@
 ---
 title: "Worklog Tuần 7"
-date: 2024-01-01
-weight: 1
+date: 2026-07-13
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice tip %}}
+Tuần thứ bảy tập trung tìm hiểu các dịch vụ Machine Learning trên AWS, đặc biệt là Amazon SageMaker. Đồng thời tìm hiểu quy trình huấn luyện, triển khai mô hình và cách tích hợp mô hình Machine Learning vào ứng dụng.
 {{% /notice %}}
 
+## Mục tiêu tuần 7
 
-### Mục tiêu tuần 7:
+- Tìm hiểu tổng quan về Amazon SageMaker.
+- Hiểu quy trình xây dựng và triển khai mô hình Machine Learning trên AWS.
+- Thực hành sử dụng SageMaker Notebook.
+- Tìm hiểu cách triển khai mô hình dưới dạng Endpoint.
+- Chuẩn bị cho việc tích hợp Machine Learning vào project.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+## Các công việc triển khai trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Tìm hiểu Amazon SageMaker và các thành phần chính.<br>- Tìm hiểu quy trình Machine Learning trên AWS.<br>- Đọc tài liệu giới thiệu về SageMaker. | 01/09/2026 | 01/09/2026 | https://docs.aws.amazon.com/sagemaker/ |
+| 3 | - Tìm hiểu SageMaker Notebook.<br>- Tạo Notebook Instance.<br>- Làm quen với giao diện và môi trường phát triển. | 02/09/2026 | 02/09/2026 | AWS Documentation |
+| 4 | - Chuẩn bị bộ dữ liệu mẫu.<br>- Upload dữ liệu lên Amazon S3.<br>- Tìm hiểu cách SageMaker truy cập dữ liệu từ S3. | 03/09/2026 | 03/09/2026 | AWS Documentation |
+| 5 | - Tìm hiểu quy trình huấn luyện mô hình.<br>- Tìm hiểu khái niệm Model, Endpoint và Inference.<br>- Đọc tài liệu triển khai mô hình trên SageMaker. | 04/09/2026 | 04/09/2026 | https://docs.aws.amazon.com/sagemaker/latest/dg/ |
+| 6 | - Thực hành triển khai mô hình mẫu hoặc Endpoint thử nghiệm.<br>- Tìm hiểu cách ứng dụng có thể gửi request đến Endpoint.<br>- Chuẩn bị phương án tích hợp vào project. | 05/09/2026 | 05/09/2026 | AWS Documentation |
 
+## Kết quả đạt được tuần 7
 
-### Kết quả đạt được tuần 7:
+Sau tuần thứ bảy, đã có cái nhìn tổng quan về quy trình phát triển và triển khai mô hình Machine Learning trên AWS.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Một số kết quả đạt được gồm:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Hiểu được vai trò của Amazon SageMaker trong hệ sinh thái Machine Learning của AWS.
+- Nắm được quy trình cơ bản:
+  - Chuẩn bị dữ liệu.
+  - Huấn luyện mô hình.
+  - Triển khai mô hình.
+  - Thực hiện dự đoán (Inference).
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Làm quen với SageMaker Notebook và môi trường phát triển trên AWS.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Hiểu được cách lưu trữ dữ liệu trên Amazon S3 để phục vụ quá trình huấn luyện mô hình.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Tìm hiểu các thành phần chính của SageMaker:
+  - Notebook Instance.
+  - Training Job.
+  - Model.
+  - Endpoint.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Hiểu cách một ứng dụng có thể gửi request đến SageMaker Endpoint để nhận kết quả dự đoán.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Chuẩn bị kiến thức cần thiết để tích hợp Machine Learning vào project trong các tuần tiếp theo.

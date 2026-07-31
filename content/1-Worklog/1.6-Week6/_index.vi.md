@@ -1,58 +1,51 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-07-06
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice tip %}}
+Tuần thứ sáu tập trung tìm hiểu các dịch vụ hỗ trợ xây dựng ứng dụng serverless trên AWS, bao gồm AWS Lambda và Amazon API Gateway. Đồng thời thực hành xây dựng một API đơn giản để hiểu cách các dịch vụ này hoạt động cùng nhau.
 {{% /notice %}}
 
+## Mục tiêu tuần 6
 
-### Mục tiêu tuần 6:
+- Tìm hiểu mô hình Serverless trên AWS.
+- Hiểu cách hoạt động của AWS Lambda.
+- Tìm hiểu Amazon API Gateway và cách xây dựng REST API.
+- Thực hành tạo Lambda Function và kết nối với API Gateway.
+- Chuẩn bị kiến thức để tích hợp các dịch vụ vào project.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+## Các công việc triển khai trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Tìm hiểu mô hình Serverless.<br>- Tìm hiểu AWS Lambda và các trường hợp sử dụng phổ biến.<br>- Tạo Lambda Function đầu tiên. | 25/08/2026 | 25/08/2026 | https://docs.aws.amazon.com/lambda/ |
+| 3 | - Thực hành viết Lambda Function bằng Python.<br>- Cấu hình Trigger và kiểm tra kết quả thực thi.<br>- Theo dõi log bằng Amazon CloudWatch. | 26/08/2026 | 26/08/2026 | https://docs.aws.amazon.com/lambda/latest/dg/ |
+| 4 | - Tìm hiểu Amazon API Gateway.<br>- Tìm hiểu REST API và HTTP API.<br>- Tạo API đơn giản kết nối với Lambda. | 27/08/2026 | 27/08/2026 | https://docs.aws.amazon.com/apigateway/ |
+| 5 | - Thực hành gọi API bằng Postman hoặc trình duyệt.<br>- Kiểm tra phản hồi từ Lambda.<br>- Điều chỉnh cấu hình khi cần thiết. | 28/08/2026 | 28/08/2026 | AWS Documentation |
+| 6 | - Ôn tập Lambda và API Gateway.<br>- Tìm hiểu khả năng tích hợp với các dịch vụ AWS khác như S3 và DynamoDB.<br>- Chuẩn bị kiến thức để áp dụng vào project. | 29/08/2026 | 29/08/2026 | AWS Documentation |
 
+## Kết quả đạt được tuần 6
 
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Sau tuần thứ sáu, đã nắm được quy trình xây dựng một ứng dụng serverless cơ bản trên AWS.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+Một số kết quả đạt được gồm:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Hiểu được khái niệm Serverless và lợi ích của mô hình này trong phát triển ứng dụng.
+- Hiểu vai trò của AWS Lambda trong việc xử lý các tác vụ theo sự kiện.
+- Tạo và triển khai thành công Lambda Function bằng Python.
+- Thực hiện kiểm thử Lambda Function và theo dõi kết quả thông qua Amazon CloudWatch Logs.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Hiểu được chức năng của Amazon API Gateway trong việc cung cấp API cho ứng dụng.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Thực hành:
+  - Tạo REST API.
+  - Kết nối API Gateway với AWS Lambda.
+  - Gửi request và nhận phản hồi thông qua API.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Làm quen với quy trình xây dựng một API không cần quản lý máy chủ.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Hiểu khả năng tích hợp giữa Lambda, API Gateway và các dịch vụ AWS khác, tạo nền tảng để phát triển các chức năng của project trong các tuần tiếp theo.

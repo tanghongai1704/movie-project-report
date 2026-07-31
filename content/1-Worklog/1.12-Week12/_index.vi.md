@@ -1,58 +1,60 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+date: 2026-07-27
+weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice tip %}}
+Tuần cuối cùng tập trung tổng kết toàn bộ quá trình tham gia chương trình, hoàn thiện báo cáo, chuẩn bị sản phẩm cuối cùng và đánh giá những kiến thức, kỹ năng đã đạt được sau quá trình học tập và thực hiện project.
 {{% /notice %}}
 
-### Mục tiêu tuần 12:
+## Mục tiêu tuần 12
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hoàn thiện báo cáo và các tài liệu liên quan.
+- Tổng kết kết quả thực hiện project.
+- Trình bày và demo sản phẩm.
+- Đánh giá những kiến thức và kỹ năng đã học được.
+- Hoàn thành chương trình First Cloud AI Journey.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+## Các công việc triển khai trong tuần
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Rà soát toàn bộ source code.<br>- Kiểm tra lại tài liệu và README.<br>- Cập nhật các nội dung còn thiếu. | 06/10/2026 | 06/10/2026 | Tài liệu nhóm |
+| 3 | - Hoàn thiện báo cáo thực tập.<br>- Tổng hợp worklog, blog và hình ảnh minh họa.<br>- Kiểm tra lại định dạng tài liệu. | 07/10/2026 | 07/10/2026 | Tài liệu chương trình |
+| 4 | - Chuẩn bị slide báo cáo.<br>- Luyện tập trình bày và demo hệ thống.<br>- Kiểm tra lại môi trường chạy project. | 08/10/2026 | 08/10/2026 | Slide nhóm |
+| 5 | - Tham gia buổi báo cáo và trình diễn sản phẩm.<br>- Tiếp nhận góp ý và phản hồi.<br>- Ghi nhận các nội dung cần cải thiện. | 09/10/2026 | 09/10/2026 | Buổi báo cáo |
+| 6 | - Tổng kết quá trình tham gia First Cloud AI Journey.<br>- Đánh giá kết quả đạt được.<br>- Lưu trữ tài liệu và source code của project. | 10/10/2026 | 10/10/2026 | Tài liệu nhóm |
 
-### Kết quả đạt được tuần 12:
+## Kết quả đạt được tuần 12
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Sau 12 tuần tham gia chương trình First Cloud AI Journey, đã hoàn thành các mục tiêu đề ra và tích lũy thêm nhiều kiến thức cũng như kinh nghiệm trong quá trình học tập và thực hiện dự án.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+Một số kết quả đạt được gồm:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Hoàn thiện báo cáo, worklog và các tài liệu kỹ thuật của project.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Hoàn thiện slide thuyết trình và chuẩn bị đầy đủ nội dung cho buổi báo cáo.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Trình bày và demo thành công các chức năng chính của hệ thống.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Tổng hợp và hệ thống hóa các kiến thức đã học về:
+  - AWS Core Services.
+  - Docker và Docker Compose.
+  - Amazon EC2.
+  - Amazon S3.
+  - Amazon DynamoDB.
+  - AWS Lambda.
+  - Amazon API Gateway.
+  - Amazon SageMaker.
+  - Quy trình triển khai ứng dụng trên AWS.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Nâng cao kỹ năng làm việc nhóm thông qua việc phân công công việc, trao đổi tiến độ và phối hợp phát triển dự án.
 
+- Rèn luyện kỹ năng đọc tài liệu kỹ thuật, tìm hiểu công nghệ mới và giải quyết các vấn đề phát sinh trong quá trình triển khai hệ thống.
 
+- Hoàn thành project theo kế hoạch và có thêm kinh nghiệm thực tế trong việc xây dựng, triển khai và quản lý một ứng dụng sử dụng các dịch vụ của AWS.
+
+- Hoàn thành chương trình First Cloud AI Journey với nền tảng kiến thức vững chắc để tiếp tục nghiên cứu và phát triển các dự án Cloud và AI trong tương lai.

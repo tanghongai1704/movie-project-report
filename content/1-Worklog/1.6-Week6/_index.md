@@ -1,57 +1,51 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-07-06
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice tip %}}
+The sixth week focused on learning AWS services for building serverless applications, including AWS Lambda and Amazon API Gateway. Hands-on practice was also conducted to build a simple API and understand how these services work together.
 {{% /notice %}}
 
+## Week 6 Objectives
 
-### Week 6 Objectives:
+- Learn about the Serverless model on AWS.
+- Understand how AWS Lambda works.
+- Learn about Amazon API Gateway and how to build REST APIs.
+- Practice creating Lambda Functions and integrating them with API Gateway.
+- Prepare the knowledge required to integrate AWS services into the project.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## Weekly Tasks
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Mon | - Learn about the Serverless model.<br>- Explore AWS Lambda and its common use cases.<br>- Create the first Lambda Function. | 25/08/2026 | 25/08/2026 | https://docs.aws.amazon.com/lambda/ |
+| Tue | - Practice writing Lambda Functions using Python.<br>- Configure Triggers and test execution results.<br>- Monitor logs using Amazon CloudWatch. | 26/08/2026 | 26/08/2026 | https://docs.aws.amazon.com/lambda/latest/dg/ |
+| Wed | - Learn about Amazon API Gateway.<br>- Explore REST API and HTTP API.<br>- Create a simple API integrated with Lambda. | 27/08/2026 | 27/08/2026 | https://docs.aws.amazon.com/apigateway/ |
+| Thu | - Practice calling APIs using Postman or a web browser.<br>- Verify responses from Lambda.<br>- Adjust configurations when necessary. | 28/08/2026 | 28/08/2026 | AWS Documentation |
+| Fri | - Review Lambda and API Gateway concepts.<br>- Explore integration capabilities with other AWS services such as S3 and DynamoDB.<br>- Prepare knowledge for applying these services to the project. | 29/08/2026 | 29/08/2026 | AWS Documentation |
 
+## Week 6 Outcomes
 
-### Week 6 Achievements:
+By the end of the sixth week, a fundamental understanding of building a basic serverless application on AWS was achieved.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+The key achievements include:
 
-* Successfully created and configured an AWS Free Tier account.
+- Understood the concept of Serverless and the benefits of this model in application development.
+- Understood the role of AWS Lambda in processing event-driven tasks.
+- Successfully created and deployed Lambda Functions using Python.
+- Tested Lambda Functions and monitored execution results through Amazon CloudWatch Logs.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Understood the role of Amazon API Gateway in providing APIs for applications.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Practiced:
+  - Creating REST APIs.
+  - Connecting API Gateway with AWS Lambda.
+  - Sending requests and receiving responses through APIs.
 
-* Used AWS CLI to perform basic operations such as:
+- Became familiar with the process of building APIs without managing servers.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Understood the integration capabilities between Lambda, API Gateway, and other AWS services, providing the foundation for developing project features in the following weeks.

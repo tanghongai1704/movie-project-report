@@ -1,59 +1,53 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+date: 2026-07-27
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice tip %}}
+Tuần thứ chín tập trung hoàn thiện các chức năng chính của project, tích hợp Machine Learning vào hệ thống và kiểm thử luồng hoạt động giữa frontend, backend và các dịch vụ AWS.
 {{% /notice %}}
 
+## Mục tiêu tuần 9
 
-### Mục tiêu tuần 9:
+- Hoàn thiện các chức năng chính của project.
+- Tích hợp mô hình Machine Learning vào backend.
+- Kiểm thử luồng dữ liệu giữa các thành phần của hệ thống.
+- Hoàn thiện các API phục vụ frontend.
+- Khắc phục các lỗi phát sinh trong quá trình tích hợp.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+## Các công việc triển khai trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Hoàn thiện các API còn thiếu.<br>- Chuẩn hóa dữ liệu trả về cho frontend.<br>- Kiểm tra khả năng xử lý lỗi của API. | 15/09/2026 | 15/09/2026 | FastAPI Documentation |
+| 3 | - Tích hợp Machine Learning vào backend.<br>- Thử nghiệm gọi mô hình từ ứng dụng.<br>- Kiểm tra kết quả trả về. | 16/09/2026 | 16/09/2026 | AWS SageMaker Documentation |
+| 4 | - Hoàn thiện các chức năng giao diện.<br>- Hiển thị dữ liệu từ API.<br>- Kiểm tra trải nghiệm người dùng. | 17/09/2026 | 17/09/2026 | React Documentation |
+| 5 | - Kiểm thử toàn bộ luồng hoạt động của hệ thống.<br>- Kiểm tra các trường hợp lỗi.<br>- Điều chỉnh một số chức năng chưa phù hợp. | 18/09/2026 | 18/09/2026 | Tài liệu nhóm |
+| 6 | - Họp nhóm đánh giá tiến độ.<br>- Tổng hợp các lỗi còn tồn tại.<br>- Lập kế hoạch hoàn thiện project. | 19/09/2026 | 19/09/2026 | Tài liệu nhóm |
 
+## Kết quả đạt được tuần 9
 
-### Kết quả đạt được tuần 9:
+Sau tuần thứ chín, các thành phần chính của project đã được tích hợp và có thể hoạt động cùng nhau.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Một số kết quả đạt được gồm:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Hoàn thiện các API phục vụ các chức năng chính của hệ thống.
+- Chuẩn hóa dữ liệu trao đổi giữa frontend và backend.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Tích hợp mô hình Machine Learning vào backend để phục vụ chức năng dự đoán hoặc gợi ý.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Kiểm tra thành công luồng dữ liệu giữa:
+  - Frontend.
+  - Backend.
+  - Amazon S3.
+  - Amazon DynamoDB.
+  - Amazon SageMaker (hoặc mô hình thử nghiệm).
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Hoàn thiện giao diện cho các chức năng chính và kết nối thành công với API.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Thực hiện kiểm thử hệ thống, phát hiện và khắc phục một số lỗi liên quan đến xử lý dữ liệu và kết nối giữa các thành phần.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+- Hoàn thiện phiên bản hoạt động đầu tiên của project, sẵn sàng cho quá trình tối ưu và triển khai trong các tuần tiếp theo.

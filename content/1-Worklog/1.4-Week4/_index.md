@@ -1,57 +1,57 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-22
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice tip %}}
+The fourth week focused on learning about Docker and how to deploy applications using containers. Hands-on practice was also conducted to build an application runtime environment with Docker Compose, preparing for project deployment on AWS in the following weeks.
 {{% /notice %}}
 
+## Week 4 Objectives
 
-### Week 4 Objectives:
+- Understand the concepts of Containers and Docker.
+- Differentiate between Virtual Machines and Containers.
+- Become familiar with Docker Images, Docker Containers, and Dockerfiles.
+- Practice using Docker Compose to run multiple services.
+- Prepare the application deployment environment.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## Weekly Tasks
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Mon | - Learn about Docker and Containers.<br>- Compare Docker with Virtual Machines.<br>- Install Docker Desktop. | 11/08/2026 | 11/08/2026 | https://docs.docker.com/get-started/ |
+| Tue | - Learn about Docker Images, Containers, and Docker Hub.<br>- Practice running existing Images using Docker. | 12/08/2026 | 12/08/2026 | https://docs.docker.com/ |
+| Wed | - Learn about Dockerfiles.<br>- Practice building Images from Dockerfiles.<br>- Run applications using Docker Containers. | 13/08/2026 | 13/08/2026 | https://docs.docker.com/engine/reference/builder/ |
+| Thu | - Learn about Docker Compose.<br>- Write a simple `docker-compose.yml` file.<br>- Practice running multiple containers simultaneously. | 14/08/2026 | 14/08/2026 | https://docs.docker.com/compose/ |
+| Fri | - Review Docker concepts.<br>- Practice containerizing a sample application using Docker and Docker Compose.<br>- Verify the application runtime environment. | 15/08/2026 | 15/08/2026 | Docker Documentation |
 
+## Week 4 Outcomes
 
-### Week 4 Achievements:
+By the end of the fourth week, a fundamental understanding of Docker was achieved, and the ability to use containers for application deployment was developed.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+The key achievements include:
 
-* Successfully created and configured an AWS Free Tier account.
+- Understood the differences between Virtual Machines and Containers.
+- Understood the role of Docker in the software development and deployment process.
+- Learned the fundamental components:
+  - Docker Image.
+  - Docker Container.
+  - Docker Registry.
+  - Docker Hub.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Successfully installed and used Docker Desktop.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Performed basic Docker operations:
+  - Download Images from Docker Hub.
+  - Create and run Containers.
+  - Stop, restart, and remove Containers.
+  - View Container logs.
 
-* Used AWS CLI to perform basic operations such as:
+- Created simple Dockerfiles to package applications.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Practiced using Docker Compose to manage multiple services within the same environment.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Understood the application containerization workflow using Docker, providing the foundation for deploying projects to servers and cloud environments in the following weeks.
