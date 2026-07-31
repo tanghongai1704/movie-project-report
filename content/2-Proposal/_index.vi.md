@@ -1,6 +1,6 @@
 ---
 title: "Bản đề xuất"
-date: 2026--01
+date: 2026-07-30
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -12,7 +12,7 @@ pre: " <b> 2. </b> "
 ### 1. Tóm tắt điều hành
 Movie Recommendation System là một hệ thống gợi ý phim dựa trên dữ liệu người dùng, nhằm cung cấp trải nghiệm cá nhân hóa cho người dùng. Hệ thống sử dụng kết hợp Content-Base Filtering và Collaborative Filtering.
 
-Duy trì các máy chủ Machine Learning chạy tính toán theo thời gian thực cực kỳ tốn kém. Để giải quyết vấn đề trên, toàn bộ quá trình huấn luyện mô hình, chấm điểm phim sẽ được xử lý ngầm định kỳ qua các SageMaker Processing Job và EC2. Kết quả được lưu trữ trên Amazon S3 và Amazon DynamoDB. Backend FastAPI chỉ việc nạp dữ liệu này vào bộ nhớ lúc khởi động để phục vụ người dùng tức thì.
+Dự án được triển khai toàn diện trên AWS với kiến trúc Real-time Inference. Quá trình huấn luyện mô hình được xử lý ngầm định kỳ qua SageMaker Processing Jobs. Trong khi đó, việc đưa ra kết quả gợi ý tức thì được đảm nhiệm bởi SageMaker Endpoints hoạt động 24/7. Toàn bộ hệ thống được kết nối qua Backend FastAPI cùng cơ sở dữ liệu Amazon S3 và DynamoDB, đảm bảo khả năng phản hồi mượt mà và xuyên suốt cho người dùng.
 
 ### 2. Tuyên bố vấn đề
 _Vấn đề hiện tại_
@@ -30,19 +30,30 @@ Do đó, các dịch vụ xem phim cần một hệ thống gợi ý thông minh
 
 _Giải pháp_
 
-Hệ thống sử dụng các thuật toán Machine Learning để thu thập, phân tích vết hành vi của người dùng, từ đó tìm ra các mẫu ẩn về sở thích và sự tương đồng giữa các nội dung. Nhằm đảm bảo khả năng mở rộng khi lượng người dùng và dữ liệu tăng cao, hệ thống không thể chỉ chạy trên một máy chủ cục bộ mà cần tận dụng sức mạnh của hạ tầng điện toán đám mây. Bằng cách kết hợp các dịch vụ của AWS, hệ thống có thể lưu trữ lượng lớn dữ liệu tương tác, lên lịch huấn luyện mô hình định kỳ, và phân phối kết quả gợi ý đến ứng dụng web với tốc độ cao.
+Để giải quyết vấn đề trên, nền tảng cần chuyển dịch từ mô hình **cung cấp nội dung thụ động** sang **gợi ý nội dung chủ động**. Hệ thống đề xuất sử dụng các thuật toán Machine Learning để khai phá dữ liệu hành vi ngầm, từ đó mô hình hóa tính cách người xem và phát hiện các mẫu tương đồng giữa hàng ngàn bộ phim. Nhằm đảm bảo hệ thống vận hành tốt và có khả năng mở rộng khi lượng dữ liệu tương tác tăng vọt, giải pháp bắt buộc phải khai thác dịch vụ điện toán đám mây. Bằng việc kết hợp các dịch vụ hạ tầng AWS, dự án thiết lập một luồng dữ liệu hoàn chỉnh: từ thu thập tương tác, lên lịch huấn luyện mô hình định kỳ, đến phân phối kết quả cá nhân hóa với độ trễ cực thấp. 
 
 ### 3. Kiến trúc giải pháp
 
+![Kiến trúc tổng thể](/images/2-Proposal/diagram.png)
+
 _Dịch vụ AWS sử dụng_
 
-- **Amazon SageMaker**: Để huấn luyện và triển khai mô hình Machine Learning.
-- **Amazon EC2**: Để chạy các tác vụ xử lý dữ liệu và tính toán.
-- **Amazon S3**: Để lưu trữ dữ liệu lớn và kết quả mô hình.
-- **Amazon DynamoDB**: Để lưu trữ dữ liệu cấu trúc với độ trễ thấp.
+- Amazon VPC & Internet Gateway: Cung cấp mạng ảo dùng riêng và cổng giao tiếp an toàn, định tuyến luồng yêu cầu từ người dùng vào hệ thống.
+- Amazon EC2: Chạy ứng dụng web (Vite + FastAPI) và phục vụ API trực tiếp.
+- Amazon DynamoDB: Lưu trữ metadata phim và lịch sử tương tác người dùng theo thời gian thực.
+- Amazon S3: Lưu trữ dữ liệu thô và kết quả mô hình đã huấn luyện.
+- Amazon SageMaker: Trung tâm xử lý Machine Learning của hệ thống, bao gồm hai thành phần:
+  - **SageMaker Processing Job:** Chạy định kỳ để huấn luyện mô hình gợi ý dựa trên dữ liệu tương tác.
+  - **SageMaker Endpoint:** Máy chủ dự đoán duy trì 24/7, luôn tải sẵn phiên bản mô hình mới nhất để phục vụ tính toán theo thời gian thực.
+- AWS IAM & CloudWatch: Quản lý quyền truy cập phân luồng và giám sát log hệ thống.
 
 _Thiết kế thành phần_
- 
+- Tầng Giao diện: Chịu trách nhiệm hiển thị giao diện người dùng, danh mục phim và trực tiếp thu thập các sự kiện tương tác. (click, rate, watch).
+- Tầng Ứng dụng: Điều phối trung tâm: tiếp nhận request từ Frontend, truy xuất dữ liệu từ Database và gọi API sang hệ thống Machine Learning.
+- Tầng Dữ liệu: Phân tách thành hai luồng lưu trữ chuyên biệt:
+    - Dữ liệu nóng: Quản lý bởi DynamoDB, xử lý các truy vấn cần tốc độ cao như cập nhật lịch sử người dùng và thông tin chi tiết phim.
+    - Dữ liệu lưu trữ: Quản lý bởi S3, dùng làm kho chứa an toàn cho các tập dữ liệu thô khổng lồ và lưu trữ các phiên bản tệp trọng số. (Model Artifacts).
+- Tầng Học máy: Hoạt động độc lập trên Amazon SageMaker với hai tác vụ riêng biệt là huấn luyện lại mô hình và phục vụ dự đoán thời gian thực.
 
 ### 4. Triển khai kỹ thuật
 _Các giai đoạn triển khai_
@@ -69,7 +80,7 @@ Dự án gồm 2 phần được triển khai song song: xây dựng Web xem phi
         - Phát triển mô hình cốt lõi **Collaborative Filtering**, chuyển đổi các sự kiện tương tác thành điểm trọng số.
         - Tích hợp mô hình vào SageMaker Endpoint để phục vụ dự đoán gợi ý phim.
 
-4. **Tích hợp hệ thống và Triển khai Cloud:** Nối Backend với mô hình Machine Learning, đảm bảo hệ thống tuân thủ kiến trúc Batch-First trên hạ tầng AWS.
+4. **Tích hợp hệ thống và Triển khai Cloud:** Xây dựng API POST trên Backend để định tuyến yêu cầu. Đóng gói mô hình AI và triển khai lên SageMaker Endpoint để phục vụ dự đoán thời gian thực. Thiết lập tự động hóa quy trình re-train mô hình định kỳ.
     - _Phần Web:_
         - Tích hợp mô hình Machine Learning vào tiến trình Backend. Xây dựng API POST để định tuyến yêu cầu từ Frontend xuống mô hình.
     - _Phần Machine Learning:_
@@ -94,28 +105,30 @@ _Yêu cầu kỹ thuật_
 - _Sau triển khai:_ Theo dõi hiệu suất, tối ưu hóa mô hình và mở rộng tính năng.
 
 ### 6. Ước tính ngân sách
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=f696e1b79bc7b7f905e25226ff5b9f3b0011c562)
+Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=26e628729fcf910d969fbf894cec6b86db18ad4c)
 
 _Chi phí hạ tầng_
 
 - Amazon EC2: 3,87 USD/tháng (1 t3.micro, 730 giờ, 30 GB storage).
-- Amazon SageMaker: 1,41 USD/tháng (1 ml.m5.xlarge, 30 jobs, 10 phút/job).
+- Amazon SageMaker: 
+    - Processing Jobs: 1,41 USD/tháng (1 ml.m5.xlarge, 30 jobs, 10 phút/job).
+    - Endpoints: 85,56 USD/tháng (1 ml.m5.xlarge, 730 giờ).
 - Amazon DynamoDB: 0,37 USD/tháng (On-demand, 1 GB storage, 100.000 requests).
 - Amazon S3 Standard: 0,13 USD/tháng (5 GB storage, 2000 requests).
 
-_Tổng:_ 5,78 USD/tháng, 69,36 USD/12 tháng.
+_Tổng:_ 91.34 USD/tháng, 1,096.08 USD/12 tháng.
 
 ### 7. Đánh giá rủi ro
 
 _Ma trận rủi ro_
 
-- **Bùng nổ chi phí Cloud - Ảnh hưởng cao, Xác suất trung bình:** Khởi tạo nhầm SageMaker Real-time Endpoint, quên tắt máy chủ EC2 sau khi huấn luyện, hoặc không cấu hình vòng đời cho Amazon S3 khiến các phiên bản dữ liệu cũ tích tụ vĩnh viễn gây tốn phí lưu trữ ngầm.
-- **Suy giảm chất lượng mô hình - Ảnh hưởng cao, Xác suất khá:** Quy trình tự động huấn luyện chạy trên tập dữ liệu tương tác bị nhiễu hoặc không đủ số lượng, sinh ra mô hình kém chất lượng và tự động ghi đè mô hình đang chạy tốt.
-- **Sai lệch dữ liệu nội bộ - Ảnh hưởng cao, Xác suất thấp:** Các tệp ánh xạ chỉ mục không khớp với ma trận mô hình sẽ khiến hệ thống gợi ý sai phim hoàn toàn nhưng không hề phát cảnh báo lỗilỗi.
+- **Bùng nổ chi phí Cloud - Ảnh hưởng cao, Xác suất trung bình:** Cấu hình máy chủ dự đoán ml.m5.large chạy 24/7 vượt quá lưu lượng cần thiết, hoặc không cấu hình vòng đời cho Amazon S3 khiến các tệp trọng số cũ tích tụ vĩnh viễn gây tốn phí lưu trữ ngầm.
+- **Suy giảm chất lượng mô hình - Ảnh hưởng cao, Xác suất khá:** Quy trình Processing Jobs định kỳ chạy trên tập dữ liệu tương tác bị nhiễu, sinh ra mô hình kém chất lượng và tự động ghi đè lên Endpoint đang hoạt động tốt.
+- **Sai lệch dữ liệu nội bộ - Ảnh hưởng cao, Xác suất thấp:** Các tệp ánh xạ chỉ mục không khớp với ma trận mô hình sẽ khiến hệ thống trả về sai ID phim, gây lỗi hiển thị trên giao diện người dùng.
 
 _Chiến lược giảm thiểu_
 
-- **Hàng rào ngân sách và Tự động hóa dọn dẹp:** Không cấp quyền chạy Endpoint thời gian thực. Cài đặt AWS Budgets để gửi email cảnh báo khi chi phí đạt mức 50% và 80%. Áp dụng bắt buộc chính sách S3 Lifecycle Rule để tự động xóa các phiên bản file cũ sau 30 ngày.
+- **Hàng rào ngân sách và Tối ưu tài nguyên:** Cài đặt AWS Budgets để gửi cảnh báo tự động khi chi phí đạt mức 50% và 75% ngân sách tháng. Áp dụng chính sách S3 Lifecycle Rule để tự động xóa các phiên bản mô hình cũ sau 30 ngày.
 - **Cổng kiểm duyệt tự động:** Mô hình mới chỉ được phép đưa vào sử dụng khi thỏa mãn 3 điều kiện:
     - Số lượng người dùng được chấm điểm trên 1000.
     - Chỉ số hiệu suất vượt qua mức cơ sở Popularity Baseline.
@@ -124,15 +137,16 @@ _Chiến lược giảm thiểu_
 
 _Kế hoạch dự phòng_
 
-- **Cơ chế Fallback an toàn:** Nếu luồng người dùng mới không đủ dữ liệu hoặc mô hình Machine Learning gặp sự cố không thể nạp, Backend sẽ tự động lùi về kịch bản an toàn nhất: Gợi ý các bộ phim phổ biến Top-Rated đọc trực tiếp từ DynamoDB để đảm bảo hệ thống không bao giờ gặp lỗi sập trang.
-- **Quay lui mô hình - Rollback:** Khi phát hiện gợi ý kém chất lượng trên môi trường thực tế, quản trị viên chỉ cần cập nhật trên S3 trỏ về phiên bản mô hình cũ và khởi động lại Backend, hệ thống sẽ tự phục hồi ngay lập tức.
+- **Cơ chế Fallback an toàn:** Nếu Endpoint bị quá tải hoặc luồng người dùng mới chưa đủ dữ liệu tính toán, Backend sẽ tự động lùi về kịch bản an toàn: Gợi ý các bộ phim phổ biến Top-Rated đọc trực tiếp từ DynamoDB để đảm bảo trải nghiệm liền mạch.
+- **Quay lui mô hình - Rollback:** Khi phát hiện mô hình mới gợi ý thiếu chính xác, quản trị viên có thể cập nhật cấu hình SageMaker Endpoint trỏ về tệp trọng số cũ. Endpoint sẽ tự động tải lại mô hình ổn định mà không cần khởi động lại toàn bộ hệ thống Backend.
 
 ### 8. Kết quả kỳ vọng
 _Cải tiến kỹ thuật:_ 
 
-- Xây dựng thành công kiến trúc xử lý hàng loạt **Batch-first** kết hợp với Backend nạp dữ liệu trên RAM, giúp loại bỏ hoàn toàn độ trễ khi dự đoán so với các hệ thống gọi API mô hình thông thường.
-- Hệ thống có khả năng tự động cập nhật độ ưu tiên của người dùng bằng cách bắt các tương tác ngầm (thời lượng xem, lượt chia sẻ, thích/không thích) và học hỏi thông qua vòng lặp phản hồi định kỳ.
+- Triển khai thành công kiến trúc Real-time Inference với SageMaker Endpoint hoạt động 24/7, cung cấp khả năng cá nhân hóa tức thì và loại bỏ hoàn toàn độ trễ khởi động.
+- Hệ thống có khả năng phản ứng ngay lập tức với sự thay đổi trong sở thích của người dùng bằng cách bắt các tương tác ngầm (thời lượng xem, lượt chia sẻ, thích/không thích) và truyền trực tiếp vào máy chủ dự đoán.
 
 _Giá trị dài hạn:_ 
 
-- Tạo ra một nền tảng kiến trúc vững chắc, tối ưu chi phí hạ tầng AWS. Giải pháp định tuyến người dùng và xử lý dữ liệu ẩn có thể tái sử dụng cho các dự án thương mại điện tử, giáo dục trực tuyến hoặc các nền tảng nội dung quy mô lớn khác trong tương lai.
+- Xây dựng thành công nền tảng kiến trúc vững chắc, đạt tiêu chuẩn vận hành thực tế trên hệ sinh thái AWS.
+- Mở ra khả năng tái sử dụng linh hoạt toàn bộ luồng thu thập dữ liệu và suy luận thời gian thực cho các dự án thương mại điện tử, giáo dục trực tuyến hoặc các nền tảng nội dung quy mô lớn khác trong tương lai.
