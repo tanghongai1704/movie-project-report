@@ -35,27 +35,6 @@ Repository không chứa Terraform, CloudFormation, CDK hoặc công cụ Infras
 | RecommendationCache | `<ENV_PREFIX>-RecommendationCache` | `user_id` (String) | `scenario` (String) |
 
 
-<!-- IMAGE-5.3.1-DDB-01: Màn hình Create table thể hiện tên bảng, partition key, sort key và capacity mode. -->
-
-### 1.3. Bật TTL cho RecommendationCache
-
-1. Mở bảng `<ENV_PREFIX>-RecommendationCache`.
-2. Chọn tab **Additional settings**.
-3. Tại **Time to Live (TTL)**, chọn **Turn on**.
-4. Nhập chính xác attribute name `expire_at` vì tên TTL phân biệt chữ hoa/chữ thường.
-5. Xác nhận trạng thái TTL chuyển sang `Enabled`.
-
-### 1.4. Bật point-in-time recovery
-
-1. Mở từng bảng cần bảo vệ → tab **Backups**.
-2. Tại **Point-in-time recovery (PITR)**, chọn **Edit**.
-3. Bật PITR và chọn retention phù hợp từ 1 đến 35 ngày.
-4. Chọn **Save changes**.
-
-PITR phát sinh chi phí. Với lab có thể chỉ bật cho `Users`, `UserInteractions` và `RecommendationCache`; production phải tuân theo retention policy đã được phê duyệt.
-
-<!-- IMAGE-5.3.1-DDB-02: TTL expire_at ở trạng thái Enabled và cấu hình PITR của bảng. -->
-
 ## 2. Kiểm tra năm bảng DynamoDB
 
 Với từng tên bảng được cung cấp qua kênh bảo mật, chạy:
@@ -82,21 +61,7 @@ Tất cả bảng phải ở trạng thái `ACTIVE`.
 
 *Năm bảng DynamoDB cùng partition key, sort key và trạng thái Active.*
 
-## 3. Kiểm tra thuộc tính bổ sung
-
-Thiết kế hiện tại không sử dụng GSI. `RecommendationCache` có field `expire_at`, nhưng source code không chứng minh TTL đã được bật trên tài nguyên thật.
-
-Các thuộc tính cần xác nhận ngoài source:
-
-- TTL dùng attribute `expire_at`.
-- Billing mode/capacity.
-- Point-in-time recovery.
-- Encryption.
-- Tags và ownership.
-
-Nếu chưa có bằng chứng từ AWS Console hoặc CLI, hãy ghi trạng thái là **chưa xác nhận**, không suy đoán.
-
-## 4. Tạo S3 bucket bằng AWS Console
+## 3. Tạo S3 bucket bằng AWS Console
 
 1. Mở **Amazon S3** → **General purpose buckets** → **Create bucket**.
 2. Chọn **General purpose**, nhập `<S3_BUCKET_NAME>` duy nhất toàn cục và chọn đúng `<AWS_REGION>`.
@@ -108,15 +73,7 @@ Nếu chưa có bằng chứng từ AWS Console hoặc CLI, hãy ghi trạng th�
 8. Chọn **Create bucket**.
 9. Mở bucket vừa tạo → **Create folder** để tạo các prefix logic: `raw/`, `processed/`, `training/`, `inference/`, `models/`, `evaluation/` và `interaction-exports/`.
 
-{{% notice note %}}
-“Folder” trên S3 chỉ là prefix của object key. Backend không đọc toàn bộ dataset trực tiếp từ S3 trong request-time path.
-{{% /notice %}}
-
-<!-- IMAGE-5.3.1-S3-01: Màn hình Create bucket với Region, Block Public Access, Versioning và Default encryption. -->
-
-<!-- IMAGE-5.3.1-S3-02: Các prefix logic trong S3 bucket sau khi tạo. -->
-
-## 5. Kiểm tra S3 bucket
+## 4. Kiểm tra S3 bucket
 
 ![S3 bucket của hệ thống gợi ý phim](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket.png)
 
@@ -140,7 +97,7 @@ aws s3api get-bucket-versioning \
   --bucket "<S3_BUCKET_NAME>"
 ```
 
-Bucket phải tồn tại, có Block Public Access và encryption phù hợp. Đối với bucket được khảo sát, Block Public Access đang bật, mã hóa mặc định là SSE-S3 và versioning đang ở trạng thái `Enabled`. Source code ứng dụng không tự provision các thiết lập này; lifecycle vẫn cần được kiểm tra riêng nếu được áp dụng.
+Bucket phải tồn tại, có Block Public Access và encryption phù hợp. Đối với bucket hiện tại, Block Public Access đang bật, mã hóa mặc định là SSE-S3 và versioning đang ở trạng thái `Enabled`. Source code ứng dụng không tự provision các thiết lập này; lifecycle vẫn cần được kiểm tra riêng nếu được áp dụng.
 
 ![Thiết lập Block Public Access của S3 bucket](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-block-public-access.png)
 
@@ -176,16 +133,3 @@ Nếu thiếu bảng hoặc bucket:
 1. Dừng bước triển khai.
 2. Ghi lại region, key schema, billing mode, TTL, encryption, lifecycle và IAM owner cần thiết.
 3. Yêu cầu platform/security team cung cấp tài nguyên hoặc IaC đã được review.
-
-**Tài liệu AWS chính thức:** [Tạo DynamoDB table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html), [bật TTL](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-how-to.html), [bật PITR](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery_Howitworks.html) và [tạo S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
-
-<!-- ## Tiêu chí hoàn tất
-
-- [ ] Năm bảng đều `ACTIVE`.
-- [ ] Key schema khớp hoàn toàn.
-- [ ] S3 bucket có thể truy cập.
-- [ ] Block Public Access và encryption đã được cấu hình.
-- [ ] TTL `expire_at` được ghi là đã xác nhận hoặc chưa xác nhận.
-- [ ] Không tài nguyên nào bị tạo hoặc thay đổi trong bước kiểm tra.
-
-**Nguồn đối chiếu:** `backend/app/aws/infrastructure.py`, `docs/aws/dynamodb.md` và `docs/aws/aws-setup.md`. -->

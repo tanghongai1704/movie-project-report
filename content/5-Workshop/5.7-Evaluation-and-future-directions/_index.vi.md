@@ -70,6 +70,3 @@ Phần này tổng hợp mức độ hoàn thiện của workshop hệ thống g
 - **Pipeline:** tỷ lệ job thành công, thời gian train, thời gian promotion và độ mới của model.
 - **Chi phí và bảo mật:** chi phí theo request hoặc người dùng, tài nguyên nhàn rỗi, phát hiện IAM và số sự kiện truy cập bất thường.
 
-{{% notice note %}}
-Mỗi cải tiến chỉ nên được đánh dấu hoàn tất khi có owner, tiêu chí pass/fail, bằng chứng kiểm thử và kế hoạch rollback tương ứng.
-{{% /notice %}}

@@ -200,6 +200,9 @@ Nếu chưa có resource kiểm thử được phê duyệt, giữ negative test
 
 SageMaker tự tạo log group/stream cho Processing Job và Endpoint khi execution role có quyền. Không đổi tên các log group do service quản lý; dùng tag, dashboard và alarm để tập trung quan sát.
 
+![Các CloudWatch log group của SageMaker Endpoint và Processing Jobs](/images/5-Workshop/5.5-IAM-security/cloudwatch-sagemaker-log-groups.png)
+
+
 ### 10.2. Cài CloudWatch Agent trên EC2
 
 1. Xác nhận EC2 instance profile có `CloudWatchAgentServerPolicy` hoặc policy tối thiểu tương đương.
@@ -260,25 +263,12 @@ Các threshold trên chỉ là điểm bắt đầu cho workshop, không phải 
 8. Với workshop đầu tiên, không bật automatic budget action làm dừng/xóa tài nguyên khi chưa có runbook và phê duyệt.
 9. Review → **Create budget** và kiểm tra trạng thái notification.
 
+![AWS Budget theo dõi chi phí của workshop](/images/5-Workshop/5.5-IAM-security/aws-budget-overview.png)
+
+*Billing and Cost Management xác nhận budget `My-200$-budget` có hạn mức 200 USD, threshold ở trạng thái `OK` và health status `Healthy`..*
+
 {{% notice warning %}}
-AWS Budgets là cơ chế theo dõi và cảnh báo, không phải hard spending cap. Chi phí có thể tiếp tục tăng trước hoặc sau khi notification được gửi.
+AWS Budgets là cơ chế theo dõi và cảnh báo, không phải giới hạn chi tiêu. Chi phí có thể tiếp tục tăng trước hoặc sau khi thông báo được gửi.
 {{% /notice %}}
 
 <!-- IMAGE-5.5-BUDGETS-01: Monthly cost budget với amount, scope và ba alert thresholds. -->
-
-## 12. Checklist
-
-- [ ] Các thao tác hợp lệ thành công.
-- [ ] Thao tác ngoài phạm vi bị từ chối.
-- [ ] Policy không chứa wildcard rộng.
-- [ ] Report và log không chứa secret.
-- [ ] EC2 sử dụng instance profile.
-- [ ] SageMaker execution role tin cậy đúng service principal.
-- [ ] Tên role, trust policy và resource ARN đã được security owner xác nhận.
-- [ ] CloudWatch Agent gửi metric/log và log groups có retention.
-- [ ] Alarm quan trọng có notification recipient đã xác nhận.
-- [ ] Monthly cost budget và các threshold cảnh báo đã được tạo.
-
-**Tài liệu AWS chính thức:** [tạo IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html), [tạo IAM group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_create.html), [SageMaker execution roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html), [cài CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html), [kích hoạt IAM access cho Billing](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html) và [tạo cost budget](https://docs.aws.amazon.com/cost-management/latest/userguide/create-cost-budget.html).
-
-**Nguồn đối chiếu:** `backend/app/aws/infrastructure.py`, `docs/aws/aws-setup.md`, security module và authentication middleware.

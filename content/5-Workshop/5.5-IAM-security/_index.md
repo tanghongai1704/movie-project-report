@@ -71,9 +71,7 @@ aws sagemaker describe-endpoint \
 
 Pass criteria: all three authorized operations complete successfully.
 
-{{% notice note %}}
-`sts:GetCallerIdentity` exhibits special permission behavior and is insufficient by itself to prove that a principal possesses rights to access DynamoDB, S3, or SageMaker resources.
-{{% /notice %}}
+
 
 <!-- IMAGE-5.5-01: IAM role policy restricted to specific resource ARNs with sensitive identifiers redacted. -->
 
@@ -93,18 +91,4 @@ Expected result: `AccessDeniedException`.
 
 <!-- IMAGE-5.5-02: AccessDeniedException console response when accessing an out-of-scope test resource. -->
 
-{{% notice warning %}}
-If an approved out-of-scope test resource is unavailable, maintain the negative test status as incomplete. Never select random production resources to test access permissions.
-{{% /notice %}}
 
-## Checklist
-
-- [ ] Authorized operations complete successfully.
-- [ ] Out-of-scope operations are rejected with `AccessDeniedException`.
-- [ ] Policies contain zero broad wildcard rules.
-- [ ] Reports and logs contain zero hard-coded secrets.
-- [ ] EC2 utilizes IAM instance profiles.
-- [ ] SageMaker execution role trusts only the appropriate service principal.
-- [ ] Role names, trust policies, and resource ARNs are confirmed by security owners.
-
-**Reference Sources:** `backend/app/aws/infrastructure.py`, `docs/aws/aws-setup.md`, security modules, and authentication middleware.

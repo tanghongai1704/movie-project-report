@@ -45,11 +45,6 @@ Thực hiện theo thứ tự:
 8. Detach managed/inline policy trước khi xóa IAM role.
 9. Kiểm tra Billing, Cost Explorer và resource inventory.
 
-## Vì sao không có lệnh xóa cụ thể?
-
-{{% notice warning %}}
-Repository không có cleanup script hoặc IaC phù hợp với kiến trúc hiện tại. Tự tạo delete command có thể xóa nhầm bucket hoặc table dùng chung. Vì vậy phần này chỉ cung cấp lệnh kiểm kê read-only; resource owner phải cung cấp runbook và exact target đã được phê duyệt.
-{{% /notice %}}
 
 ## Dữ liệu có thể mất vĩnh viễn
 
@@ -84,20 +79,3 @@ aws s3api list-objects-v2 \
   --bucket "<S3_BUCKET_NAME>" \
   --max-items 10
 ```
-
-<!-- IMAGE-5.6-01: Kiểm kê tài nguyên sau cleanup, đã che account ID và ARN. -->
-
-{{% notice warning %}}
-Không dùng bucket hoặc table name từ `.env.example` làm cleanup target. Phải xác nhận account, region, ARN, owner, retention và shared-resource classification trước mọi thao tác xóa.
-{{% /notice %}}
-
-## Checklist sau cleanup
-
-- [ ] Không còn endpoint, EC2 hoặc Processing Job ngoài danh sách cần giữ.
-- [ ] Test data và artifact chỉ bị xóa sau retention approval.
-- [ ] Đã kiểm tra S3 version, không chỉ current object.
-- [ ] IAM role chỉ được gỡ sau khi không còn resource tham chiếu.
-- [ ] Billing và resource inventory đã được kiểm tra lại.
-- [ ] Không cleanup command nào được chạy tự động từ report.
-
-**Khoảng trống cần bổ sung:** cleanup script đã được review, retention policy, backup plan, resource ownership, shared-resource classification và billing verification procedure.

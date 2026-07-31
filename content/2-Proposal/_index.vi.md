@@ -46,6 +46,7 @@ _Dịch vụ AWS sử dụng_
   - **SageMaker Processing Job:** Chạy định kỳ để huấn luyện mô hình gợi ý dựa trên dữ liệu tương tác.
   - **SageMaker Endpoint:** Máy chủ dự đoán duy trì 24/7, luôn tải sẵn phiên bản mô hình mới nhất để phục vụ tính toán theo thời gian thực.
 - AWS IAM & CloudWatch: Quản lý quyền truy cập phân luồng và giám sát log hệ thống.
+- AWS Billing and Cost Managment: Quản lý tối ưu hóa chi phí đám mây.
 
 _Thiết kế thành phần_
 - Tầng Giao diện: Chịu trách nhiệm hiển thị giao diện người dùng, danh mục phim và trực tiếp thu thập các sự kiện tương tác. (click, rate, watch).
@@ -74,7 +75,7 @@ Dự án gồm 2 phần được triển khai song song: xây dựng Web xem phi
 3. **Phát triển tính năng:** Hoàn thiện các tính năng, xây dựng kịch bản người dùng trên Web và huấn luyện thành công các mô hình gợi ý đầu tiên.
     - _Phần Web:_
         - Phát triển trang chi tiết phim, xây dựng API hiển thị metadata.
-        - Xây dựng hoàn chỉnh Interaction Pipeline: bắt các sự kiện (như `click`, `watch`, `rate`, `like`) từ Frontend và lưu vào bảng Interactions trên DynamoDB.
+        - Xây dựng hoàn chỉnh Interaction Pipeline: bắt các sự kiện (như `click`, `watch`, `rate`, `like`, `dislike`, `share`) từ Frontend và lưu vào bảng Interactions trên DynamoDB.
     - _Phần Machine Learning:_
         - Xây dựng mô hình **Popularity Ranker** cho người dùng khách và **Content-Based Recommender** cho người dùng đã đăng nhập.
         - Phát triển mô hình cốt lõi **Collaborative Filtering**, chuyển đổi các sự kiện tương tác thành điểm trọng số.

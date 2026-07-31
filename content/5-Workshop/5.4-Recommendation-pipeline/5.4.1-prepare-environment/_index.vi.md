@@ -44,12 +44,6 @@ python -m pip install \
 | `configs/model_serving.yaml` | Hyperparameter và quy tắc serving |
 | `configs/aws.yaml` | Region, bucket, prefix, processing instance và promotion gate |
 
-Không hard-code ARN trong Hugo. Sử dụng placeholder `<SAGEMAKER_ROLE_ARN>` khi minh họa.
-
-{{% notice warning %}}
-Một số resource trong cấu hình ML chỉ là ví dụ. Phải thay bằng giá trị đã được owner xác nhận, không dùng trực tiếp cho môi trường production.
-{{% /notice %}}
-
 ## 4. Chuẩn bị input
 
 Pipeline cần tạo:
@@ -87,16 +81,3 @@ Kiểm tra output có:
 - Các argument truyền vào wrapper.
 
 Source bundle không được chứa dataset hoặc artifact lớn.
-
-<!-- IMAGE-5.4.1-01: Dry-run output, đã che bucket và role ARN. -->
-
-<!-- ## Tiêu chí hoàn tất
-
-- [ ] ML submodule checkout đúng commit đã ghim.
-- [ ] Dependency cài thành công.
-- [ ] Data validation trả exit code `0`.
-- [ ] `LATEST.json` hoặc model version cụ thể đã được xác định.
-- [ ] Dry-run không thực hiện network mutation.
-- [ ] S3 bucket, role và quota SageMaker đã được xác nhận trước khi chạy cloud job.
-
-**Nguồn đối chiếu:** `ml/requirements*.txt`, `ml/scripts/validate_data.py` và `ml/scripts/sagemaker_retrain_job.py`. -->

@@ -36,9 +36,6 @@ Hệ thống hỗ trợ ba tình huống chính:
 - GitHub Actions triển khai ứng dụng lên một máy chủ EC2 đã tồn tại.
 - Mã ứng dụng sử dụng credential provider chain mặc định của AWS SDK.
 
-{{% notice warning %}}
-Repository hiện chưa chứa Infrastructure as Code, script nạp dữ liệu vào DynamoDB, SageMaker serving handler, script tạo Model/EndpointConfig/Endpoint, cấu hình IAM hoàn chỉnh, quy trình provision EC2 hoặc cleanup automation. Vì vậy workshop sẽ mô tả trung thực những phần đã có và đánh dấu rõ các bước cần được bổ sung.
-{{% /notice %}}
 
 ## Kết quả học tập
 
@@ -61,6 +58,3 @@ Sau khi hoàn thành workshop, bạn có thể:
 5. [IAM và bảo mật](5.5-IAM-security/)
 6. [Tổng kết và dọn dẹp tài nguyên](5.6-Cleanup/)
 
-{{% notice note %}}
-Không đưa access key, secret key, JWT hoặc nội dung file `.env` vào report và ảnh chụp màn hình.
-{{% /notice %}}

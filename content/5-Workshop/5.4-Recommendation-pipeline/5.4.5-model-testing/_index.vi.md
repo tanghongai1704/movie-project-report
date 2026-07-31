@@ -106,9 +106,7 @@ Danh sách phim sau khi mô hình đưa ra gợi ý:
 - **Kích thước danh sách gợi ý:** Top 20 phim.
 - **Baseline:** Sử dụng mô hình `popularity_train` (gợi ý phim phổ biến nhất toàn hệ thống). Baseline được dựng lại hoàn toàn từ tập huấn luyện để tránh rò rỉ dữ liệu.
 
-{{% notice note %}}
-Do đặc thù mỗi user chỉ có đúng một item bị giấu, các chỉ số `Recall@K` và `Precision@K` không mang thông tin độc lập. Do đó, việc đánh giá sẽ tập trung vào hai chỉ số lõi là **HitRate - Tỷ lệ trúng** và **NDCG - Chất lượng xếp hạng**
-{{% /notice %}}
+
 
 ### 2. Kết quả đánh giá
 

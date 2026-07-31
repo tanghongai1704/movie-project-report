@@ -96,9 +96,6 @@ python scripts/test_sagemaker_endpoint.py \
 
 *AWS CLI xác nhận endpoint `movie-rec-endpoint` đang ở trạng thái `InService`.*
 
-{{% notice warning %}}
-Endpoint path chỉ có thể đạt khi môi trường đã có serving package tương thích. Repository hiện chưa chứa mã dựng endpoint này.
-{{% /notice %}}
 
 ## 6. Các điểm kiểm tra trên AWS
 
@@ -134,20 +131,3 @@ Kết quả mong đợi: HTTP `401`.
 | Toàn bộ movie ID không resolve được | `502` |
 | Request rỗng hoặc sai schema | `400` hoặc `422` |
 
-<!-- IMAGE-5.4.4-01: Kết quả kiểm thử end-to-end, không hiển thị JWT hoặc dữ liệu người dùng. -->
-
-{{% notice warning %}}
-Acceptance test ghi dữ liệu thật vào `Users`, `UserInteractions` và `RecommendationCache`. Chỉ dùng test identity riêng và chỉ cleanup sau khi được phê duyệt.
-{{% /notice %}}
-
-## Checklist
-
-- [ ] Guest browse thành công.
-- [ ] Protected action không có JWT trả `401`.
-- [ ] Retry idempotency thành công.
-- [ ] Rating/reaction readback thành công.
-- [ ] Log phân biệt được cache hit và cache miss.
-- [ ] Endpoint test chỉ được đánh dấu đạt khi serving contract tồn tại.
-- [ ] Không tuyên bố UI đã render gợi ý cá nhân hóa: hook recommendation hiện chưa được nối vào `Home`.
-
-**Nguồn đối chiếu:** FastAPI routes, `frontend/src/services/interactionService.ts`, `backend/app/services/recommendation_service.py` và `backend/app/services/sagemaker_recommendation_provider.py`.

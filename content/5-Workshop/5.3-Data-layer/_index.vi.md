@@ -49,13 +49,8 @@ Backend HTTP handler không tải dataset từ S3 trong request path.
 4. Cache cá nhân hóa lưu `movie_id`, `score` và `reason_code`.
 5. Kết quả từ cache hoặc provider được enrich bằng `Movies` trước khi trả về API.
 
-<!-- {{% notice note %}}
-`datasets/serving/` là vùng export logic dành cho dữ liệu phục vụ DynamoDB, còn `inference/` chứa lookup data cho ML engine. Không trộn hai vùng này.
-{{% /notice %}} -->
-
 ## Các bước tiếp theo
 
 1. [Kiểm tra và chuẩn bị tài nguyên lưu trữ](5.3.1-provision-storage/)
 2. [Xử lý, tải và xác minh dữ liệu](5.3.2-load-and-validate-data/)
 
-<!-- **Nguồn đối chiếu:** `docs/aws/s3.md`, `docs/aws/dynamodb.md`, `backend/app/container.py` và ML data pipeline. -->

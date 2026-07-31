@@ -44,9 +44,6 @@ SageMaker Processing Job được triển khai để chạy retraining. EC2 có 
 
 Backend đã có client gọi SageMaker real-time endpoint, nhưng source hiện chưa có endpoint packaging và deployment.
 
-{{% notice warning %}}
-Processing Job, local inference engine và real-time endpoint là ba thành phần khác nhau. Không mô tả Processing Job như SageMaker Training Job hoặc endpoint.
-{{% /notice %}}
 
 ## Nội dung
 
@@ -55,5 +52,3 @@ Processing Job, local inference engine và real-time endpoint là ba thành ph�
 3. [Tích hợp ứng dụng trên EC2](5.4.3-integrate-ec2-application/)
 4. [Kiểm thử đầu cuối](5.4.4-end-to-end-testing/)
 5. [Kiểm thử model](5.4.5-model-testing/)
-
-**Nguồn đối chiếu:** `ml/README.md`, `ml/configs/model_serving.yaml`, `ml/scripts/sagemaker_retrain_job.py` và backend recommendation provider.

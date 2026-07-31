@@ -61,6 +61,4 @@ Upon completing this workshop, you will be able to:
 5. [IAM and Security](5.5-IAM-security/)
 6. [Summary and Resource Cleanup](5.6-Cleanup/)
 
-{{% notice note %}}
-Do not include real AWS credentials, JWT tokens, AWS Account IDs, actual ARNs, or real `.env` contents in the report or screenshots.
-{{% /notice %}}
+

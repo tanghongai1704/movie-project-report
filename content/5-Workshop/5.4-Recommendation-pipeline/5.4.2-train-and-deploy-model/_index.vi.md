@@ -37,10 +37,6 @@ python evaluate.py --version "<MODEL_VERSION>"
 - NDCG.
 - Catalog coverage.
 
-{{% notice note %}}
-Không sử dụng số metric từ tài liệu hoặc báo cáo cũ làm kết quả hiện tại. Report phải lấy metric từ artifact được tạo bởi chính lần chạy workshop.
-{{% /notice %}}
-
 ## 3. Promotion gate
 
 Chạy retraining ở chế độ dry-run:
@@ -59,9 +55,6 @@ python retrain.py \
 
 Candidate không vượt gate vẫn được giữ lại để điều tra nhưng không được promote.
 
-{{% notice warning %}}
-`--force-promote` bỏ qua quality gate và không nên được sử dụng trong quy trình workshop thông thường.
-{{% /notice %}}
 
 ## 4. Chạy SageMaker Processing Job
 
@@ -90,8 +83,6 @@ Trước khi tạo job, xác nhận:
 9. Thêm tag `Project=movie-recommendation`, `Environment=<ENVIRONMENT>` và `ModelVersion=<MODEL_VERSION>`.
 10. Review toàn bộ S3 URI, role, image và chi phí rồi chọn **Create processing job**.
 
-<!-- IMAGE-5.4.2-PROCESSING-01: Màn hình cấu hình Processing Job gồm role, container, input, output và compute resources. -->
-
 ### 4.3. Khởi chạy bằng launcher của repository
 
 Sau khi dry-run, review IAM và xác nhận chi phí:
@@ -107,8 +98,6 @@ python scripts/sagemaker_retrain_job.py \
 
 *Processing Job phục vụ retraining đã hoàn tất sau tám phút.*
 
-<!-- IMAGE-5.4.2-PROCESSING-02: Trang chi tiết Processing Job ở trạng thái Completed và liên kết CloudWatch Logs. -->
-
 Kiểm tra trạng thái:
 
 ```bash
@@ -123,15 +112,8 @@ Job phải đạt trạng thái `Completed`.
 
 Xác nhận S3 có đúng model version, manifest, `LATEST.json` và evaluation report.
 
-<!-- IMAGE-5.4.2-02: Evaluation report và promotion decision, không chứa dữ liệu người dùng. -->
 
 ## 6. Cấu hình SageMaker real-time Endpoint
-
-{{% notice warning %}}
-Repository không chứa `model_fn`, `input_fn`, `predict_fn`, `output_fn`, `transform_fn` hoặc script tạo SageMaker Model, EndpointConfig và Endpoint. Vì vậy không có câu lệnh hợp lệ để hoàn tất endpoint deployment từ source hiện tại.
-{{% /notice %}}
-
-Chỉ thực hiện các bước dưới đây sau khi team bổ sung:
 
 - Serving handler tương thích request/response contract của backend.
 - Quy trình tạo `model.tar.gz`.
@@ -156,8 +138,6 @@ Chỉ thực hiện các bước dưới đây sau khi team bổ sung:
 6. Thêm environment variables cần thiết nhưng không đưa secret dạng plain text vào biến hoặc tag.
 7. Thêm tag rồi chọn **Create model**.
 
-<!-- IMAGE-5.4.2-MODEL-01: Trang chi tiết SageMaker Model với model artifact, inference image và execution role. -->
-
 ### 6.3. Tạo Endpoint configuration
 
 1. Vào **Inference** → **Endpoint configurations** → **Create endpoint configuration**.
@@ -167,8 +147,6 @@ Chỉ thực hiện các bước dưới đây sau khi team bổ sung:
 5. Chọn `<SAGEMAKER_INFERENCE_INSTANCE_TYPE>` và initial instance count `1` cho workshop.
 6. Tùy chọn bật data capture tới prefix S3 riêng sau khi xác nhận dữ liệu request/response không chứa thông tin nhạy cảm ngoài chính sách.
 7. Thêm tag và chọn **Create endpoint configuration**.
-
-<!-- IMAGE-5.4.2-ENDPOINT-01: Endpoint configuration thể hiện model, production variant, instance type và instance count. -->
 
 ### 6.4. Tạo Endpoint
 
@@ -181,19 +159,4 @@ Chỉ thực hiện các bước dưới đây sau khi team bổ sung:
 
 ![SageMaker endpoint ở trạng thái InService](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.2-train-and-deploy-model/sagemaker-endpoint.jpg)
 
-*Endpoint hiện hữu đang ở trạng thái `InService`. Ảnh xác nhận tài nguyên đang hoạt động nhưng không thay thế phần serving/deployment source còn thiếu trong repository.*
-
-<!-- IMAGE-5.4.2-ENDPOINT-02: Trang endpoint ở trạng thái InService và CloudWatch invocation metrics. -->
-
-**Tài liệu AWS chính thức:** [SageMaker execution roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html), [CreateModel API](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html), [CreateEndpointConfig API](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html) và [triển khai model cho real-time inference](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deploy-models.html).
-
-## Tiêu chí hoàn tất
-
-- [ ] Model version directory được tạo.
-- [ ] Evaluation report có metric name và số user được đánh giá.
-- [ ] Promotion report ghi rõ pass/fail cho từng gate.
-- [ ] Processing Job đạt `Completed`.
-- [ ] S3 có artifact và report đúng prefix.
-- [ ] Endpoint chỉ được đánh dấu hoàn chỉnh khi serving package, Model, EndpointConfig, Endpoint và smoke test đều có bằng chứng tương ứng.
-
-**Nguồn đối chiếu:** `ml/train.py`, `ml/evaluate.py`, `ml/retrain.py` và `ml/scripts/sagemaker_retrain_job.py`.
+*Endpoint hiện hữu đang ở trạng thái `InService`.*

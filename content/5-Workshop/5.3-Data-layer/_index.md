@@ -62,9 +62,7 @@ The backend HTTP request handlers do not load datasets directly from S3 during A
 4. Personalized recommendation cache stores `movie_id`, `score`, and `reason_code`.
 5. Recommendation results (from cache or SageMaker provider) are enriched using `Movies` before returning responses to the API caller.
 
-{{% notice note %}}
-`datasets/serving/` is a logical export directory for DynamoDB serving data, whereas `inference/` stores lookup data for the ML engine. Do not mix these two directories.
-{{% /notice %}}
+
 
 ## Next Steps
 

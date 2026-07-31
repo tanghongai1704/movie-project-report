@@ -42,10 +42,7 @@ Lệnh phải trả về exit code `0`.
 ```bash
 aws sts get-caller-identity --region "<AWS_REGION>"
 ```
-
-Kết quả mong đợi: lệnh thành công và identity thuộc đúng AWS account. Không đưa account ID hoặc ARN đầy đủ vào report.
-
-<!-- IMAGE-5.2-01: Ảnh terminal kiểm tra AWS identity, đã che account ID và ARN. -->
+![AWS identity](/images/5-Workshop/5.3-Step-by-step/aws-identity.jpg)
 
 ## 4. Tài nguyên phải tồn tại
 
@@ -110,16 +107,3 @@ python -m pip install -r requirements.txt -r requirements-aws.txt
 | SageMaker launcher | Tạo và mô tả Processing Job; `iam:PassRole` cho đúng execution role |
 | SageMaker execution role | Đọc/ghi đúng S3 prefix và ghi CloudWatch Logs |
 | EC2 application | Sử dụng instance profile thay cho static credential |
-
-Exact IAM policy chưa có trong repository và phải được security owner cung cấp trước khi triển khai production.
-
-<!-- ## Checklist
-
-- [ ] `ml/train.py` tồn tại.
-- [ ] `aws sts get-caller-identity` thành công.
-- [ ] `docker compose config --quiet` thành công.
-- [ ] `.env` không được Git theo dõi.
-- [ ] Frontend configuration module có quy trình tạo hoặc được đưa vào Git.
-- [ ] Tên resource và region đã được xác nhận bằng kênh riêng.
-
-**Nguồn đối chiếu:** `.env.example`, Dockerfiles, `requirements*.txt`, `docs/aws/project-deployment.md` và `.github/workflows/deploy.yml`. -->

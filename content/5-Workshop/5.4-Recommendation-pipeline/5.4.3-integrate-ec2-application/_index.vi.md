@@ -21,7 +21,6 @@ Repository không tạo EC2. Workflow GitHub Actions giả định một host đ
 9. Mở **Advanced details** và gắn IAM instance profile của backend; không đưa access key vào user data.
 10. Review **Summary** → **Launch instance** → chờ instance state `Running` và cả hai status check đều pass.
 
-<!-- IMAGE-5.4.3-EC2-01: Launch instance summary với AMI, instance type, VPC/subnet, storage và IAM instance profile. -->
 
 ## 2. Cấu hình Security Group và inbound rules
 
@@ -38,11 +37,10 @@ Repository không tạo EC2. Workflow GitHub Actions giả định một host đ
 | Application port trực tiếp | Custom TCP | `<APPLICATION_PORT>` | Security group của load balancer/reverse proxy hoặc CIDR kiểm thử được phê duyệt |
 | Backend nội bộ | Custom TCP | `<BACKEND_PORT>` | Không tạo public rule nếu frontend/reverse proxy chạy cùng host |
 
-{{% notice warning %}}
-Security group là stateful. Không mở toàn bộ port hoặc mở SSH từ mọi địa chỉ chỉ để xử lý lỗi kết nối. Nếu đã có rule rộng hơn, rule rộng hơn sẽ thắng về phạm vi truy cập.
-{{% /notice %}}
+![Inbound rules của EC2 security group](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-security-group-inbound-rules.png)
 
-<!-- IMAGE-5.4.3-EC2-02: Inbound rules thể hiện SSH giới hạn IP và HTTP/HTTPS hoặc application port đúng phạm vi. -->
+*Security group `launch-wizard-1` có ba inbound TCP rules cho SSH port `22`, frontend port `5173` và backend port `8000`.*
+
 
 ## 3. Chuẩn bị EC2 host
 
@@ -67,7 +65,7 @@ Các thông tin AMI, instance type, VPC, subnet, security group, disk, DNS và T
 
 ![Kết nối SSH thành công tới EC2 host](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-ssh-session.jpg)
 
-*Phiên SSH xác nhận có thể truy cập Ubuntu 24.04.4 LTS trên EC2. Host đang báo cần restart và còn bản cập nhật, vì vậy cần hoàn tất bảo trì trước khi xem đây là trạng thái production-ready.*
+*Phiên SSH xác nhận có thể truy cập Ubuntu 24.04.4 LTS trên EC2.*
 
 ## 4. Cấu hình ứng dụng
 
@@ -77,7 +75,7 @@ Trên EC2, ưu tiên instance profile để AWS SDK nhận credential qua defaul
 
 ![GitHub deploy key dành cho EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-ec2-deploy-key.jpg)
 
-*Repository đã cấu hình deploy key `EC2 Deploy` ở chế độ read-only để host lấy source code. Private key phải chỉ tồn tại trên host hoặc trong secret store được phê duyệt.*
+*Repository đã cấu hình deploy key `EC2 Deploy` ở chế độ read-only để host lấy source code.*
 
 ## 5. Workflow triển khai
 
@@ -90,11 +88,8 @@ Khi push branch `main`, GitHub Actions:
 5. Pull source từ `main`.
 6. Chạy Docker Compose.
 
-<!-- IMAGE-5.4.3-01: GitHub Actions deployment thành công, đã che host/user/secrets. -->
+![GitHub Actions workflow build thành công](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-actions-build-success.png)
 
-{{% notice warning %}}
-Workflow chạy `docker compose pull`, nhưng Compose hiện dùng local build context thay vì image registry. Nếu host không rebuild image, `docker compose up -d` có thể tiếp tục dùng image cũ.
-{{% /notice %}}
 
 ## 6. Runtime integration
 
@@ -137,7 +132,8 @@ Kết quả mong đợi:
 - `/movies` trả JSON array, hoặc lỗi `503` có kiểm soát nếu data resource cấu hình sai.
 - Startup log không lộ credential.
 
-<!-- IMAGE-5.4.3-02: Docker services và health check trên EC2, đã che IP/hostname. -->
+![Swagger UI của Movie Recommendation API chạy trên EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-fastapi-swagger-ui.png)
+
 
 ## 9. Phân biệt EC2 application và EC2 retraining
 
@@ -146,8 +142,3 @@ Kết quả mong đợi:
 - Subdirectory mặc định không trùng path submodule `ml`.
 - Event prefix `events/` không trùng cấu hình canonical `datasets/exports/`.
 
-Không sử dụng template cho production trước khi hai điểm này được review.
-
-**Tài liệu AWS chính thức:** [Launch an EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), [tạo security group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-security-group.html) và [cấu hình inbound/outbound rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/changing-security-group.html).
-
-**Nguồn đối chiếu:** `.github/workflows/deploy.yml`, `docker-compose.yml`, `backend/app/aws/infrastructure.py` và `ml/deploy/ec2_bootstrap.sh`.
