@@ -118,6 +118,6 @@ Participating in the **"Hackathon Journey"** event was a valuable experience tha
 
 ## Event Photos
 
-* Add your event photos here.
+![Picture event 3](/images/3-BlogPosted/Posted3.jpg)
 
 > This event provided valuable insights into the product development process in real-world environments while expanding my knowledge of Cloud, AI, and teamwork throughout the software development lifecycle.

@@ -120,6 +120,6 @@ Một số trải nghiệm nổi bật:
 
 ## Một số hình ảnh khi tham gia sự kiện
 
-* Thêm các hình ảnh của bạn tại đây
+![Hình event 1](/images/3-BlogPosted/Posted1.jpg)
 
 > Sự kiện đã mang lại nhiều kiến thức thực tế và góc nhìn mới về các công nghệ hiện đại. Đây là cơ hội giúp em hiểu rõ hơn về xu hướng Cloud, AI cũng như định hướng phát triển bản thân trong lĩnh vực công nghệ thông tin.

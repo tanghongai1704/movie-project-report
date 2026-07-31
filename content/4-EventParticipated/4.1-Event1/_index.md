@@ -120,6 +120,6 @@ Some memorable experiences include:
 
 ## Event Photos
 
-* Add your event photos here.
+![Picture event 1](/images/3-BlogPosted/Posted1.jpg)
 
 > This event provided valuable practical knowledge and new perspectives on modern technologies. It helped me better understand current trends in Cloud and AI while also giving me clearer direction for my future development in the field of information technology.

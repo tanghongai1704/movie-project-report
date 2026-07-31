@@ -118,6 +118,6 @@ Tham gia sự kiện **“Hackathon Journey”** là một trải nghiệm hữu
 
 ## Một số hình ảnh khi tham gia sự kiện
 
-* Thêm các hình ảnh của các bạn tại đây
+![Hình event 1](/images/3-BlogPosted/Posted3.jpg)
 
 > Sự kiện giúp em có thêm góc nhìn về quy trình phát triển sản phẩm trong môi trường thực tế, đồng thời nâng cao kiến thức về Cloud, AI và kỹ năng làm việc nhóm trong quá trình xây dựng dự án.
