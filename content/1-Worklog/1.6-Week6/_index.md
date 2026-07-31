@@ -1,51 +1,43 @@
 ---
 title: "Week 6 Worklog"
-date: 2026-07-06
+date: 2026-07-20
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
 {{% notice tip %}}
-The sixth week focused on learning AWS services for building serverless applications, including AWS Lambda and Amazon API Gateway. Hands-on practice was also conducted to build a simple API and understand how these services work together.
+The sixth week focused on studying Machine Learning services on AWS, particularly Amazon SageMaker. It also included learning the model training workflow, deploying endpoints, and designing the movie recommendation pipeline for the project.
 {{% /notice %}}
 
 ## Week 6 Objectives
 
-- Learn about the Serverless model on AWS.
-- Understand how AWS Lambda works.
-- Learn about Amazon API Gateway and how to build REST APIs.
-- Practice creating Lambda Functions and integrating them with API Gateway.
-- Prepare the knowledge required to integrate AWS services into the project.
+- Learn about Amazon SageMaker.
+- Understand the Machine Learning workflow on AWS.
+- Prepare data for model training.
+- Design the recommendation pipeline for the system.
+- Integrate the backend with Machine Learning services.
 
-## Weekly Tasks
+## Tasks Completed During the Week
 
-| Day | Tasks | Start Date | Completion Date | Reference |
+| Day | Task | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Mon | - Learn about the Serverless model.<br>- Explore AWS Lambda and its common use cases.<br>- Create the first Lambda Function. | 25/08/2026 | 25/08/2026 | https://docs.aws.amazon.com/lambda/ |
-| Tue | - Practice writing Lambda Functions using Python.<br>- Configure Triggers and test execution results.<br>- Monitor logs using Amazon CloudWatch. | 26/08/2026 | 26/08/2026 | https://docs.aws.amazon.com/lambda/latest/dg/ |
-| Wed | - Learn about Amazon API Gateway.<br>- Explore REST API and HTTP API.<br>- Create a simple API integrated with Lambda. | 27/08/2026 | 27/08/2026 | https://docs.aws.amazon.com/apigateway/ |
-| Thu | - Practice calling APIs using Postman or a web browser.<br>- Verify responses from Lambda.<br>- Adjust configurations when necessary. | 28/08/2026 | 28/08/2026 | AWS Documentation |
-| Fri | - Review Lambda and API Gateway concepts.<br>- Explore integration capabilities with other AWS services such as S3 and DynamoDB.<br>- Prepare knowledge for applying these services to the project. | 29/08/2026 | 29/08/2026 | AWS Documentation |
+| Mon | - Learn about Amazon SageMaker.<br>- Read the documentation on Training Jobs and Endpoints.<br>- Study the Machine Learning workflow on AWS. | 20/07/2026 | 20/07/2026 | AWS SageMaker Documentation |
+| Tue | - Prepare the training dataset.<br>- Upload the dataset to Amazon S3.<br>- Learn how SageMaker accesses data from Amazon S3. | 21/07/2026 | 21/07/2026 | AWS Documentation |
+| Wed | - Design the recommendation pipeline for the system.<br>- Develop the Machine Learning module in the backend.<br>- Prepare the recommendation API. | 22/07/2026 | 22/07/2026 | Team documentation |
+| Thu | - Learn about SageMaker Endpoints.<br>- Experiment with integrating an Endpoint or a Mock Service.<br>- Verify the returned data. | 23/07/2026 | 23/07/2026 | AWS Documentation |
+| Fri | - Test the Recommendation API.<br>- Refine the backend architecture.<br>- Review the complete Machine Learning workflow. | 24/07/2026 | 24/07/2026 | AWS Documentation |
 
-## Week 6 Outcomes
+## Week 6 Achievements
 
-By the end of the sixth week, a fundamental understanding of building a basic serverless application on AWS was achieved.
+After the sixth week, a solid understanding was gained of how to integrate Machine Learning into an application on the AWS platform.
 
-The key achievements include:
+The main achievements include:
 
-- Understood the concept of Serverless and the benefits of this model in application development.
-- Understood the role of AWS Lambda in processing event-driven tasks.
-- Successfully created and deployed Lambda Functions using Python.
-- Tested Lambda Functions and monitored execution results through Amazon CloudWatch Logs.
-
-- Understood the role of Amazon API Gateway in providing APIs for applications.
-
-- Practiced:
-  - Creating REST APIs.
-  - Connecting API Gateway with AWS Lambda.
-  - Sending requests and receiving responses through APIs.
-
-- Became familiar with the process of building APIs without managing servers.
-
-- Understood the integration capabilities between Lambda, API Gateway, and other AWS services, providing the foundation for developing project features in the following weeks.
+- Understood the role of Amazon SageMaker in a Machine Learning system.
+- Prepared the training dataset and stored it in Amazon S3.
+- Designed the recommendation pipeline for the project.
+- Developed the Machine Learning module in the backend.
+- Understood the process of deploying a model as an Endpoint.
+- Experimented with integrating the backend with Machine Learning services.
+- Established the foundation for implementing the recommendation feature in the system.

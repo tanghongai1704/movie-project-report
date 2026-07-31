@@ -1,55 +1,39 @@
 ---
 title: "Week 8 Worklog"
-date: 2026-07-20
+date: 2026-07-31
 weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
 {{% notice tip %}}
-The eighth week focused on designing the overall project architecture, dividing tasks among team members, and beginning the development of the main system components. The integration between the frontend, backend, and AWS services explored in previous weeks was also implemented.
+The final week focused on completing the system's core features, testing the entire application, and preparing the documentation for the First Cloud AI Journey program report.
 {{% /notice %}}
 
 ## Week 8 Objectives
 
-- Design the overall project architecture.
-- Assign tasks among team members.
-- Initialize the frontend and backend of the system.
-- Connect the application with configured AWS services.
-- Prepare data and APIs for the development process.
+- Complete the project's core features.
+- Test the entire system.
+- Finalize the technical documentation.
+- Prepare the project report and demonstration.
+- Conclude the program.
 
-## Weekly Tasks
+## Tasks Completed During the Week
 
-| Day | Tasks | Start Date | Completion Date | Reference |
+| Day | Task | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Mon | - Hold a team meeting to finalize the project idea.<br>- Design the overall system architecture.<br>- Assign responsibilities among team members. | 08/09/2026 | 08/09/2026 | Team Documentation |
-| Tue | - Initialize the GitHub repository.<br>- Set up the frontend and backend folder structures.<br>- Configure the development environment. | 09/09/2026 | 09/09/2026 | GitHub Documentation |
-| Wed | - Develop basic backend APIs.<br>- Design the initial data structure.<br>- Connect the backend with Amazon DynamoDB and Amazon S3. | 10/09/2026 | 10/09/2026 | AWS Documentation |
-| Thu | - Develop the frontend interface.<br>- Connect the frontend with the backend through REST APIs.<br>- Verify the data flow between system components. | 11/09/2026 | 11/09/2026 | React Documentation |
-| Fri | - Test completed features.<br>- Fix issues encountered during development.<br>- Update the project's technical documentation. | 12/09/2026 | 12/09/2026 | Team Documentation |
+| Fri | - Test the entire system.<br>- Verify the APIs and recommendation pipeline.<br>- Finalize the README and technical documentation.<br>- Summarize the project implementation process and prepare the final report. | 31/07/2026 | 31/07/2026 | Team documentation |
 
-## Week 8 Outcomes
+## Week 8 Achievements
 
-By the end of the eighth week, the project had an initial foundation for further development of the main features.
+After the final week, the project was completed and ready for the program's final presentation and evaluation.
 
-The key achievements include:
+The main achievements include:
 
-- Completed the design of the overall system architecture.
-- Clearly assigned responsibilities among team members.
-
-- Initialized the repository and source code structure for:
-  - Frontend.
-  - Backend.
-  - Project documentation.
-
-- Developed basic APIs to support data communication between the frontend and backend.
-
-- Connected the backend with AWS services, including:
-  - Amazon S3.
-  - Amazon DynamoDB.
-
-- Completed the initial frontend interface and verified API calls from the frontend.
-
-- Performed testing on basic functionalities, while identifying and resolving several issues during the system integration process.
-
-- Prepared the foundation for implementing the main project features in the following weeks.
+- Completed the system's core features.
+- Tested the workflow between the frontend, backend, and AWS services.
+- Verified that the system operated reliably on the Amazon EC2 environment.
+- Finalized the technical documentation and project deployment guide.
+- Summarized the knowledge gained throughout the program on AWS, Docker, and Machine Learning.
+- Gained practical experience in developing, deploying, and operating an application on the AWS platform.
+- Successfully completed the First Cloud AI Journey program and prepared for the project presentation and evaluation.

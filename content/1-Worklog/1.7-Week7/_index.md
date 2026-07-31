@@ -1,56 +1,42 @@
 ---
 title: "Week 7 Worklog"
-date: 2026-07-13
+date: 2026-07-27
 weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
 {{% notice tip %}}
-The seventh week focused on learning Machine Learning services on AWS, especially Amazon SageMaker. The learning process also covered model training, deployment workflows, and how to integrate Machine Learning models into applications.
+The seventh week focused on deploying the system to Amazon EC2, configuring Docker Compose on the server, and setting up an automated deployment pipeline using GitHub Actions.
 {{% /notice %}}
 
 ## Week 7 Objectives
 
-- Learn the overview of Amazon SageMaker.
-- Understand the process of building and deploying Machine Learning models on AWS.
-- Practice using SageMaker Notebook.
-- Learn how to deploy models as Endpoints.
-- Prepare for integrating Machine Learning into the project.
+- Deploy the application to Amazon EC2.
+- Configure Docker and Docker Compose on the server.
+- Set up GitHub Actions.
+- Connect the application to AWS services.
+- Test the system after deployment.
 
-## Weekly Tasks
+## Tasks Completed During the Week
 
-| Day | Tasks | Start Date | Completion Date | Reference |
+| Day | Task | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Mon | - Learn about Amazon SageMaker and its main components.<br>- Explore the Machine Learning workflow on AWS.<br>- Read introductory documentation about SageMaker. | 01/09/2026 | 01/09/2026 | https://docs.aws.amazon.com/sagemaker/ |
-| Tue | - Learn about SageMaker Notebook.<br>- Create a Notebook Instance.<br>- Become familiar with the interface and development environment. | 02/09/2026 | 02/09/2026 | AWS Documentation |
-| Wed | - Prepare a sample dataset.<br>- Upload data to Amazon S3.<br>- Learn how SageMaker accesses data from S3. | 03/09/2026 | 03/09/2026 | AWS Documentation |
-| Thu | - Learn about the model training workflow.<br>- Explore the concepts of Model, Endpoint, and Inference.<br>- Read documentation about deploying models on SageMaker. | 04/09/2026 | 04/09/2026 | https://docs.aws.amazon.com/sagemaker/latest/dg/ |
-| Fri | - Practice deploying a sample model or testing an Endpoint.<br>- Learn how applications send requests to an Endpoint.<br>- Prepare an integration approach for the project. | 05/09/2026 | 05/09/2026 | AWS Documentation |
+| Mon | - Prepare the deployment environment on EC2.<br>- Clone the source code from GitHub.<br>- Verify the runtime environment. | 27/07/2026 | 27/07/2026 | AWS EC2 Documentation |
+| Tue | - Install Docker and Docker Compose on the EC2 instance.<br>- Build the frontend and backend.<br>- Run the application using Docker Compose. | 28/07/2026 | 28/07/2026 | Docker Documentation |
+| Wed | - Set up GitHub Actions.<br>- Configure the SSH Deploy Key.<br>- Automate source code updates to the EC2 instance. | 29/07/2026 | 29/07/2026 | GitHub Actions Documentation |
+| Thu | - Configure environment variables.<br>- Verify connectivity with Amazon S3, DynamoDB, and SageMaker.<br>- Troubleshoot deployment issues. | 30/07/2026 | 30/07/2026 | AWS Documentation |
 
-## Week 7 Outcomes
+## Week 7 Achievements
 
-By the end of the seventh week, a general understanding of the Machine Learning development and deployment workflow on AWS was achieved.
+After the seventh week, the system was successfully deployed to the AWS environment and could be automatically updated through GitHub.
 
-The key achievements include:
+The main achievements include:
 
-- Understood the role of Amazon SageMaker in the AWS Machine Learning ecosystem.
-- Learned the basic Machine Learning workflow:
-  - Data preparation.
-  - Model training.
-  - Model deployment.
-  - Prediction execution (Inference).
-
-- Became familiar with SageMaker Notebook and the AWS development environment.
-
-- Understood how data is stored in Amazon S3 for Machine Learning training processes.
-
-- Learned the main components of SageMaker:
-  - Notebook Instance.
-  - Training Job.
-  - Model.
-  - Endpoint.
-
-- Understood how an application can send requests to a SageMaker Endpoint and receive prediction results.
-
-- Prepared the necessary knowledge for integrating Machine Learning capabilities into the project in the following weeks.
+- Successfully deployed the project to Amazon EC2.
+- Installed Docker and Docker Compose on the server.
+- Ran the frontend and backend using Docker Compose.
+- Configured GitHub Actions for automated application deployment.
+- Established connections with Amazon S3, DynamoDB, and SageMaker.
+- Resolved issues related to SSH, Docker, and the deployment environment.
+- Completed the basic deployment workflow for the project.

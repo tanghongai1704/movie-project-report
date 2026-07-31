@@ -1,57 +1,48 @@
 ---
 title: "Week 1 Worklog"
-date: 2026-06-01
+date: 2026-06-15
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
 {{% notice tip %}}
-The first week focused on becoming familiar with the First Cloud AI Journey program, setting up the learning environment, and understanding the fundamental concepts of AWS. Initial installation and configuration tasks were also completed to prepare for the hands-on labs in the following weeks.
+The first week focused on getting familiar with the **First Cloud AI Journey (FCAJ)** program, setting up the working environment, and learning the fundamental concepts of AWS. It also included creating an AWS account, configuring the AWS CLI, and performing the first operations on the AWS platform.
 {{% /notice %}}
 
 ## Week 1 Objectives
 
-- Become familiar with the First Cloud AI Journey program and its members.
-- Understand the fundamentals of the AWS Cloud platform.
-- Learn how to use the AWS Management Console and AWS CLI.
-- Complete AWS account creation and environment configuration.
-- Build the foundational knowledge required for the upcoming hands-on labs.
+- Get familiar with the First Cloud AI Journey program.
+- Understand the fundamentals of cloud computing and AWS.
+- Create an AWS Account and IAM User.
+- Install and configure the AWS CLI.
+- Become familiar with the AWS Management Console.
 
-## Weekly Tasks
+## Tasks Completed During the Week
 
-| Day | Tasks | Start Date | Completion Date | Reference |
+| Day | Task | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Mon | - Attend the First Cloud AI Journey program introduction session.<br>- Get to know the team members.<br>- Read the program guidelines and workflow. | 21/07/2026 | 21/07/2026 | FCAJ Discord, Notion |
-| Tue | - Learn the fundamentals of AWS.<br>- Explore the main service categories, including Compute, Storage, Database, Networking, and Security.<br>- Read the AWS Cloud Essentials materials. | 22/07/2026 | 22/07/2026 | https://cloudjourney.awsstudygroup.com/ |
-| Wed | - Create an AWS Account and IAM User.<br>- Explore the AWS Management Console.<br>- Install the AWS CLI on the local computer. | 23/07/2026 | 23/07/2026 | https://docs.aws.amazon.com/cli/ |
-| Thu | - Configure the AWS CLI using the Access Key and Secret Access Key.<br>- Practice basic AWS CLI commands.<br>- Verify the connection to the AWS account. | 24/07/2026 | 24/07/2026 | https://docs.aws.amazon.com/cli/latest/userguide/ |
-| Fri | - Learn about Amazon EC2 and its core components.<br>- Become familiar with Instances, AMIs, Security Groups, and Key Pairs.<br>- Read the documentation in preparation for the following week's lab. | 25/07/2026 | 25/07/2026 | https://docs.aws.amazon.com/ec2/ |
+| Mon | - Attend the FCAJ program introduction session.<br>- Learn about the learning roadmap and program requirements.<br>- Set up the learning environment. | 15/06/2026 | 15/06/2026 | FCAJ Discord, Notion |
+| Tue | - Learn the fundamentals of AWS and Cloud Computing.<br>- Explore the AWS Management Console.<br>- Study the main AWS service categories. | 16/06/2026 | 16/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Create an AWS Account.<br>- Create an IAM User and configure access permissions.<br>- Become familiar with the AWS Console interface. | 17/06/2026 | 17/06/2026 | AWS Documentation |
+| Thu | - Install the AWS CLI on the computer.<br>- Configure the Access Key and Secret Access Key.<br>- Set the default Region and Output Format. | 18/06/2026 | 18/06/2026 | https://docs.aws.amazon.com/cli/ |
+| Fri | - Practice basic AWS CLI commands.<br>- Verify the connection to the AWS account.<br>- Review the knowledge learned during the week. | 19/06/2026 | 19/06/2026 | AWS CLI User Guide |
 
-## Week 1 Outcomes
+## Week 1 Achievements
 
-By the end of the first week, the fundamental topics required for learning and practicing AWS had been completed.
+After the first week, all the necessary preparations were completed to begin learning and developing projects on the AWS platform.
 
-The key achievements include:
+The main achievements include:
 
-- Gained an understanding of Cloud Computing and the role of AWS as a cloud computing platform.
-- Learned about the major AWS service categories, including:
-  - Compute
-  - Storage
-  - Database
-  - Networking
-  - Security & Identity Management
-
-- Successfully created an AWS account and became familiar with the AWS Management Console.
-- Understood how AWS services are organized within the AWS Console and how to locate specific services.
-
-- Successfully installed the AWS CLI on the local computer.
-
-- Configured the AWS CLI with:
-  - AWS Access Key ID
-  - AWS Secret Access Key
-  - Default Region
-  - Output Format
+- Understood the concept of Cloud Computing and the role of AWS in modern application development.
+- Learned the structure and usage of the AWS Management Console.
+- Successfully created an AWS Account and IAM User for hands-on practice.
+- Successfully installed and configured the AWS CLI on the computer.
+- Completed the configuration of:
+  - AWS Access Key ID.
+  - AWS Secret Access Key.
+  - Default Region.
+  - Output Format.
 
 - Successfully executed several basic AWS CLI commands, including:
   - `aws configure`
@@ -59,11 +50,4 @@ The key achievements include:
   - `aws ec2 describe-regions`
   - `aws s3 ls`
 
-- Learned the core components of Amazon EC2:
-  - EC2 Instance
-  - Amazon Machine Image (AMI)
-  - Security Group
-  - Key Pair
-  - Elastic IP
-
-- Fully prepared the development environment and acquired the foundational knowledge needed for the AWS hands-on labs in the following weeks.
+- Became familiar with the AWS resource management workflow and fully prepared the environment for the hands-on labs in the following weeks.

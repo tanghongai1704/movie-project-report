@@ -1,63 +1,51 @@
 ---
 title: "Week 2 Worklog"
-date: 2026-06-08
+date: 2026-06-22
 weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
 {{% notice tip %}}
-The second week focused on learning about AWS identity management and storage services, while also practicing the creation and management of basic AWS resources to become familiar with cloud deployment workflows.
+The second week focused on learning AWS data storage services, particularly Amazon S3 and Amazon DynamoDB. It also included hands-on practice in creating the first AWS resources and connecting an application to AWS using the AWS SDK.
 {{% /notice %}}
 
 ## Week 2 Objectives
 
-- Learn how user management and access control work on AWS.
-- Understand how Amazon S3 works and its common use cases.
-- Become familiar with Amazon EC2 through basic hands-on exercises.
-- Understand the process of creating and managing AWS resources.
+- Learn about Amazon S3 and Amazon DynamoDB.
+- Understand how data is stored on AWS.
+- Practice creating an S3 Bucket and a DynamoDB Table.
+- Become familiar with the AWS SDK (Boto3).
+- Prepare data for the project.
 
-## Weekly Tasks
+## Tasks Completed During the Week
 
-| Day | Tasks | Start Date | Completion Date | Reference |
+| Day | Task | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Mon | - Learn about AWS Identity and Access Management (IAM).<br>- Understand the differences between the Root User and IAM User.<br>- Explore Users, Groups, Roles, and Policies. | 28/07/2026 | 28/07/2026 | https://docs.aws.amazon.com/iam/ |
-| Tue | - Practice creating IAM Users.<br>- Assign Policies to IAM Users.<br>- Verify access permissions in the AWS Management Console. | 29/07/2026 | 29/07/2026 | https://docs.aws.amazon.com/iam/latest/UserGuide/ |
-| Wed | - Learn about Amazon S3.<br>- Explore Buckets, Objects, and Storage Classes.<br>- Become familiar with managing data in Amazon S3. | 30/07/2026 | 30/07/2026 | https://docs.aws.amazon.com/s3/ |
-| Thu | - Practice creating an S3 Bucket.<br>- Upload, download, and delete objects.<br>- Verify bucket access permissions. | 31/07/2026 | 31/07/2026 | https://docs.aws.amazon.com/AmazonS3/latest/userguide/ |
-| Fri | - Review Amazon EC2 concepts.<br>- Practice launching an EC2 Instance.<br>- Connect to the EC2 instance via SSH and become familiar with basic management tasks. | 01/08/2026 | 01/08/2026 | https://docs.aws.amazon.com/ec2/ |
+| Mon | - Learn about Amazon S3.<br>- Review Buckets, Objects, and Storage Classes.<br>- Explore Amazon S3 use cases. | 22/06/2026 | 22/06/2026 | https://docs.aws.amazon.com/s3/ |
+| Tue | - Learn about Amazon DynamoDB.<br>- Understand Tables, Items, and Attributes.<br>- Study Partition Keys and Sort Keys. | 23/06/2026 | 23/06/2026 | https://docs.aws.amazon.com/dynamodb/ |
+| Wed | - Practice creating an Amazon S3 Bucket.<br>- Create a DynamoDB Table.<br>- Configure IAM permissions for resource access. | 24/06/2026 | 24/06/2026 | AWS Documentation |
+| Thu | - Learn the AWS SDK (Python - Boto3).<br>- Connect the application to Amazon S3 and DynamoDB.<br>- Test basic read and write operations. | 25/06/2026 | 25/06/2026 | https://boto3.amazonaws.com/ |
+| Fri | - Upload sample data to Amazon S3.<br>- Verify the connection between the application and AWS.<br>- Review the concepts learned during the week. | 26/06/2026 | 26/06/2026 | AWS Documentation |
 
-## Week 2 Outcomes
+## Week 2 Achievements
 
-By the end of the second week, a deeper understanding was gained of how AWS manages access control and stores data in the cloud.
+After the second week, the commonly used AWS data storage services were explored, and an understanding was gained of how applications can interact with these services.
 
-The key achievements include:
+The main achievements include:
 
-- Understood the role of AWS IAM in user management and access control.
-- Learned the differences between:
-  - Root User and IAM User.
-  - User, Group, and Role.
-  - Managed Policy and Inline Policy.
+- Understood the role of Amazon S3 in storing data and files.
+- Understood the NoSQL data model used by Amazon DynamoDB.
+- Successfully created:
+  - An Amazon S3 Bucket.
+  - An Amazon DynamoDB Table.
+  - An IAM Policy for access control.
 
-- Practiced creating and managing IAM Users.
-- Assigned appropriate Policies to grant access to AWS services.
+- Used the AWS SDK (Boto3) to:
+  - Connect to Amazon S3.
+  - Connect to Amazon DynamoDB.
+  - Perform basic data read and write operations.
 
-- Understood how Amazon S3 works and its core concepts:
-  - Bucket
-  - Object
-  - Storage Class
-  - Region
+- Successfully uploaded sample data to Amazon S3 for project development.
 
-- Successfully performed basic Amazon S3 operations:
-  - Create a Bucket.
-  - Upload and download files.
-  - Delete objects.
-  - Verify bucket access permissions.
-
-- Reviewed Amazon EC2 concepts and practiced:
-  - Launching an EC2 Instance.
-  - Configuring Security Groups.
-  - Creating a Key Pair.
-  - Connecting to an EC2 Instance via SSH.
-
-- Gained additional hands-on experience with the AWS Management Console and developed a better understanding of the workflow for creating and managing basic AWS resources.
+- Understood the authentication process and how applications connect to AWS services using IAM Users and Access Keys.

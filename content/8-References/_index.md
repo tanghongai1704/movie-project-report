@@ -20,10 +20,6 @@ This section collects the source code, demo, official AWS documentation, and rep
 
 - [Google Drive - Movie recommendation system demo](https://drive.google.com/drive/folders/1TNqHmVXZxYamXQ_ZqLBBzCpeKkqFaSAn?usp=sharing)
 
-{{% notice note %}}
-Make sure viewers can access the Google Drive folder before publishing the report. Never include access tokens, secret keys, passwords, or temporary signed URLs in this documentation.
-{{% /notice %}}
-
 ## Official AWS Documentation
 
 ### Amazon S3 and DynamoDB

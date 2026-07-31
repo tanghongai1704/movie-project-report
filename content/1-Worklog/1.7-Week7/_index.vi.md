@@ -1,56 +1,42 @@
 ---
 title: "Worklog Tuần 7"
-date: 2026-07-13
+date: 2026-07-27
 weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
 {{% notice tip %}}
-Tuần thứ bảy tập trung tìm hiểu các dịch vụ Machine Learning trên AWS, đặc biệt là Amazon SageMaker. Đồng thời tìm hiểu quy trình huấn luyện, triển khai mô hình và cách tích hợp mô hình Machine Learning vào ứng dụng.
+Tuần thứ bảy tập trung triển khai hệ thống lên Amazon EC2, cấu hình Docker Compose trên máy chủ và thiết lập quy trình triển khai tự động thông qua GitHub Actions.
 {{% /notice %}}
 
 ## Mục tiêu tuần 7
 
-- Tìm hiểu tổng quan về Amazon SageMaker.
-- Hiểu quy trình xây dựng và triển khai mô hình Machine Learning trên AWS.
-- Thực hành sử dụng SageMaker Notebook.
-- Tìm hiểu cách triển khai mô hình dưới dạng Endpoint.
-- Chuẩn bị cho việc tích hợp Machine Learning vào project.
+- Triển khai ứng dụng lên Amazon EC2.
+- Cấu hình Docker và Docker Compose trên máy chủ.
+- Thiết lập GitHub Actions.
+- Kết nối ứng dụng với các dịch vụ AWS.
+- Kiểm thử hệ thống sau khi triển khai.
 
 ## Các công việc triển khai trong tuần
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Tìm hiểu Amazon SageMaker và các thành phần chính.<br>- Tìm hiểu quy trình Machine Learning trên AWS.<br>- Đọc tài liệu giới thiệu về SageMaker. | 01/09/2026 | 01/09/2026 | https://docs.aws.amazon.com/sagemaker/ |
-| 3 | - Tìm hiểu SageMaker Notebook.<br>- Tạo Notebook Instance.<br>- Làm quen với giao diện và môi trường phát triển. | 02/09/2026 | 02/09/2026 | AWS Documentation |
-| 4 | - Chuẩn bị bộ dữ liệu mẫu.<br>- Upload dữ liệu lên Amazon S3.<br>- Tìm hiểu cách SageMaker truy cập dữ liệu từ S3. | 03/09/2026 | 03/09/2026 | AWS Documentation |
-| 5 | - Tìm hiểu quy trình huấn luyện mô hình.<br>- Tìm hiểu khái niệm Model, Endpoint và Inference.<br>- Đọc tài liệu triển khai mô hình trên SageMaker. | 04/09/2026 | 04/09/2026 | https://docs.aws.amazon.com/sagemaker/latest/dg/ |
-| 6 | - Thực hành triển khai mô hình mẫu hoặc Endpoint thử nghiệm.<br>- Tìm hiểu cách ứng dụng có thể gửi request đến Endpoint.<br>- Chuẩn bị phương án tích hợp vào project. | 05/09/2026 | 05/09/2026 | AWS Documentation |
+| 2 | - Chuẩn bị môi trường triển khai trên EC2.<br>- Clone source code từ GitHub.<br>- Kiểm tra môi trường chạy. | 27/07/2026 | 27/07/2026 | AWS EC2 Documentation |
+| 3 | - Cài đặt Docker và Docker Compose trên EC2.<br>- Build frontend và backend.<br>- Chạy ứng dụng bằng Docker Compose. | 28/07/2026 | 28/07/2026 | Docker Documentation |
+| 4 | - Thiết lập GitHub Actions.<br>- Cấu hình SSH Deploy Key.<br>- Tự động cập nhật source code lên EC2. | 29/07/2026 | 29/07/2026 | GitHub Actions Documentation |
+| 5 | - Cấu hình biến môi trường.<br>- Kiểm tra kết nối với S3, DynamoDB và SageMaker.<br>- Khắc phục lỗi phát sinh khi deploy. | 30/07/2026 | 30/07/2026 | AWS Documentation |
 
 ## Kết quả đạt được tuần 7
 
-Sau tuần thứ bảy, đã có cái nhìn tổng quan về quy trình phát triển và triển khai mô hình Machine Learning trên AWS.
+Sau tuần thứ bảy, hệ thống đã có thể triển khai trên môi trường AWS và tự động cập nhật thông qua GitHub.
 
 Một số kết quả đạt được gồm:
 
-- Hiểu được vai trò của Amazon SageMaker trong hệ sinh thái Machine Learning của AWS.
-- Nắm được quy trình cơ bản:
-  - Chuẩn bị dữ liệu.
-  - Huấn luyện mô hình.
-  - Triển khai mô hình.
-  - Thực hiện dự đoán (Inference).
-
-- Làm quen với SageMaker Notebook và môi trường phát triển trên AWS.
-
-- Hiểu được cách lưu trữ dữ liệu trên Amazon S3 để phục vụ quá trình huấn luyện mô hình.
-
-- Tìm hiểu các thành phần chính của SageMaker:
-  - Notebook Instance.
-  - Training Job.
-  - Model.
-  - Endpoint.
-
-- Hiểu cách một ứng dụng có thể gửi request đến SageMaker Endpoint để nhận kết quả dự đoán.
-
-- Chuẩn bị kiến thức cần thiết để tích hợp Machine Learning vào project trong các tuần tiếp theo.
+- Triển khai thành công project lên Amazon EC2.
+- Cài đặt Docker và Docker Compose trên máy chủ.
+- Chạy frontend và backend bằng Docker Compose.
+- Thiết lập GitHub Actions để tự động triển khai ứng dụng.
+- Cấu hình kết nối với Amazon S3, DynamoDB và SageMaker.
+- Khắc phục các lỗi liên quan đến SSH, Docker và môi trường triển khai.
+- Hoàn thiện quy trình triển khai cơ bản cho project.
