@@ -10,7 +10,9 @@ Hệ thống gồm giao diện **React/Vite**, backend **FastAPI**, năm bảng 
 
 ## Kiến trúc tổng thể
 
-![Kiến trúc tổng thể](/images/5-Workshop/5.1-Workshop-overview/backend-request-flow.jpg)
+![Kiến trúc tổng thể](/images/5-Workshop/5.1-Workshop-overview/overall_architecture.png)
+
+*Sơ đồ kiến trúc tổng thể của hệ thống gợi ý phim trên AWS.*
 
 ## Luồng xử lý của ứng dụng
 
@@ -56,7 +58,7 @@ Backend kiểm tra `RecommendationCache` trước. Nếu cache còn hiệu lực
 | Amazon CloudWatch | Thu thập log của container ứng dụng và thông số vận hành SageMaker Processing Job |
 | AWS Budgets | Theo dõi chi phí cloud so với hạn mức ngân sách ($200 AWS credit guardrail) |
 
-<!-- ## Ranh giới chưa hoàn chỉnh
+## Ranh giới chưa hoàn chỉnh
 
 {{% notice warning %}}
 Repository chưa có serving handler hoặc gói triển khai để biến `RecommendationEngine` thành SageMaker endpoint. Có thể kiểm tra riêng local engine và hợp đồng gọi endpoint của backend, nhưng chưa thể dựng mới real-time endpoint chỉ bằng source hiện tại.
@@ -69,5 +71,5 @@ Training path và request path chỉ tạo thành một luồng triển khai kh�
 - Guest path không đi qua SageMaker.
 - Model chỉ trả movie reference, score và reason; metadata được lấy từ `Movies`.
 - SageMaker Processing Job không đồng nghĩa với endpoint deployment.
-- Interaction API chỉ ghi hành vi, không trực tiếp chạy recommendation. -->
+- Interaction API chỉ ghi hành vi, không trực tiếp chạy recommendation.
 

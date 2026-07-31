@@ -10,20 +10,9 @@ The system consists of a **React/Vite** frontend, a **FastAPI** backend, five Dy
 
 ## Overall Architecture
 
-{{< mermaid align="center" >}}
-flowchart LR
-    Browser[Browser] --> Frontend[React Frontend]
-    Frontend --> API[FastAPI Backend]
-    API --> DDB[(DynamoDB)]
-    API --> Cache[(RecommendationCache)]
-    API --> Endpoint[SageMaker Runtime]
-    DDB --> Exporter[Interaction Exporter]
-    Exporter --> S3[(Amazon S3)]
-    S3 --> Processing[SageMaker Processing Job]
-    Processing --> S3
-{{< /mermaid >}}
+![Overall Architecture](/images/5-Workshop/5.1-Workshop-overview/overall_architecture.png)
 
-<!-- IMAGE-5.1-01: Mermaid diagram can be replaced with a verified architecture diagram. -->
+*Overall architecture diagram of the Movie Recommendation System on AWS.*
 
 ## Application Request Workflows
 
