@@ -181,9 +181,6 @@ Kết quả mong đợi: `AccessDeniedException`.
 
 <!-- IMAGE-5.5-02: AccessDenied khi truy cập resource kiểm thử ngoài phạm vi. -->
 
-{{% notice warning %}}
-Nếu chưa có resource kiểm thử được phê duyệt, giữ negative test ở trạng thái chưa hoàn tất. Không chọn ngẫu nhiên một production resource để thử quyền.
-{{% /notice %}}
 
 ## 10. Cấu hình Amazon CloudWatch
 
@@ -266,9 +263,5 @@ Các threshold trên chỉ là điểm bắt đầu cho workshop, không phải 
 ![AWS Budget theo dõi chi phí của workshop](/images/5-Workshop/5.5-IAM-security/aws-budget-overview.png)
 
 *Billing and Cost Management xác nhận budget `My-200$-budget` có hạn mức 200 USD, threshold ở trạng thái `OK` và health status `Healthy`..*
-
-{{% notice warning %}}
-AWS Budgets là cơ chế theo dõi và cảnh báo, không phải giới hạn chi tiêu. Chi phí có thể tiếp tục tăng trước hoặc sau khi thông báo được gửi.
-{{% /notice %}}
 
 <!-- IMAGE-5.5-BUDGETS-01: Monthly cost budget với amount, scope và ba alert thresholds. -->

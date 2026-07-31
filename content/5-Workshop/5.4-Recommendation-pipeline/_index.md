@@ -6,53 +6,48 @@ chapter: false
 pre: " <b> 5.4. </b> "
 ---
 
-The pipeline supports multiple strategies to serve users based on their current interaction state.
+The pipeline supports multiple strategies for different user states.
 
 ## Recommendation Strategies
 
 - **Popularity:** IMDb-style weighted popularity ranking for unauthenticated guests.
-- **Content-Based:** Uses TF-IDF and cosine similarity for new users based on onboarding genre selections.
-- **Collaborative Filtering:** Employs implicit ALS to generate recommendation candidates for returning users.
-- **Hybrid Ranking:** Combines weighted Reciprocal Rank Fusion (RRF), recent similarity signals, and business-rule filtering.
+- **Content-based:** TF-IDF and cosine similarity for new users based on onboarding genres.
+- **Collaborative filtering:** implicit ALS to generate candidates for returning users.
+- **Hybrid ranking:** combines weighted Reciprocal Rank Fusion, recent similarity, and business-rule filtering.
 
-![Model training, evaluation, artifact management, and serving workflow](/images/5-Workshop/5.4-Recommendation-pipeline/recommendation-pipeline-flow.png)
+![Model training, evaluation, artifact management, and serving flow](/images/5-Workshop/5.4-Recommendation-pipeline/recommendation-pipeline-flow.png)
 
-*The model training and evaluation pipeline applies a promotion gate, stores artifacts in S3, and serves the promoted model through a SageMaker Endpoint and the FastAPI provider.*
+*The pipeline trains and evaluates the model, checks the promotion gate, stores artifacts in S3, and then serves the model through a SageMaker Endpoint and FastAPI provider.*
 
-## Inputs and Outputs
+## Input and Output
 
-Pipeline inputs include:
+Pipeline input includes:
 
-- Movie feature artifacts.
-- Temporally split interaction logs.
-- Onboarding genre selections.
-- Recent user interactions.
-- List of movie IDs to exclude.
+- Movie features.
+- Time-based interaction splits.
+- Onboarding genres.
+- Recent interactions.
+- A list of movie IDs to exclude.
 
-The recommendation engine outputs:
+The recommendation engine returns:
 
-- An ordered list of `movie_id` references.
-- `score` values.
-- `reason_code` tags.
-- `reason_context` metadata.
+- An ordered list of `movie_id` values.
+- `score`.
+- `reason_code`.
+- `reason_context`.
 
-The backend enriches responses with metadata from the `Movies` table and caches `movie_id`, `score`, and `reason_code`.
+The backend enriches the results with metadata from the `Movies` table and then caches `movie_id`, `score`, and `reason_code`.
 
-## Roles of SageMaker and EC2
+## Role of SageMaker and EC2
 
-SageMaker Processing Jobs execute containerized model retraining. EC2 hosts Docker application containers and optionally runs scheduled retraining via systemd.
+The SageMaker Processing Job is implemented to run retraining. EC2 can run the Docker application or, optionally, run periodic retraining with systemd.
 
-The backend includes a client interface to invoke a SageMaker real-time endpoint, but the current repository does not contain endpoint packaging or automated deployment scripts.
+The backend already contains a client that invokes a SageMaker real-time endpoint, but the source currently does not include endpoint packaging and deployment.
 
-{{% notice warning %}}
-Processing Jobs, local inference engines, and real-time endpoints represent three distinct components. Do not describe Processing Jobs as SageMaker Training Jobs or real-time endpoints.
-{{% /notice %}}
+## Contents
 
-## Table of Contents
-
-1. [Prepare Recommendation Environment](5.4.1-prepare-environment/)
-2. [Train, Evaluate, and Run SageMaker Processing Job](5.4.2-train-and-deploy-model/)
-3. [Integrate Application on EC2](5.4.3-integrate-ec2-application/)
-4. [End-to-End Testing](5.4.4-end-to-end-testing/)
-
-**Reference Sources:** `ml/README.md`, `ml/configs/model_serving.yaml`, `ml/scripts/sagemaker_retrain_job.py`, and backend recommendation providers.
+1. [Prepare the recommendation environment](5.4.1-prepare-environment/)
+2. [Train, evaluate, and run a SageMaker Processing Job](5.4.2-train-and-deploy-model/)
+3. [Integrate the application on EC2](5.4.3-integrate-ec2-application/)
+4. [End-to-end testing](5.4.4-end-to-end-testing/)
+5. [Model testing](5.4.5-model-testing/)

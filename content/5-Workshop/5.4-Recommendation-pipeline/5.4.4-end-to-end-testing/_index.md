@@ -6,9 +6,9 @@ chapter: false
 pre: " <b> 5.4.4. </b> "
 ---
 
-This section covers independent testing of guest workflows, authentication, user interactions, recommendation caching, and SageMaker endpoint invocations using a dedicated test user and a verified `movie_id` in the test environment.
+This section tests the guest, authentication, interaction, cache, and endpoint flows separately. Use a dedicated test user and a real `movie_id` from the test environment.
 
-## 1. Guest Workflow Verification
+## 1. Test the Guest Path
 
 ```bash
 curl -f \
@@ -20,42 +20,42 @@ curl -f \
 
 Pass criteria:
 
-- Requests do not require JWT authentication headers.
-- Movie rankings are retrieved from `PopularMovies` and enriched with metadata from `Movies`.
-- Guest requests generate zero interaction records in DynamoDB.
+- The request does not require a JWT.
+- The list is read from `PopularMovies` and enriched with metadata from `Movies`.
+- A guest request does not create an interaction.
 
-![Movie catalog displayed in the frontend](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-catalog.png)
+![Movie catalog displayed in the user interface](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-catalog.png)
 
-*The frontend movie catalog rendered from data returned by the backend.*
+*The frontend displays the movie catalog from data returned by the backend.*
 
 ![Simulated movie playback page](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-playback.png)
 
-*The movie detail page with simulated playback using poster artwork.*
+*Movie detail page with a playback area simulated by poster artwork.*
 
-## 2. Registration and Onboarding Verification
+## 2. Test Registration and Onboarding
 
-1. Register a dedicated acceptance test user.
-2. Store JWT tokens securely outside report documentation.
+1. Register a dedicated acceptance-test user.
+2. Store the JWT temporarily outside the report.
 3. Select between one and three onboarding genres.
-4. Re-query user state via the API.
+4. Read the user state again.
 
-Pass criteria: user state transitions cleanly from first login to returning user per API semantics.
+Pass criterion: the state changes from first login to returning user according to the API semantics.
 
-## 3. User Interaction and Idempotency Verification
+## 3. Test Interaction and Idempotency
 
-Submit a rating or reaction payload with an `Idempotency-Key` header, then resubmit the exact same header and body payload.
+Submit a rating or reaction with an `Idempotency-Key`, and then resubmit the same header and body.
 
 Pass criteria:
 
-- The response retains identical `event_id` or `interaction_key` identifiers.
-- DynamoDB contains exactly one corresponding item.
-- Rating and reaction state can be queried and verified via read endpoints.
+- The response retains the same `event_id` or `interaction_key`.
+- DynamoDB contains only one corresponding item.
+- The rating/reaction state can be read back.
 
-![Movie details and interaction controls](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-detail-interactions.png)
+![Movie information and interaction controls](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/ui-movie-detail-interactions.png)
 
-*The movie detail page displaying metadata and rating, reaction, and sharing controls.*
+*The movie detail page displays metadata together with rating, reaction, and sharing actions.*
 
-## 4. Personalized Recommendation Workflow Verification
+## 4. Test the Personalized Path
 
 ```bash
 curl \
@@ -65,23 +65,23 @@ curl \
 
 ### Cache Hit
 
-The backend returns recommendations from `RecommendationCache` without calling the SageMaker endpoint.
+The backend returns the result from `RecommendationCache` without invoking the SageMaker endpoint.
 
 ### Cache Miss
 
 The backend:
 
-1. Constructs the model payload context.
-2. Invokes SageMaker Endpoint.
-3. Validates model response structures.
-4. Enriches results with metadata from `Movies`.
-5. Writes recommendations to cache on a best-effort basis.
+1. Builds the model request.
+2. Invokes the SageMaker Endpoint.
+3. Validates the response.
+4. Enriches the result with metadata from `Movies`.
+5. Writes the cache entry on a best-effort basis.
 
-Do not assert static movie rankings, as ranking order depends on model artifacts and interaction history.
+Do not assert a specific movie because ranking depends on the artifacts and interaction history.
 
-## 5. SageMaker Endpoint Verification
+## 5. Test the SageMaker Endpoint
 
-Inside the `backend` directory:
+From the `backend` directory:
 
 ```bash
 python scripts/test_sagemaker_endpoint.py --describe
@@ -92,22 +92,18 @@ python scripts/test_sagemaker_endpoint.py \
   --genre "<GENRE>"
 ```
 
-![SageMaker endpoint verification through AWS CLI](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/sagemaker-endpoint-cli.jpg)
+![SageMaker Endpoint test result from the AWS CLI](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.4-end-to-end-testing/sagemaker-endpoint-cli.jpg)
 
-*AWS CLI confirms that `movie-rec-endpoint` is in `InService` status.*
+*The AWS CLI confirms that the `movie-rec-endpoint` endpoint is in the `InService` state.*
 
-{{% notice warning %}}
-Endpoint test paths pass only when the target environment has a compatible serving package. The current repository does not include code to build or deploy this endpoint container.
-{{% /notice %}}
+## 6. AWS Verification Points
 
-## 6. AWS Service Inspection Points
+- **DynamoDB:** the interaction item exists.
+- **RecommendationCache:** contains `movie_id`, `score`, `reason_code`, model version, and expiry.
+- **S3:** an interaction export appears only after the exporter runs; an API write does not write directly to S3.
+- **SageMaker:** the provider log contains the request ID, scenario, and result count when the endpoint is invoked.
 
-- **DynamoDB:** Verify interaction item presence.
-- **RecommendationCache:** Confirm presence of `movie_id`, `score`, `reason_code`, model version, and expiration fields.
-- **S3:** Interaction export objects appear only after running the exporter script; direct write APIs do not write directly to S3.
-- **SageMaker:** Provider logs contain request ID, scenario, and result counts when endpoints are invoked.
-
-## 7. Authentication Error Verification
+## 7. Test Authentication Failure
 
 ```bash
 curl -i \
@@ -118,36 +114,18 @@ curl -i \
   "http://127.0.0.1:<BACKEND_PORT>/api/v1/users/me/interactions"
 ```
 
-Expected result: HTTP `401 Unauthorized`.
+Expected result: HTTP `401`.
 
-## 8. Failure Path Matrix
+## 8. Failure-Path Matrix
 
-| Scenario | Expected Result |
+| Scenario | Expected result |
 |---|---|
-| Interaction request without JWT | `401` |
-| Recommendation request before onboarding | `403` |
-| User ID mismatch with JWT subject | `403` |
+| Interaction without a JWT | `401` |
+| Recommendation requested before onboarding | `403` |
+| User ID differs from the JWT subject | `403` |
 | Endpoint unavailable | `503` |
 | Endpoint timeout | `504` |
-| Invalid model response payload | `502` |
-| Partial movie ID resolution failure | Skip unresolvable items |
-| Complete movie ID resolution failure | `502` |
-| Empty or schema-violating request body | `400` or `422` |
-
-<!-- IMAGE-5.4.4-01: End-to-end test execution logs with JWT tokens and user details redacted. -->
-
-{{% notice warning %}}
-Acceptance tests record live data to `Users`, `UserInteractions`, and `RecommendationCache`. Use isolated test identities and execute cleanup steps only after approval.
-{{% /notice %}}
-
-## Completion Criteria
-
-- [ ] Guest browsing succeeds.
-- [ ] Protected endpoints without JWT headers return `401`.
-- [ ] Idempotent retries succeed.
-- [ ] Rating and reaction readbacks match submitted values.
-- [ ] Logs distinguish between cache hits and cache misses.
-- [ ] Endpoint tests are marked pass only when serving contracts exist.
-- [ ] Do not claim frontend UI renders personalized recommendations; recommendation hooks are not currently wired into `Home`.
-
-**Reference Sources:** FastAPI routes, `frontend/src/services/interactionService.ts`, `backend/app/services/recommendation_service.py`, and `backend/app/services/sagemaker_recommendation_provider.py`.
+| Invalid model response | `502` |
+| Some movie IDs cannot be resolved | Skip the failed items |
+| No movie IDs can be resolved | `502` |
+| Empty request or invalid schema | `400` or `422` |

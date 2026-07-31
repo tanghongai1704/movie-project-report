@@ -1,64 +1,58 @@
 ---
-title: Workshop
+title: "Workshop"
 date: 2026-07-30
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-This workshop presents the architecture and operational workflow of a movie recommendation system built with **React**, **FastAPI**, and AWS services. The system utilizes:
+This workshop presents the architecture and operational workflow of a movie recommendation system built with **React**, **FastAPI**, and AWS services. The system uses:
 
-- **Amazon DynamoDB** to store movie details, user accounts, user interaction history, and recommendation cache.
-- **Amazon S3** to store raw data, processed data, training sets, model artifacts, and evaluation reports.
-- **Amazon SageMaker Processing Job** to execute on-demand retraining pipelines.
-- **Amazon SageMaker Endpoint** as the real-time inference target for the backend.
-- **Amazon EC2** to host and run the application via Docker Compose.
-- **AWS IAM** to segregate permissions among deployer, application, and SageMaker execution roles.
+- **Amazon DynamoDB** to store movie information, accounts, user behavior, and recommendation cache entries.
+- **Amazon S3** to store raw data, processed data, training datasets, model artifacts, and evaluation reports.
+- **Amazon SageMaker Processing Job** to run the on-demand retraining workflow.
+- **Amazon SageMaker Endpoint** as the real-time inference target called by the backend.
+- **Amazon EC2** to run the application with Docker Compose.
+- **AWS IAM** to separate the permissions of deployers, the application, and SageMaker.
 
-![Streamverse movie recommendation system home page](/images/5-Workshop/ui-home-page.png)
+![Main interface of the Streamverse system](/images/5-Workshop/ui-home-page.png)
 
-*The main interface of the movie streaming and recommendation application.*
+*Main interface of the movie browsing and content recommendation application.*
 
-## Problem Statement
+## Problem Being Solved
 
-The system addresses three main user scenarios:
+The system supports three primary scenarios:
 
-1. **Unauthenticated Guests**: Browse popular movie lists.
-2. **New Users**: Select preferred genres during the onboarding workflow.
-3. **Returning Users**: Receive personalized recommendations based on interaction history, cache, and recommendation providers.
+1. **Unauthenticated guests** browse the popular movie list.
+2. **New users** select their preferred genres during onboarding.
+3. **Returning users** receive recommendations based on their interaction history, cache entries, and the recommendation provider.
 
 ## Confirmed Scope
 
-- DynamoDB has five logical tables: `Movies`, `PopularMovies`, `Users`, `UserInteractions`, and `RecommendationCache`.
-- S3 is partitioned into logical zones for raw data, processed data, training sets, inference lookup, model artifacts, evaluation reports, and interaction exports.
-- The ML pipeline uses **implicit ALS** for collaborative filtering, featuring offline evaluation and a promotion gate.
-- The backend contains code to invoke a SageMaker real-time endpoint.
-- GitHub Actions deploys the application to an existing EC2 server.
-- The application code utilizes the default AWS SDK credential provider chain.
-
-{{% notice warning %}}
-The repository currently does not include Infrastructure as Code (IaC), DynamoDB data loading scripts, SageMaker serving handlers, model/EndpointConfig/Endpoint creation scripts, complete IAM configurations, EC2 provisioning workflows, or cleanup automation. Therefore, the workshop accurately describes existing components and highlights required manual steps.
-{{% /notice %}}
+- DynamoDB contains five logical tables: `Movies`, `PopularMovies`, `Users`, `UserInteractions`, and `RecommendationCache`.
+- S3 is divided into zones for raw data, processed data, training datasets, inference data, models, evaluation reports, and interaction exports.
+- The ML pipeline uses **implicit ALS** for collaborative filtering and includes evaluation and a promotion gate.
+- The backend includes code that invokes a SageMaker real-time endpoint.
+- GitHub Actions deploys the application to an existing EC2 host.
+- The application code uses the default AWS SDK credential provider chain.
 
 ## Learning Outcomes
 
-Upon completing this workshop, you will be able to:
+After completing this workshop, you will be able to:
 
 - Explain the data flow, training flow, and request-time inference flow.
-- Inspect the schema of the five DynamoDB tables and S3 prefix structures.
-- Execute data pipelines, validation, and dry-runs for model retraining.
-- Train and evaluate models locally, or launch SageMaker Processing Jobs given proper IAM permissions.
-- Launch the application and test guest, authentication, and interaction flows.
-- Diagnose cache hits, endpoint errors, and permission failures.
-- Formulate a resource cleanup plan adhering to strict dependency ordering.
+- Verify the schemas of the five DynamoDB tables and the S3 prefix structure.
+- Run the data pipeline, validation, and a dry run of the retraining process.
+- Train and evaluate the model locally or submit a SageMaker Processing Job when the required permissions are available.
+- Start the application and test the guest, authentication, and interaction flows.
+- Diagnose cache hits, endpoint failures, and permission errors.
+- Plan resource cleanup in the correct dependency order.
 
-## Workshop Table of Contents
+## Workshop Contents
 
-1. [Overall Architecture and Workflow](5.1-Workshop-overview/)
+1. [Overall architecture and processing flows](5.1-Workshop-overview/)
 2. [Prerequisites](5.2-Prerequisites/)
-3. [Data Layer with S3 and DynamoDB](5.3-Data-layer/)
-4. [Recommendation Pipeline](5.4-Recommendation-pipeline/)
-5. [IAM and Security](5.5-IAM-security/)
-6. [Summary and Resource Cleanup](5.6-Cleanup/)
-
-
+3. [Data layer with S3 and DynamoDB](5.3-Data-layer/)
+4. [Recommendation pipeline](5.4-Recommendation-pipeline/)
+5. [IAM and security](5.5-IAM-security/)
+6. [Summary and resource cleanup](5.6-Cleanup/)

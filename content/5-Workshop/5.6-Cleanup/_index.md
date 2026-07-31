@@ -6,65 +6,59 @@ chapter: false
 pre: " <b> 5.6. </b> "
 ---
 
-This workshop has covered:
+The workshop has presented:
 
-- Data pipeline workflows and S3 artifact layouts.
-- Five DynamoDB tables and their associated access patterns.
-- Implicit ALS model training, evaluation, and promotion gate mechanisms.
-- SageMaker Processing Job execution.
-- FastAPI provider architecture, caching, and controlled failure paths.
-- Application deployment patterns on EC2 hosts.
-- IAM boundaries enforcing the principle of least privilege.
+- The data pipeline and S3 artifact layout.
+- Five DynamoDB tables and their access patterns.
+- ALS training, evaluation, and the promotion gate.
+- A SageMaker Processing Job.
+- The FastAPI provider, cache, and failure paths.
+- Assumptions for deploying the application on EC2.
+- Least-privilege IAM boundaries.
 
-## Potential Cost-Incurring Resources
+## Resources That May Incur Costs
 
-- SageMaker real-time endpoints and endpoint instances.
-- Active SageMaker Processing Jobs during execution.
-- EC2 instances and attached EBS storage volumes.
-- DynamoDB request units, backups, and storage tables.
-- S3 current objects, non-current versions, and incomplete multipart uploads.
-- CloudWatch Logs log groups and retention.
-- Data transfer egress bandwidth.
-- Optional network resources not detailed in the repository.
+- SageMaker real-time endpoint and endpoint instance.
+- SageMaker Processing Jobs while they are running.
+- EC2 instance and attached storage.
+- DynamoDB requests, backups, and tables.
+- S3 current objects, noncurrent versions, and multipart uploads.
+- CloudWatch Logs.
+- Data transfer.
+- Optional network resources not described in the repository.
 
-## Resource Cleanup Sequence
+## Resource Cleanup Order
 
-![AWS resource cleanup dependency order](/images/5-Workshop/5.6-Cleanup/cleanup-dependency-flow.jpg)
+![Dependency order for cleaning up AWS resources](/images/5-Workshop/5.6-Cleanup/cleanup-dependency-flow.jpg)
 
-*Resources are removed in dependency order to preserve required data and avoid deleting resources that are still referenced.*
+*Clean up resources in dependency order to preserve required data and avoid leaving resources that still reference one another.*
 
-Execute cleanup operations in the following strict order:
+Proceed in this order:
 
-1. Stop incoming traffic, CI deployment workflows, and retraining timers.
-2. Export or archive logs, evaluation reports, model manifests, and required data.
-3. Stop active SageMaker processing jobs.
-4. Delete SageMaker Endpoints before EndpointConfigs and Models (if confirmed to belong strictly to workshop scope).
-5. Stop or terminate EC2 instances according to organizational data retention policies.
-6. Export required DynamoDB items before deleting test tables or items.
-7. Delete S3 current objects, non-current versions, and incomplete multipart uploads before deleting buckets.
+1. Stop traffic, CI deployment, and the retraining scheduler.
+2. Export or retain the logs, reports, model manifests, and data that must be preserved.
+3. Stop active SageMaker jobs.
+4. Delete the Endpoint before the EndpointConfig and Model if the owner confirms that these resources belong to the workshop.
+5. Stop or terminate EC2 according to the retention policy.
+6. Export DynamoDB data that must be preserved before deleting test items or tables.
+7. Delete S3 current objects, versions, and multipart uploads before deleting the bucket.
 8. Detach managed/inline policies before deleting IAM roles.
-9. Verify AWS Billing, AWS Cost Explorer, and resource inventory dashboards.
+9. Review Billing, Cost Explorer, and the resource inventory.
 
-## Why Specific Delete Commands Are Omitted
+## Data That May Be Lost Permanently
 
-{{% notice warning %}}
-The repository contains no automated cleanup scripts or IaC configurations matching the current infrastructure architecture. Executing arbitrary deletion CLI commands risks accidentally destroying shared buckets or production tables. Consequently, this section provides read-only inventory commands; resource owners must provide approved runbooks and explicit deletion target lists.
-{{% /notice %}}
-
-## Potential Permanent Data Loss Risks
-
-- User account credentials and password hashes.
-- Historical `UserInteractions` used for retraining.
-- Cached recommendations in `RecommendationCache`.
-- Movie metadata catalog and popular movie rankings.
-- Raw and processed dataset files.
-- Model binary artifacts, manifests, and evaluation history.
+- User accounts and password hashes.
+- `UserInteractions` used for retraining.
+- `RecommendationCache`.
+- Movie catalog and popularity ranking.
+- Raw/processed datasets.
+- Model artifacts, manifests, and evaluation history.
 - S3 object versions.
-- Log files and audit trail evidence.
+- Logs and audit evidence.
 
-## Read-Only Resource Inventory Verification
+## Read-Only Inventory
 
-The following CLI commands only list resources and perform zero deletion operations:
+The following commands only list resources; they do not perform cleanup:
 
 ```bash
 aws sagemaker list-endpoints \
@@ -84,20 +78,3 @@ aws s3api list-objects-v2 \
   --bucket "<S3_BUCKET_NAME>" \
   --max-items 10
 ```
-
-<!-- IMAGE-5.6-01: Resource inventory console output after cleanup with Account IDs and ARNs redacted. -->
-
-{{% notice warning %}}
-Do not use bucket or table names from `.env.example` as cleanup target inputs. Always verify AWS Account IDs, regions, resource ARNs, owners, retention rules, and shared-resource classifications prior to executing deletion actions.
-{{% /notice %}}
-
-## Post-Cleanup Checklist
-
-- [ ] Zero active endpoints, EC2 instances, or Processing Jobs remain outside retained inventory lists.
-- [ ] Test data and model artifacts are deleted only after receiving data retention approvals.
-- [ ] S3 object versions were audited, not solely current objects.
-- [ ] IAM roles are deleted only after all referencing resources are removed.
-- [ ] AWS Billing and resource inventory dashboards have been verified.
-- [ ] Zero cleanup CLI commands were executed automatically from report text.
-
-**Unimplemented Gaps Requiring Resolution:** Reviewed cleanup scripts, data retention policies, backup procedures, resource ownership tags, shared-resource classification, and billing verification runbooks.

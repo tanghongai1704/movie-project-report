@@ -1,81 +1,109 @@
 ---
-title: "Integrate Application on EC2"
+title: "Integrate the Application on EC2"
 date: 2026-07-30
 weight: 3
 chapter: false
 pre: " <b> 5.4.3. </b> "
 ---
 
-The repository does not provision EC2 infrastructure. The GitHub Actions workflow assumes an existing target host with SSH accessibility prepared to run Docker Compose.
+The repository does not create EC2 resources. The GitHub Actions workflow assumes that an existing host is available, reachable over SSH, and prepared to run Docker Compose.
 
-## 1. Prepare EC2 Host
+## 1. Create an EC2 Instance in the AWS Console
+
+1. Open **Amazon EC2** → **Instances** → **Launch instances**.
+2. Enter the name `movie-recommendation-server` and add the tag `Environment=<ENVIRONMENT>`.
+3. Select the **Ubuntu Server 24.04 LTS, 64-bit (x86)** AMI or an organization-approved Linux AMI.
+4. Select an appropriate instance type. The current workshop environment uses `t3.micro`; increase the capacity if Docker builds or actual traffic exceed its resources.
+5. Under **Key pair (login)**, select an existing key pair or create a new one. Store the private key once in a secure location; AWS does not allow the private key to be downloaded again.
+6. Under **Network settings**, select the correct VPC and subnet. Enable auto-assign public IPv4 only when the workshop requires direct Internet access.
+7. Select or create a security group dedicated to the application host; configure its inbound rules as described in section 2 below.
+8. Under **Configure storage**, select a `gp3` volume large enough for the OS, source code, Docker images, containers, and logs. Enable EBS encryption.
+9. Open **Advanced details** and attach the backend IAM instance profile; do not place access keys in user data.
+10. Review **Summary** → **Launch instance** → wait until the instance state is `Running` and both status checks pass.
+
+## 2. Configure the Security Group and Inbound Rules
+
+1. Open **EC2** → **Security Groups** → select the security group attached to the instance.
+2. Select the **Inbound rules** tab → **Edit inbound rules** → **Add rule**.
+3. Add only the rules that are actually required, as shown in the table below.
+4. Select **Save rules** and verify access from an authorized client.
+
+| Purpose | Type/Protocol | Port | Recommended source |
+|---|---|---:|---|
+| Linux administration | SSH / TCP | 22 | `<ADMIN_PUBLIC_IP>/32`, a VPN CIDR, or a bastion security group; do not use `0.0.0.0/0` |
+| Web without TLS | HTTP / TCP | 80 | `0.0.0.0/0` and `::/0` only when the website must be public |
+| Web with TLS | HTTPS / TCP | 443 | `0.0.0.0/0` and `::/0` when the website must be public |
+| Direct application port | Custom TCP | `<APPLICATION_PORT>` | The load balancer/reverse proxy security group or an approved test CIDR |
+| Internal backend | Custom TCP | `<BACKEND_PORT>` | Do not create a public rule when the frontend/reverse proxy runs on the same host |
+
+![Inbound rules of the EC2 security group](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-security-group-inbound-rules.png)
+
+*The `launch-wizard-1` security group has three inbound TCP rules for SSH port `22`, frontend port `5173`, and backend port `8000`.*
+
+## 3. Prepare the EC2 Host
 
 The platform owner must provide:
 
 - `<EC2_INSTANCE_ID>`.
-- An IAM instance profile.
-- An application directory on the host.
-- Inbound security group rules for `<APPLICATION_PORT>` or reverse proxy access.
-- Adequate disk storage capacity.
-- DNS names and TLS certificates for public endpoints.
-- Git repository access credentials.
-- Docker Engine and Docker Compose v2 installation.
+- IAM instance profile.
+- Application directory on the host.
+- An inbound rule for `<APPLICATION_PORT>` or a reverse proxy.
+- Disk capacity.
+- DNS and TLS if the application is public.
+- Git access.
+- Docker Engine and Docker Compose v2.
 
-AMI selection, instance type, VPC, subnets, security group rules, storage volumes, DNS names, and TLS configurations are not defined within this repository.
+The repository does not currently specify the AMI, instance type, VPC, subnet, security group, disk, DNS, or TLS configuration.
 
-Deployment evidence confirms that the `movie-recommendation-server` instance is `Running`, uses the `t3.micro` instance type, and has both public and private IPv4 addresses. This records the current environment but does not replace Infrastructure as Code.
+The deployment environment screenshot confirms that the `movie-recommendation-server` instance is `Running`, uses the `t3.micro` instance type, and has both public and private IPv4 addresses. This is evidence of the current environment, not a substitute for Infrastructure as Code.
 
-![EC2 instance hosting the movie recommendation application](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-instance-summary.jpg)
+![EC2 instance details for the movie recommendation application](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-instance-summary.jpg)
 
-*The EC2 Console confirms the application host state, instance type, network addresses, hostname, and VPC.*
+*The EC2 Console confirms the application host's status, instance type, network addresses, hostname, and VPC.*
 
 ![Successful SSH connection to the EC2 host](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-ssh-session.jpg)
 
-*The SSH session confirms access to Ubuntu 24.04.4 LTS on EC2. The host reports a required restart and pending updates, so maintenance should be completed before treating it as production-ready.*
+*The SSH session confirms access to Ubuntu 24.04.4 LTS on EC2.*
 
-## 2. Configure Application Environment
+## 4. Configure the Application
 
-Place the `.env` file directly on the EC2 host in accordance with approved secrets management procedures. Do not commit `.env` files or create secrets directly within GitHub Actions scripts.
+Place `.env` directly on EC2 according to the approved secret-management process. Do not commit `.env` or create this file in GitHub Actions.
 
-On EC2, prefer using an IAM instance profile so the AWS SDK acquires credentials via the default provider chain. Do not copy static, permanent access keys onto the server.
+On EC2, prefer an instance profile so the AWS SDK obtains credentials through the default provider chain. Do not copy permanent access keys to the server.
 
-![GitHub deploy key configured for EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-ec2-deploy-key.jpg)
+![GitHub deploy key for EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-ec2-deploy-key.jpg)
 
-*The repository uses the read-only `EC2 Deploy` key so the host can retrieve source code. Its private key must remain only on the host or in an approved secret store.*
+*The repository has configured the `EC2 Deploy` deploy key in read-only mode so the host can retrieve the source code.*
 
-## 3. Deployment Workflow
+## 5. Deployment Workflow
 
-Upon pushing to the `main` branch, GitHub Actions executes:
+When a commit is pushed to the `main` branch, GitHub Actions:
 
-1. Frontend static asset build.
-2. Backend dependency installation and `compileall` validation.
-3. SSH connection to the target EC2 host.
-4. Navigation to `EC2_APP_DIR`.
-5. Git pull from `main`.
-6. Docker Compose deployment.
+1. Builds the frontend.
+2. Installs backend dependencies and runs `compileall`.
+3. Connects to EC2 over SSH.
+4. Changes to `EC2_APP_DIR`.
+5. Pulls source from `main`.
+6. Runs Docker Compose.
 
-<!-- IMAGE-5.4.3-01: GitHub Actions deployment logs with hosts, users, and secrets redacted. -->
+![Successful GitHub Actions workflow build](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-actions-build-success.png)
 
-{{% notice warning %}}
-The workflow executes `docker compose pull`, but `docker-compose.yml` uses local build context instead of remote container image registries. If the host does not rebuild local images, `docker compose up -d` may continue running older images.
-{{% /notice %}}
+## 6. Runtime Integration
 
-## 4. Runtime Integration
+When the backend starts, it:
 
-Upon startup, backend services perform:
+1. Creates a boto3 session.
+2. Verifies the STS identity.
+3. Describes the key schemas of the DynamoDB tables.
+4. Checks the S3 bucket.
+5. Describes the SageMaker endpoint through a health check that does not block the entire application.
+6. Initializes repositories, services, and the provider.
 
-1. boto3 session initialization.
-2. STS caller identity verification.
-3. DynamoDB key schema verification for five tables.
-4. S3 bucket existence and permission checks.
-5. Non-blocking SageMaker endpoint description health checks.
-6. Repository, service, and provider initialization.
+When the endpoint is unavailable, the guest API can continue to run; a personalized cache miss returns a controlled error.
 
-If the SageMaker endpoint is unavailable, guest APIs continue functioning normally, while personalized cache misses return controlled, graceful error responses.
+## 7. Start the Application
 
-## 5. Launch Application Containers
-
-In the application directory on EC2, once code, `.env`, Docker, and IAM roles are ready:
+From the application directory on EC2, after the code, `.env`, Docker, and IAM role are ready:
 
 ```bash
 docker compose config --quiet
@@ -84,7 +112,7 @@ docker compose ps
 docker compose logs backend --tail 100
 ```
 
-## 6. Verify Application Services
+## 8. Verify the Services
 
 ```bash
 curl -f "http://127.0.0.1:<BACKEND_PORT>/health"
@@ -95,21 +123,17 @@ curl -f \
 
 Expected results:
 
-- Backend container status is healthy.
-- Frontend responds with HTML content.
+- The backend container is healthy.
+- The frontend returns HTML.
 - `/health` returns `{"status":"ok"}`.
-- `/movies` returns a JSON array, or a controlled `503` if data resources are misconfigured.
-- Startup logs expose zero credentials.
+- `/movies` returns a JSON array, or a controlled `503` error if a data resource is configured incorrectly.
+- Startup logs do not expose credentials.
 
-<!-- IMAGE-5.4.3-02: Docker services status and EC2 health check with IP addresses and hostnames redacted. -->
+![Swagger UI for the Movie Recommendation API running on EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-fastapi-swagger-ui.png)
 
-## 7. Distinguishing EC2 Application Deployment from EC2 Retraining
+## 9. Distinguish the EC2 Application from EC2 Retraining
 
-`ml/deploy/ec2_bootstrap.sh` configures a systemd timer for model retraining, not web application deployment. This script template requires modification before use:
+`ml/deploy/ec2_bootstrap.sh` configures a systemd timer for retraining, not web deployment. This template currently requires two fixes:
 
-- Default subdirectory paths do not match the `ml` submodule directory structure.
-- Event path prefix `events/` does not match canonical configuration `datasets/exports/`.
-
-Do not deploy this bootstrap script template to production without reviewing and updating these path definitions.
-
-**Reference Sources:** `.github/workflows/deploy.yml`, `docker-compose.yml`, `backend/app/aws/infrastructure.py`, and `ml/deploy/ec2_bootstrap.sh`.
+- Its default subdirectory does not match the `ml` submodule path.
+- Its `events/` event prefix does not match the canonical `datasets/exports/` configuration.
