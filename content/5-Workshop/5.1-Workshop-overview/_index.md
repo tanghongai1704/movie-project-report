@@ -63,8 +63,11 @@ The backend checks `RecommendationCache` first. If a valid cache entry exists, r
 | Amazon DynamoDB | Request-time storage for movie metadata, user accounts, interactions, and recommendation cache |
 | SageMaker Processing Job | Executes batch model retraining jobs |
 | SageMaker Runtime | Target endpoint invoked by backend recommendation providers |
-| Amazon EC2 | Hosts web application containers and can optionally run scheduled retraining via systemd |
-| AWS IAM | Enforces permission isolation for deployment, web runtime, and SageMaker execution |
+| Amazon EC2 | Hosts web application containers (React + FastAPI) and runs scheduled retraining |
+| AWS IAM | Enforces least-privilege permission isolation for deployment, EC2 runtime, and SageMaker execution |
+| Amazon VPC & Internet Gateway | Provides network boundary (Public Subnet) and internet routing for public HTTPS access and GitHub Actions SSH deployments |
+| Amazon CloudWatch | Collects container application logs and SageMaker Processing Job execution metrics |
+| AWS Budgets | Tracks project cloud spending against budget thresholds ($200 AWS credit guardrail) |
 
 ## Unimplemented Boundaries
 

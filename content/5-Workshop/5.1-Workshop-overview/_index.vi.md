@@ -50,8 +50,11 @@ Backend kiểm tra `RecommendationCache` trước. Nếu cache còn hiệu lực
 | Amazon DynamoDB | Lưu metadata, tài khoản, interaction và cache tại request time |
 | SageMaker Processing Job | Chạy batch retraining |
 | SageMaker Runtime | Đích gọi của recommendation provider trong backend |
-| Amazon EC2 | Chạy web application và có thể chạy retraining bằng systemd |
-| AWS IAM | Phân tách quyền deploy, runtime và SageMaker execution |
+| Amazon EC2 | Chạy ứng dụng web bằng Docker (React + FastAPI) và lịch tái huấn luyện |
+| AWS IAM | Phân tách quyền deploy, runtime và SageMaker execution theo nguyên tắc tối thiểu |
+| Amazon VPC & Internet Gateway | Cung cấp ranh giới mạng (Public Subnet) và định tuyến Internet cho truy cập HTTPS public cùng deployment SSH từ GitHub Actions |
+| Amazon CloudWatch | Thu thập log của container ứng dụng và thông số vận hành SageMaker Processing Job |
+| AWS Budgets | Theo dõi chi phí cloud so với hạn mức ngân sách ($200 AWS credit guardrail) |
 
 <!-- ## Ranh giới chưa hoàn chỉnh
 
