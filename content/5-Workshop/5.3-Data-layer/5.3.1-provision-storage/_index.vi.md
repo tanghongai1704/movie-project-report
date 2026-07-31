@@ -6,9 +6,60 @@ chapter: false
 pre: " <b> 5.3.1. </b> "
 ---
 
-Repository không chứa Terraform, CloudFormation, CDK hoặc công cụ Infrastructure as Code tương đương. Vì vậy phần này chỉ kiểm tra những tài nguyên đã được platform team tạo, không tự động provision tài nguyên mới.
+Repository không chứa Terraform, CloudFormation, CDK hoặc công cụ Infrastructure as Code tương đương. Phần dưới đây hướng dẫn tạo tài nguyên thủ công bằng AWS Console cho môi trường workshop, sau đó kiểm tra lại bằng Console và AWS CLI. Với production, các bước này cần được chuyển thành Infrastructure as Code và được platform/security team review.
 
-## 1. Kiểm tra năm bảng DynamoDB
+## 1. Tạo năm bảng DynamoDB bằng AWS Console
+
+### 1.1. Chọn Region và quy ước tên
+
+1. Đăng nhập AWS Console bằng IAM user/role dành cho workshop, không dùng root user cho thao tác hằng ngày.
+2. Chọn đúng `<AWS_REGION>` ở góc trên bên phải. Các tài nguyên S3, DynamoDB, SageMaker và EC2 của workshop nên dùng cùng Region; bằng chứng hiện tại sử dụng `ap-southeast-1`.
+3. Dùng prefix theo môi trường, ví dụ `movie-rec-dev-`, rồi cập nhật đúng tên bảng vào `.env` của backend.
+
+### 1.2. Tạo từng bảng
+
+1. Mở **DynamoDB** → **Tables** → **Create table**.
+2. Nhập table name, partition key và sort key theo bảng dưới đây. Tất cả key đều có kiểu **String**.
+3. Trong **Table settings**, chọn **Customize settings**.
+4. Chọn **On-demand** cho workshop có tải chưa ổn định. Chỉ dùng provisioned capacity khi đã có số liệu tải và kế hoạch capacity rõ ràng.
+5. Giữ encryption mặc định của DynamoDB hoặc chọn customer managed KMS key nếu chính sách tổ chức yêu cầu.
+6. Thêm tag tối thiểu: `Project=movie-recommendation`, `Environment=<ENVIRONMENT>` và `Owner=<OWNER>`.
+7. Chọn **Create table**, chờ trạng thái chuyển sang `ACTIVE`, rồi lặp lại cho đủ năm bảng.
+
+| Tên logic | Tên bảng gợi ý | Partition key | Sort key |
+|---|---|---|---|
+| Movies | `<ENV_PREFIX>-Movies` | `movie_id` (String) | Không có |
+| PopularMovies | `<ENV_PREFIX>-PopularMovies` | `list_id` (String) | Không có |
+| Users | `<ENV_PREFIX>-Users` | `user_id` (String) | Không có |
+| UserInteractions | `<ENV_PREFIX>-UserInteractions` | `user_id` (String) | `interaction_key` (String) |
+| RecommendationCache | `<ENV_PREFIX>-RecommendationCache` | `user_id` (String) | `scenario` (String) |
+
+{{% notice warning %}}
+Không tạo GSI chỉ để “phòng khi cần”. Workshop hiện không sử dụng GSI; thêm index sẽ làm thay đổi chi phí và access pattern cần kiểm thử.
+{{% /notice %}}
+
+<!-- IMAGE-5.3.1-DDB-01: Màn hình Create table thể hiện tên bảng, partition key, sort key và capacity mode. -->
+
+### 1.3. Bật TTL cho RecommendationCache
+
+1. Mở bảng `<ENV_PREFIX>-RecommendationCache`.
+2. Chọn tab **Additional settings**.
+3. Tại **Time to Live (TTL)**, chọn **Turn on**.
+4. Nhập chính xác attribute name `expire_at` vì tên TTL phân biệt chữ hoa/chữ thường.
+5. Xác nhận trạng thái TTL chuyển sang `Enabled`.
+
+### 1.4. Bật point-in-time recovery
+
+1. Mở từng bảng cần bảo vệ → tab **Backups**.
+2. Tại **Point-in-time recovery (PITR)**, chọn **Edit**.
+3. Bật PITR và chọn retention phù hợp từ 1 đến 35 ngày.
+4. Chọn **Save changes**.
+
+PITR phát sinh chi phí. Với lab có thể chỉ bật cho `Users`, `UserInteractions` và `RecommendationCache`; production phải tuân theo retention policy đã được phê duyệt.
+
+<!-- IMAGE-5.3.1-DDB-02: TTL expire_at ở trạng thái Enabled và cấu hình PITR của bảng. -->
+
+## 2. Kiểm tra năm bảng DynamoDB
 
 Với từng tên bảng được cung cấp qua kênh bảo mật, chạy:
 
@@ -34,7 +85,7 @@ Tất cả bảng phải ở trạng thái `ACTIVE`.
 
 *Năm bảng DynamoDB cùng partition key, sort key và trạng thái Active.*
 
-## 2. Kiểm tra thuộc tính bổ sung
+## 3. Kiểm tra thuộc tính bổ sung
 
 Thiết kế hiện tại không sử dụng GSI. `RecommendationCache` có field `expire_at`, nhưng source code không chứng minh TTL đã được bật trên tài nguyên thật.
 
@@ -48,7 +99,27 @@ Các thuộc tính cần xác nhận ngoài source:
 
 Nếu chưa có bằng chứng từ AWS Console hoặc CLI, hãy ghi trạng thái là **chưa xác nhận**, không suy đoán.
 
-## 3. Kiểm tra S3 bucket
+## 4. Tạo S3 bucket bằng AWS Console
+
+1. Mở **Amazon S3** → **General purpose buckets** → **Create bucket**.
+2. Chọn **General purpose**, nhập `<S3_BUCKET_NAME>` duy nhất toàn cục và chọn đúng `<AWS_REGION>`.
+3. Tại **Object Ownership**, giữ **Bucket owner enforced** để tắt ACL.
+4. Tại **Block Public Access settings for this bucket**, giữ bật **Block all public access** và cả bốn tùy chọn con.
+5. Tại **Bucket Versioning**, chọn **Enable**.
+6. Thêm các tag `Project`, `Environment` và `Owner`.
+7. Tại **Default encryption**, chọn **SSE-S3** cho workshop này. Nếu tổ chức yêu cầu kiểm soát khóa riêng, chọn SSE-KMS và bổ sung quyền KMS tương ứng.
+8. Chọn **Create bucket**.
+9. Mở bucket vừa tạo → **Create folder** để tạo các prefix logic: `raw/`, `processed/`, `training/`, `inference/`, `models/`, `evaluation/` và `interaction-exports/`.
+
+{{% notice note %}}
+“Folder” trên S3 chỉ là prefix của object key. Backend không đọc toàn bộ dataset trực tiếp từ S3 trong request-time path.
+{{% /notice %}}
+
+<!-- IMAGE-5.3.1-S3-01: Màn hình Create bucket với Region, Block Public Access, Versioning và Default encryption. -->
+
+<!-- IMAGE-5.3.1-S3-02: Các prefix logic trong S3 bucket sau khi tạo. -->
+
+## 5. Kiểm tra S3 bucket
 
 ![S3 bucket của hệ thống gợi ý phim](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket.png)
 
@@ -86,7 +157,7 @@ Bucket phải tồn tại, có Block Public Access và encryption phù hợp. Đ
 
 *Bucket Versioning đang ở trạng thái `Enabled`; MFA delete đang `Disabled`.*
 
-## 4. Kiểm tra các prefix
+## 6. Kiểm tra các prefix
 
 Chỉ lấy tối đa một object để tránh đọc dữ liệu không cần thiết:
 
@@ -101,13 +172,15 @@ Lặp lại với các prefix `processed`, `training`, `inference`, `models`, `e
 
 Prefix rỗng không nhất thiết là lỗi. `AccessDenied`, sai region hoặc bucket không tồn tại mới là dấu hiệu cần xử lý.
 
-## 5. Khi tài nguyên chưa tồn tại
+## 7. Khi tài nguyên chưa tồn tại
 
 Nếu thiếu bảng hoặc bucket:
 
 1. Dừng bước triển khai.
 2. Ghi lại region, key schema, billing mode, TTL, encryption, lifecycle và IAM owner cần thiết.
 3. Yêu cầu platform/security team cung cấp tài nguyên hoặc IaC đã được review.
+
+**Tài liệu AWS chính thức:** [Tạo DynamoDB table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html), [bật TTL](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-how-to.html), [bật PITR](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery_Howitworks.html) và [tạo S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
 
 <!-- ## Tiêu chí hoàn tất
 
