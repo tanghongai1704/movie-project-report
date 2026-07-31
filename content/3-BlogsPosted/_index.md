@@ -6,17 +6,21 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice info %}}
+Links to articles posted on [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj):
+1. [Amazon Athena – Analyzing Data on S3 Using SQL Without Creating a Database](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2226781804753446/?rdid=EXSxKmYwwkha8Juz#)
+2. [Exploring Amazon Macie – Automatically Discover Sensitive Data in Amazon S3](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2226994294732197/?rdid=nvuJgxt0fq35mKfn#)
+3. [Exploring Amazon Simple Email Service (Amazon SES) – AWS Email Sending Service](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2224776141620679/?rdid=4thpf7DkNOzlJPvf#)
 {{% /notice %}}
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+###  [BLOG 1 - AMAZON ATHENA - ANALYZING DATA ON S3 USING SQL WITHOUT CREATING A DATABASE](3.1-Blog1/)
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+This blog introduces Amazon Athena, a serverless service that allows direct querying of data (such as CSV, JSON, Parquet, ORC, and Avro) stored in Amazon S3 using familiar SQL syntax. It outlines specific steps to create reference tables and analyze data without needing to install or manage any database servers, while also highlighting advantages and important considerations to optimize query costs.
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+###  [BLOG 2 - EXPLORING AMAZON MACIE – AUTOMATICALLY DISCOVER SENSITIVE DATA IN AMAZON S3](3.2-Blog2/)
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+Uses Machine Learning and Pattern Matching to automatically discover sensitive data (such as Personally Identifiable Information (PII), credit card numbers, emails, and phone numbers) stored in Amazon S3 to enhance data security.
+
+###  [BLOG 3 - EXPLORING AMAZON SIMPLE EMAIL SERVICE (AMAZON SES) – AWS EMAIL SENDING SERVICE](3.3-Blog3/)
+
+This blog introduces Amazon Simple Email Service (SES), a specialized service that helps applications send and receive emails on the AWS platform at scale, from small to large. It outlines specific steps to set up, verify email addresses, send test emails via the Console, or integrate via SMTP/API, while also highlighting its advantages, Sandbox mode, and important considerations for practical deployment.
