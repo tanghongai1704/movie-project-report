@@ -1,39 +1,48 @@
 ---
 title: "Self-Assessment"
-date: 2024-01-01
+date: 2026-07-28
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
+{{% notice note %}}
+This section presents my self-assessment after completing the **First Cloud AI Journey (FCAJ)** program. It reflects the knowledge and skills I have gained, my strengths throughout the program, and the areas I need to continue improving for future personal and professional development.
 {{% /notice %}}
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+Throughout my participation in the **First Cloud AI Journey (FCAJ)** program from **21/07/2026** to **10/10/2026**, I had the opportunity to learn, practice, and apply AWS cloud computing concepts through training sessions, workshops, and the development of a real-world project.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+During the program, I participated in developing a **movie recommendation system using AWS services**, while learning and working with services such as Amazon EC2, Amazon S3, Amazon DynamoDB, AWS Lambda, Amazon API Gateway, Amazon SageMaker, and Docker. This experience strengthened my knowledge of Cloud Computing, application development, system deployment, and teamwork.
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+In addition to technical knowledge, I also improved my skills in using Git and GitHub, collaborating within a team, reading technical documentation, writing project documentation, communicating with team members, and solving problems encountered during system development.
 
-| No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
-| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
-| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
-| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
-| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
-| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
-| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
-| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
-| 10  | **Problem-solving skills**          | Identifying problems, proposing solutions, and showing creativity                                | ☐    | ✅    | ☐       |
-| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
-| 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
+Throughout the program, I consistently strived to complete assigned tasks on schedule, proactively explored new technologies, actively communicated with mentors and teammates whenever challenges arose, and welcomed feedback to continuously improve myself.
 
-### Needs Improvement
+To provide an objective reflection of my participation in the program, I present the following self-assessment based on the criteria below.
 
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+| No. | Evaluation Criteria | Description | Good | Fair | Average |
+| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | :---: | :---: | :---: |
+| 1 | **Technical Knowledge and Skills** | Understand and apply AWS, Docker, Machine Learning, and software development tools | ✅ | ☐ | ☐ |
+| 2 | **Learning Ability** | Proactively learn new technologies and quickly adapt to unfamiliar tools | ✅ | ☐ | ☐ |
+| 3 | **Proactiveness** | Independently research, solve problems, and complete assigned tasks | ✅ | ☐ | ☐ |
+| 4 | **Responsibility** | Complete assigned work on time while maintaining quality | ✅ | ☐ | ☐ |
+| 5 | **Discipline** | Follow meeting schedules, project timelines, and program regulations | ☐ | ✅ | ☐ |
+| 6 | **Willingness to Improve** | Accept feedback and continuously strive for self-improvement | ✅ | ☐ | ☐ |
+| 7 | **Communication** | Communicate effectively, report progress, and collaborate with teammates | ☐ | ✅ | ☐ |
+| 8 | **Teamwork** | Work effectively with team members throughout the project | ✅ | ☐ | ☐ |
+| 9 | **Professionalism** | Respect mentors and teammates while maintaining a positive attitude | ✅ | ☐ | ☐ |
+| 10 | **Problem-Solving Skills** | Analyze issues, identify solutions, and resolve technical challenges | ☐ | ✅ | ☐ |
+| 11 | **Contribution to the Project/Program** | Complete assigned tasks and contribute to the project's development | ✅ | ☐ | ☐ |
+| 12 | **Overall Performance** | Overall evaluation of my participation throughout the program | ✅ | ☐ | ☐ |
+
+## Areas for Improvement
+
+Although I gained valuable knowledge and practical experience throughout the program, I recognize several areas where I can continue improving:
+
+- Strengthen my ability to design system architectures and select appropriate solutions for different real-world scenarios.
+- Further develop my analytical and problem-solving skills when deploying systems in cloud environments.
+- Improve my communication and presentation skills during team meetings and technical discussions.
+- Enhance my time management skills to better balance studying, research, and project development.
+- Continue exploring advanced AWS services, DevOps, CI/CD, and Machine Learning to support future projects.
+
+Overall, the **First Cloud AI Journey** program provided me with valuable knowledge and hands-on experience in AWS and the complete lifecycle of cloud-based project development. This experience has established a solid foundation and increased my confidence to continue learning, conducting research, and pursuing a career in Cloud Computing and Artificial Intelligence.
