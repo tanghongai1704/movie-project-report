@@ -1,126 +1,125 @@
 ---
 title: "Event 1"
-date: 2026-06-13
+date: 2026-06-06
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Reflection Report: "AWS Cloud Sharing Session"
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+## Event Objectives
 
-### Event Objectives
+- Share practical knowledge about Cloud technologies, AWS, and modern system development.
+- Help participants gain a deeper understanding of technology trends such as Containers, Machine Learning, Serverless, Graph Databases, and Cloud Architecture.
+- Provide real-world insights from engineers and experienced professionals in the technology industry.
+- Share experiences in teamwork, personal development, and career paths in the Cloud/DevOps field.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+## Speaker Lineup
 
-### Speakers
+- **Bảo Huỳnh** - Topic: *Docker - A Containerization Technology*
+- **Lê Hoàng Gia Đại** - Topic: *Combining AWS WAF with Machine Learning for Cyber Attack Detection on AWS*
+- **Nguyễn Quốc Bảo** - Topic: *Multiplayer in the Cloud: Connecting Godot Clients with AWS WebSockets*
+- **Việt Phát** - Topic: *AWS Neptune for Building a Graph Knowledge Base for GraphRAG*
+- **Vinh Trần** - Topic: *From IT Helpdesk to Senior Sysadmin: A Self-Learning Journey and Career Transition to Cloud/DevOps*
+- **Trương Phước** - Topic: *Effective Teamwork*
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+## Key Highlights
 
-### Key Highlights
+### Docker - A Containerization Technology
 
-#### Identifying the drawbacks of legacy application architecture
+- Introduced the concept of containers and the role of Docker in software development.
+- Compared the differences between Virtual Machines and Containers.
+- Explained the core Docker components, including Docker Images, Docker Containers, and Dockerfiles.
+- Demonstrated how Docker simplifies application packaging and deployment.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+### Combining AWS WAF with Machine Learning for Cyber Attack Detection on AWS
 
-#### Transitioning to modern application architecture – Microservices
+- Introduced AWS WAF and its role in protecting web applications against cyber attacks.
+- Explained how Machine Learning can be integrated with AWS WAF to detect abnormal behaviors.
+- Provided insights into the application of AI in cloud security.
+- Presented an overview of building cyber attack detection and prevention systems.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+### Multiplayer in the Cloud: Connecting Godot Clients with AWS WebSockets
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+- Introduced the architecture of multiplayer systems on the cloud.
+- Demonstrated how Godot clients can connect using AWS WebSockets.
+- Explained the importance of real-time communication in multiplayer applications.
+- Highlighted the scalability advantages of cloud-based deployment.
 
-#### Domain-Driven Design (DDD)
+### AWS Neptune for Building a Graph Knowledge Base for GraphRAG
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+- Introduced Amazon Neptune and the role of Graph Databases in managing highly connected data.
+- Explained how to build a Knowledge Base for GraphRAG systems.
+- Provided insights into integrating graph data with Generative AI.
+- Expanded understanding of modern data storage and retrieval approaches.
 
-#### Event-Driven Architecture
+### From IT Helpdesk to Senior Sysadmin: A Self-Learning Journey and Career Transition to Cloud/DevOps
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+- Shared a career journey from IT Helpdesk to advanced roles in System Administration and Cloud.
+- Introduced the essential skills required for a career in Cloud and DevOps.
+- Emphasized the importance of self-learning, hands-on practice, and continuous improvement.
+- Provided career guidance for those interested in pursuing Cloud technologies.
 
-#### Compute Evolution
+### Effective Teamwork
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+- Shared practical methods for improving teamwork efficiency.
+- Discussed the importance of communication, task allocation, and progress management.
+- Highlighted the value of collaboration throughout the software development process.
+- Provided practical experiences from real-world team projects.
 
-#### Amazon Q Developer
+## What I Learned
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+### Technical Knowledge
 
-### Key Takeaways
+- Gained a better understanding of Docker and the role of containers in application development and deployment.
+- Learned how AWS services can be combined with Machine Learning to enhance cloud security.
+- Expanded my knowledge of WebSockets and real-time cloud applications.
+- Explored Graph Databases and the application of Amazon Neptune in modern AI systems.
+- Developed a better understanding of career opportunities in the Cloud and DevOps field.
 
-#### Design Mindset
+### Professional Skills
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+- Recognized the importance of communication and collaboration within a development team.
+- Learned how knowledge sharing and idea exchange contribute to successful software projects.
+- Realized that soft skills are just as important as technical expertise.
 
-#### Technical Architecture
+## Application to My Project
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- Apply Docker knowledge to package and deploy applications efficiently.
+- Continue exploring AWS services for building secure and scalable systems.
+- Apply effective teamwork practices throughout project development.
+- Continue learning Cloud, DevOps, and Machine Learning technologies.
 
-#### Modernization Strategy
+## Event Experience
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+Participating in this event was a valuable experience that provided the opportunity to explore a wide range of technology topics presented by experienced speakers.
 
-### Applying to Work
+Some memorable experiences include:
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+#### Exploring New Technology Areas
 
-### Event Experience
+- The presentations broadened my knowledge of Cloud Computing, Containers, Cybersecurity, Machine Learning, and Graph Databases.
+- Through practical examples, I gained a better understanding of how these technologies are applied in modern systems.
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+#### Learning from Real-World Experience
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- The speakers shared not only technical knowledge but also valuable experiences in learning, skill development, and career planning.
+- In particular, the Cloud/DevOps presentation gave me a clearer perspective on career development in the technology industry.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+#### Improving Teamwork Skills
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+- The teamwork session highlighted the importance of communication, task distribution, and mutual support during project development.
+- These are essential skills for working effectively in real-world software development environments.
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+#### Key Takeaways
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+- Cloud technologies continue to evolve rapidly, requiring continuous learning and skill development.
+- Combining Cloud, AI, and Security technologies enables the development of smarter and more efficient systems.
+- In addition to technical expertise, communication and teamwork skills play a crucial role in long-term career growth.
 
-#### Some event photos
-*Add your event photos here*  
+## Event Photos
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+* Add your event photos here.
+
+> This event provided valuable practical knowledge and new perspectives on modern technologies. It helped me better understand current trends in Cloud and AI while also giving me clearer direction for my future development in the field of information technology.
