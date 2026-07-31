@@ -57,9 +57,9 @@ During the program, I participated in **three events**, each providing valuable 
 ### [Event 3](4.3-Event3/)
 &emsp;**Event Name:** Hackathon Journey
 
-&emsp;**Date and Time:**
+&emsp;**Date and Time:** 09:00, August 25, 2025
 
-&emsp;**Location:**
+&emsp;**Location:** 26th Floor, Bitexco Financial Tower, 2 Hai Trieu Street, Sai Gon Ward, Ho Chi Minh City
 
 &emsp;**Role:** Participant
 

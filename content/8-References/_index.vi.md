@@ -44,17 +44,3 @@ Mục này tập hợp mã nguồn, bản demo, tài liệu AWS chính thức v�
 - [Các biện pháp bảo mật tốt nhất trong IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
 - [Amazon EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
 
-Các liên kết tài liệu AWS trên được kiểm tra lần cuối vào ngày **31/07/2026**.
-
-## Nguồn đối chiếu workshop
-
-| Đường dẫn trong repository mã nguồn | Mục đích đối chiếu |
-|---|---|
-| `backend/app/aws/infrastructure.py` | Định nghĩa cách backend truy cập tài nguyên AWS. |
-| `docs/aws/dynamodb.md` | Schema và access pattern của DynamoDB. |
-| `docs/aws/aws-setup.md` | Hướng dẫn cấu hình môi trường AWS. |
-| `configs/data_pipeline.yaml` | Cấu hình pipeline xử lý dữ liệu. |
-| `configs/model_serving.yaml` | Cấu hình model và cơ chế serving. |
-| `configs/aws.yaml` | Region, S3 prefix, SageMaker và promotion criteria. |
-| `scripts/sagemaker_retrain_job.py` | Khởi chạy hoặc dry-run SageMaker retraining job. |
-| `scripts/test_sagemaker_endpoint.py` | Mô tả và kiểm thử SageMaker Endpoint. |

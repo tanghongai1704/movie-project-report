@@ -55,9 +55,9 @@ Trong quá trình tham gia chương trình, em đã tham gia **3 events**, mỗi
 ### [Event 3](4.3-Event3/)
 &emsp;**Tên sự kiện:** Hackathon Journey
 
-&emsp;**Thời gian:** 
+&emsp;**Thời gian:** 09:00 ngày 25/08/2025
 
-&emsp;**Địa điểm:** 
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự
 

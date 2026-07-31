@@ -10,7 +10,7 @@ pre: " <b> 6. </b> "
 Phần này trình bày quá trình tự đánh giá sau khi hoàn thành chương trình **First Cloud AI Journey (FCAJ)**. Nội dung phản ánh những kiến thức, kỹ năng đã đạt được, những điểm mạnh trong quá trình tham gia chương trình cũng như các khía cạnh cần tiếp tục cải thiện để phát triển bản thân trong tương lai.
 {{% /notice %}}
 
-Trong suốt thời gian tham gia chương trình **First Cloud AI Journey (FCAJ)** từ **21/07/2026** đến **10/10/2026**, em đã có cơ hội học tập, thực hành và áp dụng các kiến thức về điện toán đám mây AWS thông qua các buổi đào tạo, workshop và quá trình phát triển dự án thực tế.
+Trong suốt thời gian tham gia chương trình **First Cloud AI Journey (FCAJ)** từ **15/06/2026** đến **31/07/2026**, em đã có cơ hội học tập, thực hành và áp dụng các kiến thức về điện toán đám mây AWS thông qua các buổi đào tạo, workshop và quá trình phát triển dự án thực tế.
 
 Trong chương trình, em tham gia xây dựng một **hệ thống gợi ý phim sử dụng các dịch vụ AWS**, đồng thời tìm hiểu và thực hành với các dịch vụ như Amazon EC2, Amazon S3, Amazon DynamoDB, AWS Lambda, Amazon API Gateway, Amazon SageMaker và Docker. Quá trình này giúp em nâng cao kiến thức về Cloud Computing, phát triển ứng dụng, triển khai hệ thống và làm việc nhóm.
 

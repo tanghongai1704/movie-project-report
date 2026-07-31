@@ -46,6 +46,7 @@ _Utilized AWS Services_
   - **SageMaker Processing Job:** Runs periodically to train the recommendation model based on interaction data.
   - **SageMaker Endpoint:** A prediction server maintained 24/7, always loaded with the latest model version to serve real-time predictions.
 - AWS IAM & CloudWatch: Manages access control flows and monitors system logs.
+- AWS Billing and Cost Management: Manage cloud cost optimization.
 
 _Component Design_
 - Presentation Layer: Responsible for rendering the user interface, movie catalog, and directly capturing interaction events (click, rate, watch).
@@ -74,7 +75,7 @@ The project consists of 2 parts deployed in parallel: building the movie streami
 3. **Feature Development:** Complete features, build user scenarios on the Web, and successfully train the first recommendation models.
     - _Web Component:_
         - Develop the movie detail page, build APIs to display metadata.
-        - Build a complete Interaction Pipeline: capture events (such as `click`, `watch`, `rate`, `like`) from the Frontend and save them to the Interactions table on DynamoDB.
+        - Build a complete Interaction Pipeline: capture events (such as `click`, `watch`, `rate`, `like`, `dislike`, `share`) from the Frontend and save them to the Interactions table on DynamoDB.
     - _Machine Learning Component:_
         - Build the **Popularity Ranker** model for guest users and the **Content-Based Recommender** for logged-in users.
         - Develop the core **Collaborative Filtering** model, converting interaction events into weighted scores.
