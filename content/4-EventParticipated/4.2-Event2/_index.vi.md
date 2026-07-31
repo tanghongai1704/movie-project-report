@@ -113,6 +113,6 @@ Tham gia event là một trải nghiệm hữu ích, giúp em hiểu rõ hơn v�
 
 ### Một số hình ảnh khi tham gia sự kiện
 
-* Thêm các hình ảnh của các bạn tại đây
+![Hình event 2](/images/3-BlogPosted/Posted2.jpg)
 
 > Sự kiện giúp em mở rộng góc nhìn về quá trình vận hành hệ thống Cloud, từ việc theo dõi hiệu năng, đảm bảo chất lượng dịch vụ đến bảo vệ ứng dụng trước các rủi ro bảo mật.

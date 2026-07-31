@@ -113,6 +113,6 @@ Participating in this event was a valuable experience that helped me better unde
 
 ## Event Photos
 
-* Add your event photos here.
+![Picture event 2](/images/3-BlogPosted/Posted2.jpg)
 
 > This event broadened my perspective on cloud system operations, covering performance monitoring, service reliability, and application security. It provided valuable insights into building stable, secure, and well-managed cloud applications.
