@@ -23,11 +23,25 @@ The platform owner must provide:
 
 AMI selection, instance type, VPC, subnets, security group rules, storage volumes, DNS names, and TLS configurations are not defined within this repository.
 
+Deployment evidence confirms that the `movie-recommendation-server` instance is `Running`, uses the `t3.micro` instance type, and has both public and private IPv4 addresses. This records the current environment but does not replace Infrastructure as Code.
+
+![EC2 instance hosting the movie recommendation application](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-instance-summary.jpg)
+
+*The EC2 Console confirms the application host state, instance type, network addresses, hostname, and VPC.*
+
+![Successful SSH connection to the EC2 host](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-ssh-session.jpg)
+
+*The SSH session confirms access to Ubuntu 24.04.4 LTS on EC2. The host reports a required restart and pending updates, so maintenance should be completed before treating it as production-ready.*
+
 ## 2. Configure Application Environment
 
 Place the `.env` file directly on the EC2 host in accordance with approved secrets management procedures. Do not commit `.env` files or create secrets directly within GitHub Actions scripts.
 
 On EC2, prefer using an IAM instance profile so the AWS SDK acquires credentials via the default provider chain. Do not copy static, permanent access keys onto the server.
+
+![GitHub deploy key configured for EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-ec2-deploy-key.jpg)
+
+*The repository uses the read-only `EC2 Deploy` key so the host can retrieve source code. Its private key must remain only on the host or in an approved secret store.*
 
 ## 3. Deployment Workflow
 

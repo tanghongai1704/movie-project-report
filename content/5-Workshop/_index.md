@@ -15,7 +15,7 @@ This workshop presents the architecture and operational workflow of a movie reco
 - **Amazon DynamoDB** to store movie details, user accounts, user interaction history, and recommendation cache.
 - **Amazon S3** to store raw data, processed data, training sets, model artifacts, and evaluation reports.
 - **Amazon SageMaker Processing Job** to execute on-demand retraining pipelines.
-- **Amazon SageMaker Runtime** as the real-time inference target for the backend.
+- **Amazon SageMaker Endpoint** as the real-time inference target for the backend.
 - **Amazon EC2** to host and run the application via Docker Compose.
 - **AWS IAM** to segregate permissions among deployer, application, and SageMaker execution roles.
 

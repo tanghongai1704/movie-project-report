@@ -15,7 +15,7 @@ Workshop này trình bày kiến trúc và quy trình vận hành của một h�
 - **Amazon DynamoDB** để lưu thông tin phim, tài khoản, hành vi người dùng và bộ nhớ đệm gợi ý.
 - **Amazon S3** để lưu dữ liệu thô, dữ liệu đã xử lý, tập huấn luyện, artifact mô hình và báo cáo đánh giá.
 - **Amazon SageMaker Processing Job** để chạy quy trình tái huấn luyện theo yêu cầu.
-- **Amazon SageMaker Runtime** làm đích gọi suy luận thời gian thực của backend.
+- **Amazon SageMaker Endpoint** làm đích gọi suy luận thời gian thực của backend.
 - **Amazon EC2** để chạy ứng dụng bằng Docker Compose.
 - **AWS IAM** để phân tách quyền của người triển khai, ứng dụng và SageMaker.
 

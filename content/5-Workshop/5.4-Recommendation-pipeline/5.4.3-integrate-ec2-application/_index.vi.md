@@ -23,11 +23,25 @@ Platform owner cần cung cấp:
 
 Các thông tin AMI, instance type, VPC, subnet, security group, disk, DNS và TLS hiện chưa có trong repository.
 
+Ảnh chụp môi trường triển khai xác nhận instance `movie-recommendation-server` đang ở trạng thái `Running`, sử dụng instance type `t3.micro` và có cả public lẫn private IPv4. Đây là bằng chứng của môi trường hiện tại, không thay thế cấu hình Infrastructure as Code.
+
+![Thông tin EC2 instance chạy ứng dụng gợi ý phim](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-instance-summary.jpg)
+
+*EC2 Console xác nhận trạng thái, instance type, địa chỉ mạng, hostname và VPC của application host.*
+
+![Kết nối SSH thành công tới EC2 host](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-ssh-session.jpg)
+
+*Phiên SSH xác nhận có thể truy cập Ubuntu 24.04.4 LTS trên EC2. Host đang báo cần restart và còn bản cập nhật, vì vậy cần hoàn tất bảo trì trước khi xem đây là trạng thái production-ready.*
+
 ## 2. Cấu hình ứng dụng
 
 Đặt `.env` trực tiếp trên EC2 theo quy trình quản lý secret được phê duyệt. Không commit `.env` và không tạo file này trong GitHub Actions.
 
 Trên EC2, ưu tiên instance profile để AWS SDK nhận credential qua default provider chain. Không sao chép permanent access key lên máy chủ.
+
+![GitHub deploy key dành cho EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-ec2-deploy-key.jpg)
+
+*Repository đã cấu hình deploy key `EC2 Deploy` ở chế độ read-only để host lấy source code. Private key phải chỉ tồn tại trên host hoặc trong secret store được phê duyệt.*
 
 ## 3. Workflow triển khai
 
