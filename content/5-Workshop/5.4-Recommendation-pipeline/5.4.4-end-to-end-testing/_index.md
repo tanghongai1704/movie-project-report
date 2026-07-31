@@ -72,7 +72,7 @@ The backend returns recommendations from `RecommendationCache` without calling t
 The backend:
 
 1. Constructs the model payload context.
-2. Invokes SageMaker Runtime.
+2. Invokes SageMaker Endpoint.
 3. Validates model response structures.
 4. Enriches results with metadata from `Movies`.
 5. Writes recommendations to cache on a best-effort basis.

@@ -20,7 +20,7 @@ The system consists of a **React/Vite** frontend, a **FastAPI** backend, five Dy
 2. `apiClient` attaches base URL, JSON headers, and JWT tokens for authenticated endpoints.
 3. The FastAPI router authenticates the request and invokes the corresponding service.
 4. The service applies business rules and calls repositories or the `RecommendationProvider`.
-5. Repositories perform DynamoDB operations; providers invoke SageMaker Runtime.
+5. Repositories perform DynamoDB operations; providers invoke SageMaker Endpoint.
 6. `movie_id` references are enriched with metadata from the `Movies` table before being returned to the frontend.
 
 ### Guest Workflow
@@ -29,7 +29,7 @@ The guest workflow only reads from `PopularMovies`, then uses `BatchGetItem` to 
 
 ### Personalized Recommendation Workflow
 
-The backend checks `RecommendationCache` first. If a valid cache entry exists, results are returned directly without calling the endpoint. On a cache miss, the backend constructs the request context, calls SageMaker Runtime, validates the response, writes to cache on a best-effort basis, and enriches results with movie metadata.
+The backend checks `RecommendationCache` first. If a valid cache entry exists, results are returned directly without calling the endpoint. On a cache miss, the backend constructs the request context, calls SageMaker Endpoint, validates the response, writes to cache on a best-effort basis, and enriches results with movie metadata.
 
 ![Recommendation request flow through cache and SageMaker endpoint](/images/5-Workshop/5.1-Workshop-overview/backend-request-flow.jpg)
 
@@ -51,7 +51,7 @@ The backend checks `RecommendationCache` first. If a valid cache entry exists, r
 | Amazon S3 | Persistent storage for datasets, model artifacts, and evaluation reports |
 | Amazon DynamoDB | Request-time storage for movie metadata, user accounts, interactions, and recommendation cache |
 | SageMaker Processing Job | Executes batch model retraining jobs |
-| SageMaker Runtime | Target endpoint invoked by backend recommendation providers |
+| SageMaker Endpoint | Target endpoint invoked by backend recommendation providers |
 | Amazon EC2 | Hosts web application containers (React + FastAPI) and runs scheduled retraining |
 | AWS IAM | Enforces least-privilege permission isolation for deployment, EC2 runtime, and SageMaker execution |
 | Amazon VPC & Internet Gateway | Provides network boundary (Public Subnet) and internet routing for public HTTPS access and GitHub Actions SSH deployments |

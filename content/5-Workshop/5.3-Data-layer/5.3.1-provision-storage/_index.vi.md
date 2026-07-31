@@ -34,9 +34,6 @@ Repository không chứa Terraform, CloudFormation, CDK hoặc công cụ Infras
 | UserInteractions | `<ENV_PREFIX>-UserInteractions` | `user_id` (String) | `interaction_key` (String) |
 | RecommendationCache | `<ENV_PREFIX>-RecommendationCache` | `user_id` (String) | `scenario` (String) |
 
-{{% notice warning %}}
-Không tạo GSI chỉ để “phòng khi cần”. Workshop hiện không sử dụng GSI; thêm index sẽ làm thay đổi chi phí và access pattern cần kiểm thử.
-{{% /notice %}}
 
 <!-- IMAGE-5.3.1-DDB-01: Màn hình Create table thể hiện tên bảng, partition key, sort key và capacity mode. -->
 

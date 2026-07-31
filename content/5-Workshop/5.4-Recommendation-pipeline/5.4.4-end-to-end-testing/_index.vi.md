@@ -72,7 +72,7 @@ Backend trả kết quả từ `RecommendationCache` mà không gọi SageMaker 
 Backend:
 
 1. Dựng model request.
-2. Gọi SageMaker Runtime.
+2. Gọi SageMaker Endpoint.
 3. Kiểm tra response.
 4. Bổ sung metadata từ `Movies`.
 5. Ghi cache theo cơ chế best effort.
