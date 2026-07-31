@@ -16,7 +16,7 @@ Our movie streaming website does not yet have much historical user interaction d
 - Recommend movies based on the user's historical interactions with movies - **For authenticated users with interaction history**.
 - Recommend movies for newly registered users by surveying their favorite genres - **For newly authenticated users without interaction history**.
 
-![test model 1](/images/5-Workshop/5.4.5-model-testing/test-model-1.png)
+![test model 1](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/test-model-1.png)
 
 > This is a demo testing the movie recommendation system
 
@@ -29,11 +29,11 @@ When logging in with a `user_id`, there are 3 types of users:
 ## Guest
 ### Recommend similar movies based on user input
 
-![guest 1](/images/5-Workshop/5.4.5-model-testing/guest-1.png)
+![guest 1](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/guest-1.png)
 
 The user enters the name of the movie they want to search for, and the system displays a list of search results. The user then selects a specific movie from the list for the system to recommend 5 similar movies.
 
-![guest 2](/images/5-Workshop/5.4.5-model-testing/guest-2.png)
+![guest 2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/guest-2.png)
 
 {{% notice note %}} 
 Although this is a guest user, they can still utilize the `returning_user` scenario. Because the system has selected the **Content-based** model (since the user is a guest), it does not require historical user interaction data and relies solely on the content and title of the searched movie.
@@ -41,7 +41,7 @@ Although this is a guest user, they can still utilize the `returning_user` scena
 
 ### Recommend **Top-Rated** movies
 
-![guest 3](/images/5-Workshop/5.4.5-model-testing/guest-3.png)
+![guest 3](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/guest-3.png)
 
 The recommendation model relies on **Non-personalized recommendations** to suggest **Top-Rated** movies to unauthenticated users. The system uses precomputed movie rankings. Specifically, the **Top-Rated** list is built based on an IMDb-style weighted rating algorithm.
 
@@ -53,13 +53,13 @@ For newly authenticated users, there is also the feature to [**Recommend similar
 
 ### Recommend movies by favorite genres
 
-![new user 1](/images/5-Workshop/5.4.5-model-testing/new-user-1.png)
+![new user 1](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/new-user-1.png)
 
 Newly authenticated users will be surveyed for their favorite genres. After selecting genres, the system will recommend movies belonging to those categories.
 
 **Example:** selecting the genres `Music`, `Romance`, `Family`
 
-![new user 2](/images/5-Workshop/5.4.5-model-testing/new-user-2.png)
+![new user 2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/new-user-2.png)
 
 {{% notice note %}} 
 Since the user has selected their favorite genres, the **Recommend movies based on historical interactions** feature will yield results similar to **Recommend movies by favorite genres**. 
@@ -75,21 +75,21 @@ For authenticated users, there is also the feature to [**Recommend similar movie
 
 **Example:** `user_id = 1`. First, let's review the available `rating` interaction history for this user.
 
-![return user 1](/images/5-Workshop/5.4.5-model-testing/return-user-1.png)
+![return user 1](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/return-user-1.png)
 
 Next, use the **Recommend movies based on historical interactions** feature to suggest movies based on the aforementioned `rating` history.
 
-![return user 2](/images/5-Workshop/5.4.5-model-testing/return-user-2.png)
+![return user 2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/return-user-2.png)
 
 The recommended movie list contains many popular genres such as `Action`, `Adventure`, `Fantasy`, `Family`. Let's check if the list changes when the user interacts heavily with movies in the `Music` and `Romance` genres.
 
 We proceed to load a mock dataset containing the latest interactions of this user. Specifically, the user performed high-weight actions (`rating: 5.0`, `watch: 1.0`) on movies in the `Music` and `Romance` genres, and simultaneously made one `click` on the movie **Harry Potter and the Half-Blood Prince** (belonging to the `Adventure`, `Fantasy` genres) which they had watched in the past.
 
-![return user 3](/images/5-Workshop/5.4.5-model-testing/return-user-3.png)
+![return user 3](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/return-user-3.png)
 
 The movie list after the model generates recommendations:
 
-![return user 4](/images/5-Workshop/5.4.5-model-testing/return-user-4.png)
+![return user 4](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.5-model-testing/return-user-4.png)
 
 - **Preserving long-term preferences:** The Top 1-4 positions all belong to the **Harry Potter** series. The system identifies the connection between the current short-term click and the 5-star rating history from the past, thereby pushing movies from the same series to the top. This proves the system does not lose its memory when the user develops new interests.
 
