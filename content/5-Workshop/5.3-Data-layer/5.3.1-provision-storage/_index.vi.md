@@ -110,26 +110,3 @@ Bucket phải tồn tại, có Block Public Access và encryption phù hợp. Đ
 ![Thiết lập versioning của S3 bucket](/images/5-Workshop/5.3-Data-layer/5.3.1-provision-storage/s3-bucket-versioning.png)
 
 *Bucket Versioning đang ở trạng thái `Enabled`; MFA delete đang `Disabled`.*
-
-## 6. Kiểm tra các prefix
-
-Chỉ lấy tối đa một object để tránh đọc dữ liệu không cần thiết:
-
-```bash
-aws s3api list-objects-v2 \
-  --bucket "<S3_BUCKET_NAME>" \
-  --prefix "<RAW_PREFIX>" \
-  --max-items 1
-```
-
-Lặp lại với các prefix `processed`, `training`, `inference`, `models`, `evaluation` và `interaction exports`.
-
-Prefix rỗng không nhất thiết là lỗi. `AccessDenied`, sai region hoặc bucket không tồn tại mới là dấu hiệu cần xử lý.
-
-## 7. Khi tài nguyên chưa tồn tại
-
-Nếu thiếu bảng hoặc bucket:
-
-1. Dừng bước triển khai.
-2. Ghi lại region, key schema, billing mode, TTL, encryption, lifecycle và IAM owner cần thiết.
-3. Yêu cầu platform/security team cung cấp tài nguyên hoặc IaC đã được review.

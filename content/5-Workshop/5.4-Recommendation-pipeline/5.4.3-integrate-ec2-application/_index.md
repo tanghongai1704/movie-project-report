@@ -28,14 +28,6 @@ The repository does not create EC2 resources. The GitHub Actions workflow assume
 3. Add only the rules that are actually required, as shown in the table below.
 4. Select **Save rules** and verify access from an authorized client.
 
-| Purpose | Type/Protocol | Port | Recommended source |
-|---|---|---:|---|
-| Linux administration | SSH / TCP | 22 | `<ADMIN_PUBLIC_IP>/32`, a VPN CIDR, or a bastion security group; do not use `0.0.0.0/0` |
-| Web without TLS | HTTP / TCP | 80 | `0.0.0.0/0` and `::/0` only when the website must be public |
-| Web with TLS | HTTPS / TCP | 443 | `0.0.0.0/0` and `::/0` when the website must be public |
-| Direct application port | Custom TCP | `<APPLICATION_PORT>` | The load balancer/reverse proxy security group or an approved test CIDR |
-| Internal backend | Custom TCP | `<BACKEND_PORT>` | Do not create a public rule when the frontend/reverse proxy runs on the same host |
-
 ![Inbound rules of the EC2 security group](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-security-group-inbound-rules.png)
 
 *The `launch-wizard-1` security group has three inbound TCP rules for SSH port `22`, frontend port `5173`, and backend port `8000`.*
@@ -79,12 +71,19 @@ On EC2, prefer an instance profile so the AWS SDK obtains credentials through th
 
 When a commit is pushed to the `main` branch, GitHub Actions:
 
-1. Builds the frontend.
+<!-- 1. Builds the frontend.
 2. Installs backend dependencies and runs `compileall`.
 3. Connects to EC2 over SSH.
 4. Changes to `EC2_APP_DIR`.
 5. Pulls source from `main`.
-6. Runs Docker Compose.
+6. Runs Docker Compose. -->
+
+1. Builds the frontend.
+2. Installs backend dependencies and runs `compileall`.
+<!-- 3. Connects to EC2 over SSH.
+4. Changes to `EC2_APP_DIR`. -->
+3. Pulls source from `main`.
+4. Runs Docker Compose.
 
 ![Successful GitHub Actions workflow build](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-actions-build-success.png)
 
@@ -131,9 +130,3 @@ Expected results:
 
 ![Swagger UI for the Movie Recommendation API running on EC2](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/ec2-fastapi-swagger-ui.png)
 
-## 9. Distinguish the EC2 Application from EC2 Retraining
-
-`ml/deploy/ec2_bootstrap.sh` configures a systemd timer for retraining, not web deployment. This template currently requires two fixes:
-
-- Its default subdirectory does not match the `ml` submodule path.
-- Its `events/` event prefix does not match the canonical `datasets/exports/` configuration.
