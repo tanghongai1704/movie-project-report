@@ -15,7 +15,7 @@ Trong quá trình tham gia chương trình, em đã tham gia **3 events**, mỗi
 ### [Event 1](4.1-Event1/)
 &emsp;**Tên sự kiện:** AWS Cloud Technology Sharing Session
 
-&emsp;**Thời gian:** 09:00 ngày 13/06/2026
+&emsp;**Thời gian:** 09:00 ngày 06/06/2026
 
 &emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
 

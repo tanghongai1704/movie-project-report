@@ -10,7 +10,7 @@ pre: " <b> 6. </b> "
 This section presents my self-assessment after completing the **First Cloud AI Journey (FCAJ)** program. It reflects the knowledge and skills I have gained, my strengths throughout the program, and the areas I need to continue improving for future personal and professional development.
 {{% /notice %}}
 
-Throughout my participation in the **First Cloud AI Journey (FCAJ)** program from **15/06/2026** to **31/07/2026**, I had the opportunity to learn, practice, and apply AWS cloud computing concepts through training sessions, workshops, and the development of a real-world project.
+Throughout my participation in the **First Cloud AI Journey (FCAJ)** program from **15/06/2026** to **14/08/2026**, I had the opportunity to learn, practice, and apply AWS cloud computing concepts through training sessions, workshops, and the development of a real-world project.
 
 During the program, I participated in developing a **movie recommendation system using AWS services**, while learning and working with services such as Amazon EC2, Amazon S3, Amazon DynamoDB, AWS Lambda, Amazon API Gateway, Amazon SageMaker, and Docker. This experience strengthened my knowledge of Cloud Computing, application development, system deployment, and teamwork.
 

@@ -15,7 +15,7 @@ During the program, I participated in **three events**, each providing valuable 
 ### [Event 1](4.1-Event1/)
 &emsp;**Event Name:** AWS Cloud Technology Sharing Session
 
-&emsp;**Date and Time:** 09:00, June 13, 2026
+&emsp;**Date and Time:** 09:00, June 06, 2026
 
 &emsp;**Location:** 26th Floor, Bitexco Financial Tower, 2 Hai Trieu Street, Sai Gon Ward, Ho Chi Minh City
 
