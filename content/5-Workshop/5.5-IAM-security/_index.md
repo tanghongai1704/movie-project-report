@@ -6,14 +6,6 @@ chapter: false
 pre: " <b> 5.5. </b> "
 ---
 
-The repository uses boto3's default credential provider chain:
-
-- Developers should use AWS IAM Identity Center or a profile.
-- EC2 uses an instance profile.
-- SageMaker uses an execution role.
-
-The exact role names, JSON policies, trust relationships, and ARNs are not stored in the repository.
-
 ![Credential flow between developers, EC2, and AWS services](/images/5-Workshop/5.5-IAM-security/security-credential-flow.png)
 
 *A developer profile or EC2 instance profile provides credentials to boto3; the JWT secret is managed separately for FastAPI authentication.*
@@ -52,7 +44,6 @@ Use this process only when IAM Identity Center has not been deployed.
 5. Complete user creation, sign in as the new user, and enable MFA.
 6. Create an access key only when the AWS CLI is actually required. Do not place the access key in `.env`, source code, GitHub Actions logs, or screenshots.
 
-<!-- IMAGE-5.5-IAM-01: IAM user in the workshop operator group with MFA Enabled. -->
 
 ## 3. Create and Attach a Permission Policy
 
@@ -80,7 +71,6 @@ The operator policy should be built by the security owner from the following per
 Do not attach `AdministratorAccess` or `IAMFullAccess` to bypass permission errors. If an AWS-managed FullAccess policy is used in an isolated lab account, document it as a temporary exception, set a removal deadline, and do not reuse it in production.
 {{% /notice %}}
 
-<!-- IMAGE-5.5-IAM-02: Customer-managed policy attached to the operator group. -->
 
 ## 4. Create Service Roles for SageMaker and EC2
 
@@ -102,9 +92,6 @@ Do not attach `AdministratorAccess` or `IAMFullAccess` to bypass permission erro
 5. If the agent is installed through Systems Manager, add the minimum SSM permissions approved by the platform team.
 6. Name the role `movie-rec-ec2-application-role`, create it, and select this role in the IAM instance profile when launching EC2.
 
-<!-- IMAGE-5.5-IAM-03: Trust relationship and permission policies of the SageMaker execution role. -->
-
-<!-- IMAGE-5.5-IAM-04: EC2 role/instance profile with backend runtime and CloudWatch Agent permissions. -->
 
 ## 5. Principal and Permission Matrix
 
@@ -163,7 +150,6 @@ Pass criterion: all three approved operations succeed.
 `sts:GetCallerIdentity` has special behavior and is not sufficient to prove that the principal can access DynamoDB, S3, or SageMaker.
 {{% /notice %}}
 
-<!-- IMAGE-5.5-01: IAM role with a resource-restricted policy; ARN/account ID redacted. -->
 
 ## 9. Safe Negative Test
 
@@ -178,8 +164,6 @@ aws dynamodb describe-table \
 Expected result: `AccessDeniedException`.
 
 `ResourceNotFoundException` does not prove least privilege because the resource might not exist.
-
-<!-- IMAGE-5.5-02: AccessDenied when accessing an out-of-scope test resource. -->
 
 ## 10. Configure Amazon CloudWatch
 
@@ -210,7 +194,6 @@ SageMaker automatically creates log groups/streams for Processing Jobs and Endpo
 
 If the Console option for installing the agent is unavailable in the Region, use AWS Systems Manager or install it manually according to the CloudWatch Agent documentation.
 
-<!-- IMAGE-5.5-CLOUDWATCH-01: CloudWatch Agent configuration and log groups with log streams from EC2/backend. -->
 
 ### 10.3. Create Alarms
 
@@ -231,7 +214,6 @@ If the Console option for installing the agent is unavailable in the Region, use
 
 These thresholds are only starting points for the workshop, not production SLAs.
 
-<!-- IMAGE-5.5-CLOUDWATCH-02: CloudWatch alarm in the OK state with an SNS notification configured. -->
 
 ## 11. Configure AWS Budgets
 
@@ -261,5 +243,4 @@ These thresholds are only starting points for the workshop, not production SLAs.
 ![AWS Budget tracking workshop costs](/images/5-Workshop/5.5-IAM-security/aws-budget-overview.png)
 
 *Billing and Cost Management confirms that the `My-200$-budget` budget has a USD 200 limit, an `OK` threshold state, and a `Healthy` health status.*
-
-<!-- IMAGE-5.5-BUDGETS-01: Monthly cost budget with the amount, scope, and three alert thresholds. -->
+Tôi 

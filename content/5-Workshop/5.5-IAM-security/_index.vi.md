@@ -6,14 +6,6 @@ chapter: false
 pre: " <b> 5.5. </b> "
 ---
 
-Repository sử dụng default credential provider chain của boto3:
-
-- Developer nên dùng AWS IAM Identity Center hoặc profile.
-- EC2 sử dụng instance profile.
-- SageMaker sử dụng execution role.
-
-Exact role name, JSON policy, trust relationship và ARN chưa được lưu trong repository.
-
 ![Luồng credential giữa developer, EC2 và các dịch vụ AWS](/images/5-Workshop/5.5-IAM-security/security-credential-flow.png)
 
 *Developer profile hoặc EC2 instance profile cung cấp credential cho boto3; JWT secret được quản lý riêng cho FastAPI authentication.*
@@ -52,7 +44,6 @@ Chỉ dùng quy trình này khi chưa triển khai IAM Identity Center.
 5. Hoàn tất tạo user, đăng nhập bằng user mới và bật MFA.
 6. Chỉ tạo access key khi thực sự dùng AWS CLI. Không đặt access key trong `.env`, source code, GitHub Actions log hoặc ảnh chụp.
 
-<!-- IMAGE-5.5-IAM-01: IAM user nằm trong workshop operator group và MFA ở trạng thái Enabled. -->
 
 ## 3. Tạo và gắn permission policy
 
@@ -79,9 +70,6 @@ Policy dành cho operator cần được security owner xây dựng từ các nh
 {{% notice warning %}}
 Không gắn `AdministratorAccess` hoặc `IAMFullAccess` để bỏ qua lỗi permission. Nếu dùng AWS managed FullAccess policy trong account lab cô lập, phải ghi rõ đây là ngoại lệ tạm thời, đặt thời hạn gỡ và không tái sử dụng cho production.
 {{% /notice %}}
-
-<!-- IMAGE-5.5-IAM-02: Customer managed policy đã được gắn vào operator group. -->
-
 ## 4. Tạo service role cho SageMaker và EC2
 
 ### 4.1. SageMaker execution role
@@ -101,10 +89,6 @@ Không gắn `AdministratorAccess` hoặc `IAMFullAccess` để bỏ qua lỗi p
 4. Gắn `CloudWatchAgentServerPolicy` hoặc customer managed policy tương đương để gửi metric/log.
 5. Nếu cài agent qua Systems Manager, gắn thêm quyền SSM tối thiểu được platform team phê duyệt.
 6. Đặt tên `movie-rec-ec2-application-role`, tạo role và chọn role này trong IAM instance profile khi launch EC2.
-
-<!-- IMAGE-5.5-IAM-03: Trust relationship và permission policies của SageMaker execution role. -->
-
-<!-- IMAGE-5.5-IAM-04: EC2 role/instance profile với backend runtime và CloudWatch Agent permissions. -->
 
 ## 5. Ma trận principal và quyền
 
@@ -163,7 +147,6 @@ Tiêu chí đạt: cả ba thao tác được phê duyệt đều thành công.
 `sts:GetCallerIdentity` có hành vi đặc biệt và không đủ để chứng minh principal có quyền truy cập DynamoDB, S3 hoặc SageMaker.
 {{% /notice %}}
 
-<!-- IMAGE-5.5-01: IAM role với policy giới hạn tài nguyên, đã che ARN/account ID. -->
 
 ## 9. Negative test an toàn
 
@@ -179,7 +162,6 @@ Kết quả mong đợi: `AccessDeniedException`.
 
 `ResourceNotFoundException` không chứng minh least privilege vì resource có thể không tồn tại.
 
-<!-- IMAGE-5.5-02: AccessDenied khi truy cập resource kiểm thử ngoài phạm vi. -->
 
 
 ## 10. Cấu hình Amazon CloudWatch
@@ -212,7 +194,6 @@ SageMaker tự tạo log group/stream cho Processing Job và Endpoint khi execut
 
 Nếu tùy chọn cài agent bằng Console không có trong Region, dùng AWS Systems Manager hoặc cài thủ công theo tài liệu CloudWatch Agent.
 
-<!-- IMAGE-5.5-CLOUDWATCH-01: CloudWatch Agent configuration và log groups có log stream từ EC2/backend. -->
 
 ### 10.3. Tạo alarms
 
@@ -233,7 +214,6 @@ Nếu tùy chọn cài agent bằng Console không có trong Region, dùng AWS S
 
 Các threshold trên chỉ là điểm bắt đầu cho workshop, không phải production SLA.
 
-<!-- IMAGE-5.5-CLOUDWATCH-02: CloudWatch alarm ở trạng thái OK và SNS notification đã cấu hình. -->
 
 ## 11. Cấu hình AWS Budgets
 
@@ -263,5 +243,3 @@ Các threshold trên chỉ là điểm bắt đầu cho workshop, không phải 
 ![AWS Budget theo dõi chi phí của workshop](/images/5-Workshop/5.5-IAM-security/aws-budget-overview.png)
 
 *Billing and Cost Management xác nhận budget `My-200$-budget` có hạn mức 200 USD, threshold ở trạng thái `OK` và health status `Healthy`..*
-
-<!-- IMAGE-5.5-BUDGETS-01: Monthly cost budget với amount, scope và ba alert thresholds. -->
