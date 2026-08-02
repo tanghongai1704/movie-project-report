@@ -75,10 +75,10 @@ Khi push branch `main`, GitHub Actions:
 
 1. Build frontend.
 2. Cài dependency backend và chạy `compileall`.
-<!-- 3. SSH vào EC2.
-4. Chuyển tới `EC2_APP_DIR`. -->
-3. Pull source từ `main`.
-4. Chạy Docker Compose.
+3. SSH vào EC2.
+4. Chuyển tới `EC2_APP_DIR`.
+5. Pull source từ `main`.
+6. Chạy Docker Compose.
 
 ![GitHub Actions workflow build thành công](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-actions-build-success.png)
 

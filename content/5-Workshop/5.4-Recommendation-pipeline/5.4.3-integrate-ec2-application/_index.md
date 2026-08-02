@@ -71,19 +71,13 @@ On EC2, prefer an instance profile so the AWS SDK obtains credentials through th
 
 When a commit is pushed to the `main` branch, GitHub Actions:
 
-<!-- 1. Builds the frontend.
+1. Builds the frontend.
 2. Installs backend dependencies and runs `compileall`.
 3. Connects to EC2 over SSH.
 4. Changes to `EC2_APP_DIR`.
 5. Pulls source from `main`.
-6. Runs Docker Compose. -->
+6. Runs Docker Compose.
 
-1. Builds the frontend.
-2. Installs backend dependencies and runs `compileall`.
-<!-- 3. Connects to EC2 over SSH.
-4. Changes to `EC2_APP_DIR`. -->
-3. Pulls source from `main`.
-4. Runs Docker Compose.
 
 ![Successful GitHub Actions workflow build](/images/5-Workshop/5.4-Recommendation-pipeline/5.4.3-integrate-ec2-application/github-actions-build-success.png)
 
